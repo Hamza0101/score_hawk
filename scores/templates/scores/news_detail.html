@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score Hawk - {{ news.hline }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    typography: {
+                        DEFAULT: {
+                            css: {
+                                maxWidth: 'none',
+                                color: '#333',
+                                p: {
+                                    marginBottom: '1.5em'
+                                },
+                                'ul, ol': {
+                                    marginTop: '1em',
+                                    marginBottom: '1em'
+                                }
+                            },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-blue-600 text-white shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Score Hawk</h1>
+            <div class="space-x-4">
+                <a href="{% url 'home' %}" class="hover:text-blue-200">Home</a>
+                <a href="{% url 'news' %}" class="hover:text-blue-200">News</a>
+                <a href="{% url 'stats' %}" class="hover:text-blue-200">Stats</a>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="container mx-auto px-6 py-8">
+        <article class="bg-white rounded-lg shadow-md overflow-hidden max-w-4xl mx-auto">
+            {% if news.coverImage %}
+                <img src="https://cricbuzz-cricket.p.rapidapi.com/img/v1/i1/c{{ news.coverImage.id }}/i.jpg" 
+                     alt="{{ news.hline }}" 
+                     class="w-full h-96 object-cover">
+            {% endif %}
+            <div class="p-8">
+                <h1 class="text-3xl font-bold mb-4">{{ news.hline }}</h1>
+                <div class="flex items-center text-sm text-gray-500 mb-6">
+                    <span class="mr-4">{{ news.context }}</span>
+                    <span>{{ news.source }}</span>
+                </div>
+                <div class="prose prose-lg max-w-none prose-headings:font-bold prose-p:text-gray-800">
+                    {% for content_item in news.content %}
+                        {% if content_item.content.contentType == 'text' %}
+                            <p>{{ content_item.content.contentValue }}</p>
+                        {% elif content_item.content.contentType == 'html' %}
+                            <div>{{ content_item.content.contentValue|safe }}</div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </article>
+    </main>
+</body>
+</html>

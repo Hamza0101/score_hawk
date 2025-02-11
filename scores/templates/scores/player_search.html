@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5 player-search-container">
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Player Search</h2>
+            <form method="GET" action="{% url 'player_search' %}" class="search-form">
+                <div class="flex items-center justify-center w-full max-w-2xl mx-auto">
+                    <input type="text" name="q" class="flex-1 px-4 py-3 text-gray-700 bg-white border border-gray-300 rounded-l-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200" placeholder="Search for players..." value="{{ query }}">
+                    <button type="submit" class="px-6 py-3 bg-blue-600 text-white font-medium rounded-r-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        Search
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% if players %}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for player in players %}
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            {% if player.faceImageId %}
+            <img src="https://cricbuzz-cricket.p.rapidapi.com/img/v1/i1/c{{ player.faceImageId }}/i.jpg" 
+                 class="w-full h-48 object-cover object-center" alt="{{ player.name }}">
+            {% endif %}
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">{{ player.name }}</h3>
+                <div class="space-y-3 mb-6">
+                    <div class="flex items-center text-gray-600">
+                        <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path>
+                        </svg>
+                        <span class="font-medium">Team:</span> {{ player.teamName|default:'Not Available' }}
+                    </div>
+                    {% if player.dob != 'N/A' %}
+                    <div class="flex items-center text-gray-600">
+                        <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        <span class="font-medium">DOB:</span> {{ player.dob }}
+                    </div>
+                    {% endif %}
+                </div>
+                <a href="{% url 'player_details' player.id %}" class="block w-full px-6 py-3 text-center bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 transform hover:-translate-y-1">
+                    View Details
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% elif query %}
+    <div class="text-center py-8">
+        <div class="text-gray-600 text-lg">No players found matching your search.</div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

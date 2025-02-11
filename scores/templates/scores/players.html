@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto">
+    <h1 class="text-3xl font-bold text-gray-800 mb-8">Player Search</h1>
+    
+    <div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+        <div class="p-6">
+            <form method="GET" action="{% url 'players' %}" class="flex flex-col md:flex-row gap-4">
+                <input 
+                    type="text" 
+                    name="player_name" 
+                    value="{{ request.GET.player_name }}" 
+                    placeholder="Search for a player..."
+                    class="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                >
+                <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    Search
+                </button>
+            </form>
+        </div>
+    </div>
+
+    {% if players %}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for player in players %}
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <div class="p-6">
+                <h2 class="text-xl font-semibold text-gray-800 mb-2">{{ player.name }}</h2>
+                {% if player.teamName %}
+                <p class="text-gray-600 mb-4">Team: {{ player.teamName }}</p>
+                {% endif %}
+                <div class="flex justify-between items-center">
+                    <span class="text-sm text-gray-500">{{ player.role|default:"Player" }}</span>
+                    <a href="{% url 'player_details' player.id %}" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300">
+                        View Details
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% elif request.GET.player_name %}
+    <div class="text-center py-8">
+        <p class="text-gray-600 text-lg">No players found matching your search criteria.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
