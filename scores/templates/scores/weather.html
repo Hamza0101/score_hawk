@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Match Weather{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold text-gray-800 mb-8">Match Weather Conditions</h1>
+    
+    <!-- Weather Dashboard -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Current Weather Card -->
+        <div class="bg-white rounded-xl shadow-lg p-6 transform hover:scale-105 transition-all duration-300">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-semibold text-gray-800">MCG, Melbourne</h2>
+                <span class="text-5xl text-blue-600">23°C</span>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="text-gray-600">
+                    <p class="font-medium">Humidity</p>
+                    <p class="text-xl">65%</p>
+                </div>
+                <div class="text-gray-600">
+                    <p class="font-medium">Wind Speed</p>
+                    <p class="text-xl">15 km/h</p>
+                </div>
+                <div class="text-gray-600">
+                    <p class="font-medium">Precipitation</p>
+                    <p class="text-xl">0%</p>
+                </div>
+                <div class="text-gray-600">
+                    <p class="font-medium">Visibility</p>
+                    <p class="text-xl">10 km</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hourly Forecast -->
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Hourly Forecast</h2>
+            <div class="space-y-4">
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <span class="text-gray-600">12:00 PM</span>
+                    <span class="text-xl">24°C</span>
+                    <span class="text-gray-600">Sunny</span>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <span class="text-gray-600">1:00 PM</span>
+                    <span class="text-xl">25°C</span>
+                    <span class="text-gray-600">Partly Cloudy</span>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <span class="text-gray-600">2:00 PM</span>
+                    <span class="text-xl">25°C</span>
+                    <span class="text-gray-600">Partly Cloudy</span>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <span class="text-gray-600">3:00 PM</span>
+                    <span class="text-xl">24°C</span>
+                    <span class="text-gray-600">Sunny</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Match Impact Analysis -->
+        <div class="bg-white rounded-xl shadow-lg p-6 lg:col-span-2">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Weather Impact Analysis</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-4 bg-blue-50 rounded-lg">
+                    <h3 class="font-semibold text-blue-800 mb-2">Pitch Conditions</h3>
+                    <p class="text-gray-600">Dry pitch with good bounce expected. Ideal for batting.</p>
+                </div>
+                <div class="p-4 bg-green-50 rounded-lg">
+                    <h3 class="font-semibold text-green-800 mb-2">Outfield</h3>
+                    <p class="text-gray-600">Fast outfield conditions. Good value for shots.</p>
+                </div>
+                <div class="p-4 bg-purple-50 rounded-lg">
+                    <h3 class="font-semibold text-purple-800 mb-2">Wind Factor</h3>
+                    <p class="text-gray-600">Light breeze, minimal impact on swing bowling.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

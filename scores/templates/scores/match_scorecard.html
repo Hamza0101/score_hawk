@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    {% if match_info %}
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0">{{ match_info.description }}</h2>
+            <p class="mb-0">{{ match_info.format }} Match - {{ match_info.state }}</p>
+        </div>
+        <div class="card-body">
+            <div class="venue-details mb-3">
+                <h4>Venue Details</h4>
+                <p><strong>Ground:</strong> {{ venue.name }}, {{ venue.city }}, {{ venue.country }}</p>
+                <p><strong>Capacity:</strong> {{ venue.capacity }}</p>
+            </div>
+
+            {% if scorecard and scorecard.innings %}
+                {% for inning in scorecard.innings %}
+                <div class="innings-card mb-4">
+                    <h3 class="mb-3">{{ inning.batting_team }} Innings</h3>
+                    <div class="score-summary mb-3">
+                        <h4>{{ inning.total_score }}/{{ inning.wickets }} ({{ inning.overs }} overs)</h4>
+                        <p>Run Rate: {{ inning.run_rate }}</p>
+                    </div>
+
+                    <div class="batting-details mb-4">
+                        <h5>Batting</h5>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Batsman</th>
+                                        <th>Dismissal</th>
+                                        <th>Runs</th>
+                                        <th>Balls</th>
+                                        <th>4s</th>
+                                        <th>6s</th>
+                                        <th>SR</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for batsman in inning.batting %}
+                                    <tr>
+                                        <td>{{ batsman.name }}</td>
+                                        <td>{{ batsman.dismissal }}</td>
+                                        <td>{{ batsman.runs }}</td>
+                                        <td>{{ batsman.balls }}</td>
+                                        <td>{{ batsman.fours }}</td>
+                                        <td>{{ batsman.sixes }}</td>
+                                        <td>{{ batsman.strike_rate }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="extras mb-3">
+                        <h5>Extras: {{ inning.extras }}</h5>
+                        <p>
+                            (b {{ inning.extras_detail.byes }}, 
+                            lb {{ inning.extras_detail.leg_byes }}, 
+                            w {{ inning.extras_detail.wides }}, 
+                            nb {{ inning.extras_detail.no_balls }}, 
+                            p {{ inning.extras_detail.penalty }})
+                        </p>
+                    </div>
+
+                    <div class="bowling-details">
+                        <h5>Bowling</h5>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Bowler</th>
+                                        <th>O</th>
+                                        <th>M</th>
+                                        <th>R</th>
+                                        <th>W</th>
+                                        <th>Econ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for bowler in inning.bowling %}
+                                    <tr>
+                                        <td>{{ bowler.name }}</td>
+                                        <td>{{ bowler.overs }}</td>
+                                        <td>{{ bowler.maidens }}</td>
+                                        <td>{{ bowler.runs }}</td>
+                                        <td>{{ bowler.wickets }}</td>
+                                        <td>{{ bowler.economy }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="alert alert-info">Scorecard data is not available for this match.</div>
+            {% endif %}
+        </div>
+    </div>
+    {% else %}
+        <div class="alert alert-warning">Match information is not available.</div>
+    {% endif %}
+</div>
+{% endblock %}

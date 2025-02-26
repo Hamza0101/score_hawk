@@ -1,0 +1,239 @@
+{% extends 'base.html' %}
+
+{% block title %}Match Details{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            {% if match_data.match_info %}
+                <div class="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-4">
+                    <h2 class="text-2xl font-bold text-white">{{ match_data.match_info.description }}</h2>
+                </div>
+                <div class="p-6 space-y-6">
+                    <!-- Current Match Status -->
+                    {% if match_data.current_batting %}
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Current Status</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Batting Information -->
+                            <div class="space-y-3">
+                                <h4 class="text-lg font-semibold text-blue-600">Batting</h4>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between">
+                                        <span class="font-medium">{{ match_data.current_batting.striker.batName }}</span>
+                                        <span>{{ match_data.current_batting.striker.batRuns }}({{ match_data.current_batting.striker.batBalls }})</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="font-medium">{{ match_data.current_batting.non_striker.batName }}</span>
+                                        <span>{{ match_data.current_batting.non_striker.batRuns }}({{ match_data.current_batting.non_striker.batBalls }})</span>
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <p class="text-sm text-gray-600">Partnership: {{ match_data.current_batting.current_partnership.runs }} runs ({{ match_data.current_batting.current_partnership.balls }} balls)</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Bowling Information -->
+                            <div class="space-y-3">
+                                <h4 class="text-lg font-semibold text-blue-600">Bowling</h4>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between">
+                                        <span class="font-medium">{{ match_data.current_bowling.striker.bowlName }}</span>
+                                        <span>{{ match_data.current_bowling.striker.wickets }}/{{ match_data.current_bowling.striker.runs }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Match Progress -->
+                        <div class="mt-4 space-y-2">
+                            <div class="flex justify-between">
+                                <span class="font-medium">Overs</span>
+                                <span>{{ match_data.match_progress.overs }}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-medium">Current Run Rate</span>
+                                <span>{{ match_data.match_progress.current_run_rate }}</span>
+                            </div>
+                            {% if match_data.match_progress.required_run_rate %}
+                            <div class="flex justify-between">
+                                <span class="font-medium">Required Run Rate</span>
+                                <span>{{ match_data.match_progress.required_run_rate }}</span>
+                            </div>
+                            {% endif %}
+                            {% if match_data.match_progress.target %}
+                            <div class="flex justify-between">
+                                <span class="font-medium">Target</span>
+                                <span>{{ match_data.match_progress.target }}</span>
+                            </div>
+                            {% endif %}
+                        </div>
+                        
+                        <!-- Recent Overs -->
+                        {% if match_data.match_progress.recent_overs %}
+                        <div class="mt-4">
+                            <h4 class="text-lg font-semibold text-blue-600 mb-2">Recent Overs</h4>
+                            <div class="text-sm text-gray-600">
+                                {{ match_data.match_progress.recent_overs }}
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                    
+                    <!-- Rest of the existing content -->
+                    <!-- Match Information -->
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-semibold text-gray-700">Match Format</span>
+                            <span class="text-gray-600">{{ match_data.match_info.format }}</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-semibold text-gray-700">Match Type</span>
+                            <span class="text-gray-600">{{ match_data.match_info.type }}</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-semibold text-gray-700">Status</span>
+                            <span class="px-4 py-1 bg-blue-100 text-blue-600 rounded-full font-medium">{{ match_data.match_info.status }}</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-semibold text-gray-700">Start Time</span>
+                            <span class="text-gray-600">{{ match_data.match_info.start_time }}</span>
+                        </div>
+                        {% if match_data.match_info.complete_time %}
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-semibold text-gray-700">Complete Time</span>
+                            <span class="text-gray-600">{{ match_data.match_info.complete_time }}</span>
+                        </div>
+                        {% endif %}
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-semibold text-gray-700">Day/Night Match</span>
+                            <span class="text-gray-600">{{ match_data.match_info.day_night|yesno:"Yes,No" }}</span>
+                        </div>
+                    </div>
+
+                    <!-- Scorecard Information -->
+                    {% if match_data.scorecard %}
+                    <div class="border-t border-gray-200 pt-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Scorecard</h3>
+                        {% for innings in match_data.scorecard.innings %}
+                            <div class="mb-8">
+                                <h4 class="text-lg font-semibold text-blue-600 mb-4">{{ innings.inning_number }}. {{ innings.batting_team }}</h4>
+                                
+                                <!-- Batting Stats -->
+                                <div class="overflow-x-auto">
+                                    <table class="min-w-full divide-y divide-gray-200">
+                                        <thead class="bg-gray-50">
+                                            <tr>
+                                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Batsman</th>
+                                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Dismissal</th>
+                                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Runs</th>
+                                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Balls</th>
+                                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">4s</th>
+                                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">6s</th>
+                                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">SR</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="bg-white divide-y divide-gray-200">
+                                            {% for batsman in innings.batting %}
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ batsman.name }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ batsman.dismissal_info }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ batsman.runs }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ batsman.balls }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ batsman.fours }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ batsman.sixes }}</td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ batsman.strike_rate }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <!-- Bowling Stats -->
+                                <div class="mt-8">
+                                    <h4 class="text-lg font-semibold text-blue-600 mb-4">Bowling</h4>
+                                    <div class="overflow-x-auto">
+                                        <table class="min-w-full divide-y divide-gray-200">
+                                            <thead class="bg-gray-50">
+                                                <tr>
+                                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Bowler</th>
+                                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">O</th>
+                                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">M</th>
+                                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">R</th>
+                                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">W</th>
+                                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Econ</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white divide-y divide-gray-200">
+                                                {% for bowler in innings.bowling %}
+                                                <tr>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ bowler.name }}</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ bowler.overs }}</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ bowler.maidens }}</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ bowler.runs }}</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ bowler.wickets }}</td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ bowler.economy }}</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <!-- Innings Summary -->
+                                <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                    <p class="text-gray-700"><span class="font-semibold">Total:</span> {{ innings.total_score }}/{{ innings.wickets }} ({{ innings.overs }} Overs)</p>
+                                    {% if innings.extras %}
+                                    <p class="text-gray-600 text-sm"><span class="font-semibold">Extras:</span> {{ innings.extras }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    <!-- Venue Information -->
+                    <div class="border-t border-gray-200 pt-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Venue Details</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="space-y-2">
+                                <p class="text-gray-600"><span class="font-medium">Ground:</span> {{ venue.name }}</p>
+                                <p class="text-gray-600"><span class="font-medium">City:</span> {{ venue.city }}</p>
+                                <p class="text-gray-600"><span class="font-medium">Country:</span> {{ venue.country }}</p>
+                                <p class="text-gray-600"><span class="font-medium">Capacity:</span> {{ venue.capacity }}</p>
+                                <p class="text-gray-600"><span class="font-medium">Established:</span> {{ venue.established }}</p>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-gray-600"><span class="font-medium">Known As:</span> {{ venue.known_as }}</p>
+                                <p class="text-gray-600"><span class="font-medium">Ends:</span> {{ venue.ends }}</p>
+                                <p class="text-gray-600"><span class="font-medium">Home Team:</span> {{ venue.home_team }}</p>
+                                <p class="text-gray-600"><span class="font-medium">Floodlights:</span> {{ venue.floodlights|yesno:"Yes,No" }}</p>
+                                <p class="text-gray-600"><span class="font-medium">Curator:</span> {{ venue.curator }}</p>
+                            </div>
+                        </div>
+                        {% if venue.image_url %}
+                        <div class="mt-4">
+                            <img src="{{ venue.image_url }}" alt="{{ venue.name }}" class="w-full h-64 object-cover rounded-lg">
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% else %}
+                <div class="p-6 text-center">
+                    <p class="text-gray-600">Match information not available.</p>
+                </div>
+            {% endif %}
+            <div class="bg-gray-50 px-6 py-4 border-t border-gray-200">
+                <a href="{% url 'matches' %}" class="inline-flex items-center text-blue-600 hover:text-blue-700">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    Back to Matches
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

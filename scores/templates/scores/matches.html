@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}Recent Cricket Matches{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12 animate-fade-in">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mb-4 transform hover:scale-105 transition-all duration-300">Recent Matches</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto animate-fade-in-up delay-200">Stay updated with the latest cricket matches from around the world</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in-up delay-300">
+            {% for type_match in matches %}
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-4">
+                        <h3 class="text-xl font-bold text-white">{{ type_match.matchType }}</h3>
+                    </div>
+                    <div class="p-6 space-y-6">
+                        {% for series_match in type_match.seriesMatches %}
+                            {% if series_match.seriesAdWrapper %}
+                                <div class="border-b border-gray-200 pb-4 last:border-0 last:pb-0">
+                                    <h4 class="text-lg font-semibold text-gray-800 mb-4">{{ series_match.seriesAdWrapper.seriesName }}</h4>
+                                    {% for match in series_match.seriesAdWrapper.matches %}
+                                        <div class="bg-gray-50 rounded-xl p-4 mb-4 last:mb-0 hover:bg-blue-50 transition-colors duration-200">
+                                            <div class="flex justify-between items-center mb-2">
+                                                <span class="text-sm font-medium text-blue-600">{{ match.matchInfo.matchDesc }}</span>
+                                                <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">{{ match.matchInfo.status }}</span>
+                                            </div>
+                                            <div class="space-y-2">
+                                                {% for team in match.matchInfo.teams %}
+                                                    <div class="flex justify-between items-center">
+                                                        <span class="font-medium text-gray-800">{{ team.teamName }}</span>
+                                                        {% if match.matchScore %}
+                                                            {% for score in match.matchScore.team %}
+                                                                {% if score.teamId == team.teamId %}
+                                                                    <span class="text-gray-600">{{ score.inngs1.runs }}/{{ score.inngs1.wickets }} ({{ score.inngs1.overs }})</span>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        {% endif %}
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                            {% if match.matchInfo.status != "Match not started" %}
+                                                <p class="text-sm text-gray-500 mt-2">{{ match.matchInfo.status }}</p>
+                                            {% endif %}
+                                            <div class="mt-3 text-right">
+                                                <a href="{% url 'match_details' match.matchInfo.matchId %}" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition-colors duration-200">
+                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                                    </svg>
+                                                    View Info
+                                                </a>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% empty %}
+                <div class="col-span-full text-center py-12">
+                    <p class="text-gray-500 text-lg">No matches available at the moment</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

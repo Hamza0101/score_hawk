@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Player Comparison{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold text-gray-800 mb-8">Player Comparison</h1>
+    
+    <!-- Player Selection -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        <!-- Player 1 Selection -->
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Player 1</h2>
+            <div class="space-y-4">
+                <input type="text" placeholder="Search player..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <!-- Sample Player Card -->
+                <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                    <img src="https://picsum.photos/100" alt="Player 1" class="w-16 h-16 rounded-full object-cover">
+                    <div>
+                        <h3 class="font-semibold text-gray-800">Virat Kohli</h3>
+                        <p class="text-gray-600">India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Player 2 Selection -->
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Player 2</h2>
+            <div class="space-y-4">
+                <input type="text" placeholder="Search player..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <!-- Sample Player Card -->
+                <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                    <img src="https://picsum.photos/101" alt="Player 2" class="w-16 h-16 rounded-full object-cover">
+                    <div>
+                        <h3 class="font-semibold text-gray-800">Steve Smith</h3>
+                        <p class="text-gray-600">Australia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics Comparison -->
+    <div class="bg-white rounded-xl shadow-lg p-6">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6">Statistics Comparison</h2>
+        
+        <!-- Batting Stats -->
+        <div class="mb-8">
+            <h3 class="text-xl font-semibold text-blue-800 mb-4">Batting Statistics</h3>
+            <div class="grid grid-cols-3 gap-4">
+                <div class="p-4 bg-gray-50 rounded-lg text-center">
+                    <p class="font-medium text-gray-600">Matches</p>
+                    <div class="flex justify-center items-center space-x-4 mt-2">
+                        <span class="text-xl font-bold text-blue-600">254</span>
+                        <span class="text-gray-400">vs</span>
+                        <span class="text-xl font-bold text-blue-600">242</span>
+                    </div>
+                </div>
+                <div class="p-4 bg-gray-50 rounded-lg text-center">
+                    <p class="font-medium text-gray-600">Runs</p>
+                    <div class="flex justify-center items-center space-x-4 mt-2">
+                        <span class="text-xl font-bold text-blue-600">12000</span>
+                        <span class="text-gray-400">vs</span>
+                        <span class="text-xl font-bold text-blue-600">11500</span>
+                    </div>
+                </div>
+                <div class="p-4 bg-gray-50 rounded-lg text-center">
+                    <p class="font-medium text-gray-600">Average</p>
+                    <div class="flex justify-center items-center space-x-4 mt-2">
+                        <span class="text-xl font-bold text-blue-600">59.8</span>
+                        <span class="text-gray-400">vs</span>
+                        <span class="text-xl font-bold text-blue-600">61.2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Career Highlights -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="p-4 bg-blue-50 rounded-lg">
+                <h3 class="font-semibold text-blue-800 mb-2">Player 1 Highlights</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                    <li>Highest Score: 254*</li>
+                    <li>Centuries: 43</li>
+                    <li>Half Centuries: 62</li>
+                </ul>
+            </div>
+            <div class="p-4 bg-blue-50 rounded-lg">
+                <h3 class="font-semibold text-blue-800 mb-2">Player 2 Highlights</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                    <li>Highest Score: 239</li>
+                    <li>Centuries: 38</li>
+                    <li>Half Centuries: 58</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

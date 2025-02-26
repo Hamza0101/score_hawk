@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-8">Compare Players</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Player 1 Selection -->
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold mb-4">Player 1</h2>
+            <form class="mb-4">
+                <div class="mb-4">
+                    <input type="text" 
+                           id="player1-search" 
+                           name="player1" 
+                           class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                           placeholder="Search for player...">
+                </div>
+                <div id="player1-results" class="space-y-2"></div>
+            </form>
+            <div id="player1-stats" class="hidden">
+                <!-- Player 1 stats will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Player 2 Selection -->
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold mb-4">Player 2</h2>
+            <form class="mb-4">
+                <div class="mb-4">
+                    <input type="text" 
+                           id="player2-search" 
+                           name="player2" 
+                           class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                           placeholder="Search for player...">
+                </div>
+                <div id="player2-results" class="space-y-2"></div>
+            </form>
+            <div id="player2-stats" class="hidden">
+                <!-- Player 2 stats will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Results -->
+    <div id="comparison-results" class="mt-8 bg-white rounded-lg shadow p-6 hidden">
+        <h2 class="text-2xl font-semibold mb-6">Comparison Results</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Batting Comparison -->
+            <div class="comparison-section">
+                <h3 class="text-lg font-semibold mb-4">Batting Stats</h3>
+                <div id="batting-comparison" class="space-y-4">
+                    <!-- Batting stats comparison will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Bowling Comparison -->
+            <div class="comparison-section">
+                <h3 class="text-lg font-semibold mb-4">Bowling Stats</h3>
+                <div id="bowling-comparison" class="space-y-4">
+                    <!-- Bowling stats comparison will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Career Highlights -->
+            <div class="comparison-section">
+                <h3 class="text-lg font-semibold mb-4">Career Highlights</h3>
+                <div id="career-highlights" class="space-y-4">
+                    <!-- Career highlights comparison will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const player1Search = document.getElementById('player1-search');
+        const player2Search = document.getElementById('player2-search');
+        const player1Results = document.getElementById('player1-results');
+        const player2Results = document.getElementById('player2-results');
+        const player1Stats = document.getElementById('player1-stats');
+        const player2Stats = document.getElementById('player2-stats');
+        const comparisonResults = document.getElementById('comparison-results');
+
+        // Function to handle player search
+        async function searchPlayer(query, resultsDiv) {
+            try {
+                const response = await fetch(`/players/search/?q=${encodeURIComponent(query)}`);
+                const data = await response.json();
+                
+                // Display search results
+                resultsDiv.innerHTML = data.players.map(player => `
+                    <div class="player-result cursor-pointer p-2 hover:bg-gray-100 rounded"
+                         data-player-id="${player.id}">
+                        ${player.name} (${player.country})
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error('Error searching players:', error);
+            }
+        }
+
+        // Function to load player stats
+        async function loadPlayerStats(playerId, statsDiv) {
+            try {
+                const response = await fetch(`/players/${playerId}/stats/`);
+                const data = await response.json();
+                
+                // Display player stats
+                statsDiv.innerHTML = `
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-semibold">${data.name}</h3>
+                        <!-- Add more stats display here -->
+                    </div>
+                `;
+                statsDiv.classList.remove('hidden');
+            } catch (error) {
+                console.error('Error loading player stats:', error);
+            }
+        }
+
+        // Event listeners for search inputs
+        player1Search.addEventListener('input', debounce(() => {
+            searchPlayer(player1Search.value, player1Results);
+        }, 300));
+
+        player2Search.addEventListener('input', debounce(() => {
+            searchPlayer(player2Search.value, player2Results);
+        }, 300));
+
+        // Event delegation for player selection
+        player1Results.addEventListener('click', (e) => {
+            const playerResult = e.target.closest('.player-result');
+            if (playerResult) {
+                const playerId = playerResult.dataset.playerId;
+                loadPlayerStats(playerId, player1Stats);
+                updateComparison();
+            }
+        });
+
+        player2Results.addEventListener('click', (e) => {
+            const playerResult = e.target.closest('.player-result');
+            if (playerResult) {
+                const playerId = playerResult.dataset.playerId;
+                loadPlayerStats(playerId, player2Stats);
+                updateComparison();
+            }
+        });
+
+        // Function to update comparison
+        function updateComparison() {
+            if (!player1Stats.classList.contains('hidden') && 
+                !player2Stats.classList.contains('hidden')) {
+                comparisonResults.classList.remove('hidden');
+                // Add comparison logic here
+            }
+        }
+
+        // Debounce function
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+    });
+</script>
+{% endblock %}

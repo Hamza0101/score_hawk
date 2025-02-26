@@ -1,9 +1,47 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<div class="max-w-7xl mx-auto">
+<div class="max-w-7xl mx-auto px-4 py-8">
     <h1 class="text-3xl font-bold text-gray-800 mb-8">Cricket Rankings</h1>
     
+    <!-- Format Type Selector -->
+    <div class="mb-8">
+        <form method="get" class="flex justify-center">
+            <div class="inline-flex bg-white rounded-xl shadow-lg p-2 space-x-2">
+                <button type="submit" name="format_type" value="test" 
+                    class="flex items-center space-x-2 px-6 py-3 rounded-lg transition-all duration-200 {% if format_type == 'test' %}bg-blue-600 text-white shadow-md{% else %}text-gray-600 hover:bg-gray-100{% endif %}">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm0-2a8 8 0 100-16 8 8 0 000 16z"/>
+                        <path d="M12 18c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm0-2c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
+                        <path d="M12 14c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z"/>
+                    </svg>
+                    <span class="font-medium">Test</span>
+                </button>
+                
+                <button type="submit" name="format_type" value="odi" 
+                    class="flex items-center space-x-2 px-6 py-3 rounded-lg transition-all duration-200 {% if format_type == 'odi' %}bg-blue-600 text-white shadow-md{% else %}text-gray-600 hover:bg-gray-100{% endif %}">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M3 6c0-1.105.895-2 2-2h14c1.105 0 2 .895 2 2v12c0 1.105-.895 2-2 2H5c-1.105 0-2-.895-2-2V6z"/>
+                        <path d="M7 6h10v12H7V6zm2 2v8h6V8H9z"/>
+                        <circle cx="19" cy="12" r="3"/>
+                    </svg>
+                    <span class="font-medium">ODI</span>
+                </button>
+                
+                <button type="submit" name="format_type" value="t20" 
+                    class="flex items-center space-x-2 px-6 py-3 rounded-lg transition-all duration-200 {% if format_type == 't20' %}bg-blue-600 text-white shadow-md{% else %}text-gray-600 hover:bg-gray-100{% endif %}">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M13 3l9 4.5L13 12V3z"/>
+                        <path d="M2 7l9 4.5L2 16V7z"/>
+                        <circle cx="13" cy="16" r="6"/>
+                    </svg>
+                    <span class="font-medium">T20</span>
+                </button>
+            </div>
+        </form>
+    </div>
+
     <div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
         <div class="p-6">
             <h2 class="text-2xl font-semibold text-gray-800 mb-6">Team Rankings</h2>
@@ -49,8 +87,10 @@
                                 <p class="text-xs text-gray-500">{{ batsman.country }}</p>
                             </div>
                         </div>
-                        <span class="text-sm font-medium text-blue-600">{{ batsman.rating }}</span>
+                        <span class="text-sm font-medium text-gray-900">{{ batsman.rating }}</span>
                     </div>
+                    {% empty %}
+                    <p class="text-gray-500 text-center">No batsmen rankings available</p>
                     {% endfor %}
                 </div>
             </div>
@@ -70,8 +110,10 @@
                                 <p class="text-xs text-gray-500">{{ bowler.country }}</p>
                             </div>
                         </div>
-                        <span class="text-sm font-medium text-blue-600">{{ bowler.rating }}</span>
+                        <span class="text-sm font-medium text-gray-900">{{ bowler.rating }}</span>
                     </div>
+                    {% empty %}
+                    <p class="text-gray-500 text-center">No bowlers rankings available</p>
                     {% endfor %}
                 </div>
             </div>
@@ -91,8 +133,10 @@
                                 <p class="text-xs text-gray-500">{{ allrounder.country }}</p>
                             </div>
                         </div>
-                        <span class="text-sm font-medium text-blue-600">{{ allrounder.rating }}</span>
+                        <span class="text-sm font-medium text-gray-900">{{ allrounder.rating }}</span>
                     </div>
+                    {% empty %}
+                    <p class="text-gray-500 text-center">No all-rounders rankings available</p>
                     {% endfor %}
                 </div>
             </div>

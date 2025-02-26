@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Cricket Photos{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold text-gray-800 mb-8">Cricket Photos Gallery</h1>
+    
+    <!-- Photo Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Cricket Photo Cards -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
+            <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da" alt="Lord's Cricket Ground" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800">Lord's Cricket Ground</h3>
+                <p class="text-gray-600 mt-2">The iconic Home of Cricket in London during a Test match</p>
+            </div>
+        </div>  
+
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
+            <img src="https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972" alt="Virat Kohli Century" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800">Century Celebration</h3>
+                <p class="text-gray-600 mt-2">Virat Kohli celebrates scoring a Test century</p>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
+            <img src="https://images.unsplash.com/photo-1626527674928-0d06de39a3c1" alt="Fast Bowling Action" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800">Fast Bowling Action</h3>
+                <p class="text-gray-600 mt-2">Mitchell Starc's fierce bowling delivery</p>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
+            <img src="https://images.unsplash.com/photo-1625401586060-392edb908ac3" alt="World Cup Final" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800">World Cup Drama</h3>
+                <p class="text-gray-600 mt-2">Ben Stokes' heroics in the 2019 World Cup Final</p>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
+            <img src="https://images.unsplash.com/photo-1624956578878-21c678e5e956" alt="Barmy Army" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800">Passionate Fans</h3>
+                <p class="text-gray-600 mt-2">The Barmy Army supporting England cricket</p>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
+            <img src="https://images.unsplash.com/photo-1624956517150-8fc6ba551dc7" alt="MCG Boxing Day" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800">Boxing Day Test</h3>
+                <p class="text-gray-600 mt-2">Melbourne Cricket Ground during the Boxing Day Test</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

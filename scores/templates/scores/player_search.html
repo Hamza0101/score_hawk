@@ -1,34 +1,44 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container mt-5 player-search-container">
-    <div class="row mb-5">
-        <div class="col-lg-8 mx-auto text-center">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6">Player Search</h2>
-            <form method="GET" action="{% url 'player_search' %}" class="search-form">
-                <div class="flex items-center justify-center w-full max-w-2xl mx-auto">
-                    <input type="text" name="q" class="flex-1 px-4 py-3 text-gray-700 bg-white border border-gray-300 rounded-l-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200" placeholder="Search for players..." value="{{ query }}">
-                    <button type="submit" class="px-6 py-3 bg-blue-600 text-white font-medium rounded-r-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200 flex items-center">
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                        Search
-                    </button>
-                </div>
-            </form>
+<div class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12 animate-fade-in">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mb-4 transform hover:scale-105 transition-all duration-300">Player Search</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto animate-fade-in-up delay-200">Discover detailed profiles and statistics of your favorite cricket players</p>
         </div>
+        <form method="GET" action="{% url 'player_search' %}" class="transform hover:scale-[1.02] transition-all duration-300 animate-fade-in-up delay-300">
+            <div class="relative flex items-center max-w-2xl mx-auto">
+                <input type="text" 
+                       name="q" 
+                       class="w-full px-6 py-4 text-lg text-gray-700 bg-white border-2 border-blue-100 rounded-full shadow-lg focus:outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-100 transition-all duration-300" 
+                       placeholder="Enter player name..." 
+                       value="{{ query }}">
+                <button type="submit" 
+                        class="absolute right-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium rounded-full hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300 flex items-center space-x-2 transform hover:scale-105">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    <span>Search</span>
+                </button>
+            </div>
+        </form>
     </div>
 
     {% if players %}
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 px-4 animate-fade-in-up delay-400">
         {% for player in players %}
-        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
             {% if player.faceImageId %}
-            <img src="https://cricbuzz-cricket.p.rapidapi.com/img/v1/i1/c{{ player.faceImageId }}/i.jpg" 
-                 class="w-full h-48 object-cover object-center" alt="{{ player.name }}">
+            <div class="relative overflow-hidden">
+                <img src="https://cricbuzz-cricket.p.rapidapi.com/img/v1/i1/c{{ player.faceImageId }}/i.jpg" 
+                     class="w-full h-48 object-cover object-center transform group-hover:scale-110 transition-transform duration-500" 
+                     alt="{{ player.name }}">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
             {% endif %}
             <div class="p-6">
-                <h3 class="text-xl font-bold text-gray-800 mb-4">{{ player.name }}</h3>
+                <h3 class="text-xl font-bold text-gray-800 mb-4 group-hover:text-blue-600 transition-colors duration-300">{{ player.name }}</h3>
                 <div class="space-y-3 mb-6">
                     <div class="flex items-center text-gray-600">
                         <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -45,16 +55,13 @@
                     </div>
                     {% endif %}
                 </div>
-                <a href="{% url 'player_details' player.id %}" class="block w-full px-6 py-3 text-center bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 transform hover:-translate-y-1">
+                <a href="{% url 'player_details' player.id %}" 
+                   class="block w-full px-6 py-3 text-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-indigo-700 transform hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                     View Details
                 </a>
             </div>
         </div>
         {% endfor %}
-    </div>
-    {% elif query %}
-    <div class="text-center py-8">
-        <div class="text-gray-600 text-lg">No players found matching your search.</div>
     </div>
     {% endif %}
 </div>
