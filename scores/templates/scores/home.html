@@ -99,7 +99,7 @@
     <!-- Featured Stats Section -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         <!-- Team Rankings -->
-        <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-50 group">
+        <a href="{% url 'stats' %}" class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-50 group block">
             <div class="flex items-center justify-between mb-6">
                 <h2 class="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 group-hover:scale-105 transition-transform">Top Teams</h2>
                 <svg class="w-8 h-8 text-blue-500 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -114,16 +114,10 @@
                     </div>
                 {% endfor %}
             </div>
-            <a href="{% url 'stats' %}" class="mt-6 inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold group">
-                View All Rankings
-                <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                </svg>
-            </a>
-        </div>
+        </a>
 
         <!-- Top Batsmen -->
-        <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-50 group">
+        <a href="{% url 'stats' %}?type=batsmen" class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-50 group block">
             <div class="flex items-center justify-between mb-6">
                 <h2 class="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 group-hover:scale-105 transition-transform">Top Batsmen</h2>
                 <svg class="w-8 h-8 text-blue-500 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -138,16 +132,10 @@
                     </div>
                 {% endfor %}
             </div>
-            <a href="{% url 'stats' %}?type=batsmen" class="mt-6 inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold group">
-                View All Batsmen
-                <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                </svg>
-            </a>
-        </div>
+        </a>
 
         <!-- Top Bowlers -->
-        <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-50 group">
+        <a href="{% url 'stats' %}?type=bowlers" class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-50 group block">
             <div class="flex items-center justify-between mb-6">
                 <h2 class="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 group-hover:scale-105 transition-transform">Top Bowlers</h2>
                 <svg class="w-8 h-8 text-blue-500 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -162,12 +150,6 @@
                     </div>
                 {% endfor %}
             </div>
-            <a href="{% url 'stats' %}?type=bowlers" class="mt-6 inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold group">
-                View All Bowlers
-                <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                </svg>
-            </a>
-        </div>
+        </a>
     </div>
 {% endblock %}

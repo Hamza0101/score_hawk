@@ -4,7 +4,7 @@ def get_match_leanback(match_id):
     url = f"https://cricbuzz-cricket.p.rapidapi.com/mcenter/v1/{match_id}/leanback"
     headers = {
         'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '66ffd0f389mshca8c74e3d412ffap1b2f16jsn09bff14e9726'
+        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
     }
     try:
         response = requests.get(url, headers=headers)

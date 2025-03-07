@@ -4,7 +4,7 @@ def get_cricket_news():
     url = "https://cricbuzz-cricket.p.rapidapi.com/news/v1/index"
     headers = {
         'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '66ffd0f389mshca8c74e3d412ffap1b2f16jsn09bff14e9726'
+        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
     }
     try:
         response = requests.get(url, headers=headers)
@@ -20,7 +20,7 @@ def get_news_detail(news_id):
     url = f"https://cricbuzz-cricket.p.rapidapi.com/news/v1/detail/{news_id}"
     headers = {
         'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '66ffd0f389mshca8c74e3d412ffap1b2f16jsn09bff14e9726'
+        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
     }
     try:
         response = requests.get(url, headers=headers)
@@ -37,7 +37,7 @@ def get_rankings(format_type='test'):
     }
     headers = {
         'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '66ffd0f389mshca8c74e3d412ffap1b2f16jsn09bff14e9726'
+        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
     }
     try:
         response = requests.get(url, headers=headers, params=params)
@@ -60,7 +60,7 @@ def get_batsmen_rankings(format_type='test'):
     }
     headers = {
         'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '66ffd0f389mshca8c74e3d412ffap1b2f16jsn09bff14e9726'
+        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
     }
     try:
         response = requests.get(url, headers=headers, params=params)
@@ -84,7 +84,7 @@ def get_bowlers_rankings(format_type='test'):
     }
     headers = {
         'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '66ffd0f389mshca8c74e3d412ffap1b2f16jsn09bff14e9726'
+        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
     }
     try:
         response = requests.get(url, headers=headers, params=params)
@@ -108,7 +108,7 @@ def get_allrounders_rankings(format_type='test'):
     }
     headers = {
         'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '66ffd0f389mshca8c74e3d412ffap1b2f16jsn09bff14e9726'
+        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
     }
     try:
         response = requests.get(url, headers=headers, params=params)
@@ -132,7 +132,7 @@ def search_players(player_name):
     }
     headers = {
         'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '66ffd0f389mshca8c74e3d412ffap1b2f16jsn09bff14e9726'
+        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
     }
     try:
         response = requests.get(url, headers=headers, params=params)
@@ -147,7 +147,7 @@ def get_player_info(player_id):
     url = f"https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/{player_id}"
     headers = {
         'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '66ffd0f389mshca8c74e3d412ffap1b2f16jsn09bff14e9726'
+        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
     }
     try:
         response = requests.get(url, headers=headers)
@@ -161,7 +161,7 @@ def get_player_batting_stats(player_id):
     url = f"https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/{player_id}/batting"
     headers = {
         'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '66ffd0f389mshca8c74e3d412ffap1b2f16jsn09bff14e9726'
+        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
     }
     try:
         response = requests.get(url, headers=headers)
@@ -209,7 +209,7 @@ def get_player_bowling_stats(player_id):
     url = f"https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/{player_id}/bowling"
     headers = {
         'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '66ffd0f389mshca8c74e3d412ffap1b2f16jsn09bff14e9726'
+        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
     }
     try:
         response = requests.get(url, headers=headers)
@@ -265,7 +265,7 @@ def get_recent_matches():
     url = "https://cricbuzz-cricket.p.rapidapi.com/matches/v1/recent"
     headers = {
         'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '66ffd0f389mshca8c74e3d412ffap1b2f16jsn09bff14e9726'
+        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
     }
     try:
         response = requests.get(url, headers=headers)
@@ -280,7 +280,7 @@ def get_match_details(match_id):
     url = f"https://cricbuzz-cricket.p.rapidapi.com/mcenter/v1/{match_id}"
     headers = {
         'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '66ffd0f389mshca8c74e3d412ffap1b2f16jsn09bff14e9726'
+        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
     }
     try:
         response = requests.get(url, headers=headers)
