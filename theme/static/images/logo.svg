@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="hawkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="wingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#d97706;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#92400e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="ballGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#b91c1c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#991b1b;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="shieldGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.1" />
+      <stop offset="70%" style="stop-color:#3b82f6;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </radialGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Shield Background -->
+  <circle cx="100" cy="100" r="90" fill="url(#shieldGradient)" stroke="#f59e0b" stroke-width="4" filter="url(#shadow)"/>
+  
+  <!-- Hawk Body -->
+  <ellipse cx="100" cy="105" rx="22" ry="40" fill="url(#hawkGradient)" filter="url(#shadow)"/>
+  
+  <!-- Hawk Head -->
+  <ellipse cx="100" cy="75" rx="16" ry="20" fill="url(#hawkGradient)" filter="url(#shadow)"/>
+  
+  <!-- Hawk Beak -->
+  <polygon points="100,60 112,68 100,72" fill="#f59e0b" filter="url(#shadow)"/>
+  
+  <!-- Hawk Eye -->
+  <circle cx="106" cy="68" r="4" fill="#ffffff"/>
+  <circle cx="106" cy="68" r="2.5" fill="#f59e0b"/>
+  <circle cx="106" cy="68" r="1" fill="#000"/>
+  
+  <!-- Left Wing -->
+  <path d="M 78 85 Q 40 70 25 90 Q 30 115 50 125 Q 70 115 78 105 Z" fill="url(#wingGradient)" stroke="#92400e" stroke-width="2" filter="url(#shadow)"/>
+  <path d="M 72 90 Q 45 80 35 95 Q 40 110 55 115 Q 65 110 72 100 Z" fill="#d97706"/>
+  
+  <!-- Right Wing -->
+  <path d="M 122 85 Q 160 70 175 90 Q 170 115 150 125 Q 130 115 122 105 Z" fill="url(#wingGradient)" stroke="#92400e" stroke-width="2" filter="url(#shadow)"/>
+  <path d="M 128 90 Q 155 80 165 95 Q 160 110 145 115 Q 135 110 128 100 Z" fill="#d97706"/>
+  
+  <!-- Cricket Ball -->
+  <circle cx="100" cy="135" r="12" fill="url(#ballGradient)" filter="url(#shadow)"/>
+  <!-- Cricket Ball Seam -->
+  <path d="M 92 130 Q 100 125 108 130" stroke="white" stroke-width="1.5" fill="none"/>
+  <path d="M 92 140 Q 100 145 108 140" stroke="white" stroke-width="1.5" fill="none"/>
+  
+  <!-- Hawk Talons holding ball -->
+  <path d="M 94 125 L 90 130 L 94 135" stroke="#f59e0b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M 106 125 L 110 130 L 106 135" stroke="#f59e0b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- Cricket Stumps -->
+  <rect x="94" y="155" width="3" height="18" fill="#8b5cf6" filter="url(#shadow)"/>
+  <rect x="98.5" y="155" width="3" height="18" fill="#8b5cf6" filter="url(#shadow)"/>
+  <rect x="103" y="155" width="3" height="18" fill="#8b5cf6" filter="url(#shadow)"/>
+  <!-- Bails -->
+  <rect x="93" y="154" width="14" height="2" fill="#8b5cf6" filter="url(#shadow)"/>
+</svg>

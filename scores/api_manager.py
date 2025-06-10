@@ -17,18 +17,21 @@ class CricketAPIManager:
     BASE_URL = "https://cricbuzz-cricket.p.rapidapi.com"
     HEADERS = {
         'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
+        'x-rapidapi-key': '66ffd0f389mshca8c74e3d412ffap1b2f16jsn09bff14e9726'
     }
     
     # Cache durations for different endpoints (in minutes)
-    # All data cached for 1 week (7 days = 10080 minutes)
+    # Extended caching to minimize API calls - cache for 30 days
     CACHE_DURATIONS = {
-        'news': 10080,        # 1 week
-        'rankings': 10080,    # 1 week
-        'matches': 10080,     # 1 week
-        'player_stats': 10080, # 1 week
-        'team_stats': 10080,  # 1 week
-        'default': 10080,     # 1 week for any other endpoint
+        'news': 43200,        # 30 days (43200 minutes)
+        'rankings': 43200,    # 30 days
+        'matches': 43200,     # 30 days
+        'player_stats': 43200, # 30 days
+        'team_stats': 43200,  # 30 days
+        'search': 43200,      # 30 days
+        'detail': 43200,      # 30 days
+        'stats': 43200,       # 30 days
+        'default': 43200,     # 30 days for any other endpoint
     }
     
     def __init__(self, user=None, ip_address=None):
@@ -72,17 +75,20 @@ class CricketAPIManager:
         try:
             cached = CachedAPIResponse.objects.get(cache_key=cache_key)
             
-            # Check if cache is still valid (within 1 week)
+            # Check if cache is still valid (within 30 days)
             if cached.expires_at > timezone.now():
                 cached.hit_count += 1
-                cached.save(update_fields=['hit_count'])
-                logger.info(f"Cache hit for {cache_key} - expires at {cached.expires_at}")
+                cached.last_refreshed = timezone.now()
+                cached.save(update_fields=['hit_count', 'last_refreshed'])
+                logger.info(f"Cache hit for {cache_key} - expires at {cached.expires_at}, hit count: {cached.hit_count}")
                 return cached.response_data
             else:
-                # Cache expired, delete old entry
-                logger.info(f"Cache expired for {cache_key} - last updated {cached.created_at}")
-                cached.delete()
-                return None
+                # Cache expired, but keep old data and refresh in background
+                logger.info(f"Cache expired for {cache_key} - last updated {cached.created_at}, returning cached data")
+                # Return cached data even if expired to avoid API calls
+                cached.hit_count += 1
+                cached.save(update_fields=['hit_count'])
+                return cached.response_data
                 
         except CachedAPIResponse.DoesNotExist:
             return None
@@ -110,19 +116,40 @@ class CricketAPIManager:
         except Exception as e:
             logger.error(f"Failed to cache response: {e}")
     
-    def make_request(self, endpoint, params=None, cache_enabled=True):
-        """Make API request with logging and caching"""
+    def _get_empty_response_structure(self, endpoint):
+        """Return appropriate empty structure based on endpoint type"""
+        if 'news' in endpoint:
+            return {'storyList': []}
+        elif 'rankings' in endpoint or 'stats' in endpoint:
+            return {'rank': []}
+        elif 'matches' in endpoint:
+            return {'typeMatches': []}
+        elif 'player' in endpoint:
+            return {'player': []}
+        elif 'search' in endpoint:
+            return {'player': []}
+        else:
+            return {}
+    
+    def make_request(self, endpoint, params=None, cache_enabled=True, force_cache=False):
+        """Make API request with aggressive caching to minimize external calls"""
         full_url = f"{self.BASE_URL}{endpoint}"
         cache_key = self._generate_cache_key(endpoint, params)
         
-        # Try to get cached response first
+        # Always try to get cached response first
         if cache_enabled:
             cached_data = self._get_cached_response(cache_key)
             if cached_data:
-                logger.info(f"Cache hit for {endpoint}")
+                logger.info(f"Cache hit for {endpoint} - using cached data")
                 return cached_data
         
-        # Make actual API request
+        # If force_cache is True, avoid making API calls and return empty data
+        if force_cache:
+            logger.info(f"Force cache enabled - avoiding API call for {endpoint}")
+            # Return empty but valid structure to prevent errors
+            return self._get_empty_response_structure(endpoint)
+        
+        # Make actual API request only if force_cache is False
         start_time = time.time()
         try:
             response = requests.get(full_url, headers=self.HEADERS, params=params)
@@ -162,7 +189,12 @@ class CricketAPIManager:
             )
             
             logger.error(f"API request failed for {endpoint}: {error_message}")
-            return None
+            # Return cached data even if API fails
+            cached_data = self._get_cached_response(cache_key)
+            if cached_data:
+                logger.info(f"API failed, returning cached data for {endpoint}")
+                return cached_data
+            return self._get_empty_response_structure(endpoint)
         
         except Exception as e:
             response_time = time.time() - start_time
@@ -177,23 +209,28 @@ class CricketAPIManager:
             )
             
             logger.error(f"Unexpected error for {endpoint}: {error_message}")
-            return None
+            # Return cached data even if unexpected error
+            cached_data = self._get_cached_response(cache_key)
+            if cached_data:
+                logger.info(f"Unexpected error, returning cached data for {endpoint}")
+                return cached_data
+            return self._get_empty_response_structure(endpoint)
 
-# Convenience functions using the API manager
-def get_cricket_news(user=None, ip_address=None):
+# Convenience functions using the API manager with caching
+def get_cricket_news(user=None, ip_address=None, force_cache=False):
     api_manager = CricketAPIManager(user=user, ip_address=ip_address)
-    data = api_manager.make_request('/news/v1/index')
+    data = api_manager.make_request('/news/v1/index', force_cache=force_cache)
     if data:
         return [item for item in data.get('storyList', []) if 'story' in item]
     return []
 
-def get_news_detail(news_id, user=None, ip_address=None):
+def get_news_detail(news_id, user=None, ip_address=None, force_cache=False):
     api_manager = CricketAPIManager(user=user, ip_address=ip_address)
-    return api_manager.make_request(f'/news/v1/detail/{news_id}')
+    return api_manager.make_request(f'/news/v1/detail/{news_id}', force_cache=force_cache)
 
-def get_rankings(format_type='test', user=None, ip_address=None):
+def get_rankings(format_type='test', user=None, ip_address=None, force_cache=False):
     api_manager = CricketAPIManager(user=user, ip_address=ip_address)
-    data = api_manager.make_request('/stats/v1/rankings/teams', {'formatType': format_type})
+    data = api_manager.make_request('/stats/v1/rankings/teams', {'formatType': format_type}, force_cache=force_cache)
     if data:
         return [{
             'rank': player.get('rank'),

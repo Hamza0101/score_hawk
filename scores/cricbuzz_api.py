@@ -1,74 +1,40 @@
 import requests
 from django.core.cache import cache
 from django.conf import settings
+from .api_manager import CricketAPIManager
 import logging
 
-def get_cricket_news():
-    url = "https://cricbuzz-cricket.p.rapidapi.com/news/v1/index"
-    headers = {
-        'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
-    }
-    try:
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
-        data = response.json()
-        news_items = [item for item in data.get('storyList', []) if 'story' in item]
-        return news_items
-    except Exception as e:
-        print(f"Error fetching cricket news: {e}")
-        return []
+def get_cricket_news(user=None, ip_address=None):
+    """Get cricket news using cached API manager"""
+    api_manager = CricketAPIManager(user=user, ip_address=ip_address)
+    data = api_manager.make_request('/news/v1/index', force_cache=False)
+    if data:
+        return [item for item in data.get('storyList', []) if 'story' in item]
+    return []
 
-def get_news_detail(news_id):
-    url = f"https://cricbuzz-cricket.p.rapidapi.com/news/v1/detail/{news_id}"
-    headers = {
-        'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
-    }
-    try:
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
-        return response.json()
-    except Exception as e:
-        print(f"Error fetching news detail: {e}")
-        return None
+def get_news_detail(news_id, user=None, ip_address=None):
+    """Get news detail using cached API manager"""
+    api_manager = CricketAPIManager(user=user, ip_address=ip_address)
+    return api_manager.make_request(f'/news/v1/detail/{news_id}', force_cache=False)
 
-def get_rankings(format_type='test'):
-    url = "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/teams"
-    params = {
-        'formatType': format_type
-    }
-    headers = {
-        'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
-    }
-    try:
-        response = requests.get(url, headers=headers, params=params)
-        response.raise_for_status()
-        data = response.json()
+def get_rankings(format_type='test', user=None, ip_address=None):
+    """Get rankings using cached API manager"""
+    api_manager = CricketAPIManager(user=user, ip_address=ip_address)
+    data = api_manager.make_request('/stats/v1/rankings/teams', {'formatType': format_type}, force_cache=False)
+    if data:
         rankings = [{
             'rank': player.get('rank'),
             'name': player.get('name'),
             'rating': player.get('rating')
         } for player in data.get('rank', [])]
         return rankings
-    except Exception as e:
-        print(f"Error fetching rankings: {e}")
-        return []
+    return []
 
-def get_batsmen_rankings(format_type='test'):
-    url = "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/batsmen"
-    params = {
-        'formatType': format_type
-    }
-    headers = {
-        'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
-    }
-    try:
-        response = requests.get(url, headers=headers, params=params)
-        response.raise_for_status()
-        data = response.json()
+def get_batsmen_rankings(format_type='test', user=None, ip_address=None):
+    """Get batsmen rankings using cached API manager"""
+    api_manager = CricketAPIManager(user=user, ip_address=ip_address)
+    data = api_manager.make_request('/stats/v1/rankings/batsmen', {'formatType': format_type}, force_cache=False)
+    if data:
         rankings = [{
             'rank': player.get('rank'),
             'name': player.get('name'),
@@ -76,23 +42,13 @@ def get_batsmen_rankings(format_type='test'):
             'rating': player.get('rating')
         } for player in data.get('rank', [])]
         return rankings
-    except Exception as e:
-        print(f"Error fetching batsmen rankings: {e}")
-        return []
+    return []
 
-def get_bowlers_rankings(format_type='test'):
-    url = "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/bowlers"
-    params = {
-        'formatType': format_type
-    }
-    headers = {
-        'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
-    }
-    try:
-        response = requests.get(url, headers=headers, params=params)
-        response.raise_for_status()
-        data = response.json()
+def get_bowlers_rankings(format_type='test', user=None, ip_address=None):
+    """Get bowlers rankings using cached API manager"""
+    api_manager = CricketAPIManager(user=user, ip_address=ip_address)
+    data = api_manager.make_request('/stats/v1/rankings/bowlers', {'formatType': format_type}, force_cache=False)
+    if data:
         rankings = [{
             'rank': player.get('rank'),
             'name': player.get('name'),
@@ -100,23 +56,13 @@ def get_bowlers_rankings(format_type='test'):
             'rating': player.get('rating')
         } for player in data.get('rank', [])]
         return rankings
-    except Exception as e:
-        print(f"Error fetching bowlers rankings: {e}")
-        return []
+    return []
 
-def get_allrounders_rankings(format_type='test'):
-    url = "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/allrounders"
-    params = {
-        'formatType': format_type
-    }
-    headers = {
-        'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
-    }
-    try:
-        response = requests.get(url, headers=headers, params=params)
-        response.raise_for_status()
-        data = response.json()
+def get_allrounders_rankings(format_type='test', user=None, ip_address=None):
+    """Get allrounders rankings using cached API manager"""
+    api_manager = CricketAPIManager(user=user, ip_address=ip_address)
+    data = api_manager.make_request('/stats/v1/rankings/allrounders', {'formatType': format_type}, force_cache=False)
+    if data:
         rankings = [{
             'rank': player.get('rank'),
             'name': player.get('name'),
@@ -124,52 +70,26 @@ def get_allrounders_rankings(format_type='test'):
             'rating': player.get('rating')
         } for player in data.get('rank', [])]
         return rankings
-    except Exception as e:
-        print(f"Error fetching all-rounders rankings: {e}")
-        return []
+    return []
 
-def search_players(player_name):
-    url = "https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search"
-    params = {
-        'plrN': player_name
-    }
-    headers = {
-        'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
-    }
-    try:
-        response = requests.get(url, headers=headers, params=params)
-        response.raise_for_status()
-        data = response.json()
+def search_players(player_name, user=None, ip_address=None):
+    """Search players using cached API manager"""
+    api_manager = CricketAPIManager(user=user, ip_address=ip_address)
+    data = api_manager.make_request('/stats/v1/player/search', {'plrN': player_name}, force_cache=False)
+    if data:
         return data.get('player', [])
-    except Exception as e:
-        print(f"Error searching players: {e}")
-        return []
+    return []
 
-def get_player_info(player_id):
-    url = f"https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/{player_id}"
-    headers = {
-        'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
-    }
-    try:
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
-        return response.json()
-    except Exception as e:
-        print(f"Error fetching player info: {e}")
-        return None
+def get_player_info(player_id, user=None, ip_address=None):
+    """Get player info using cached API manager"""
+    api_manager = CricketAPIManager(user=user, ip_address=ip_address)
+    return api_manager.make_request(f'/stats/v1/player/{player_id}', force_cache=False)
 
-def get_player_batting_stats(player_id):
-    url = f"https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/{player_id}/batting"
-    headers = {
-        'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
-    }
-    try:
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
-        data = response.json()
+def get_player_batting_stats(player_id, user=None, ip_address=None):
+    """Get player batting stats using cached API manager"""
+    api_manager = CricketAPIManager(user=user, ip_address=ip_address)
+    data = api_manager.make_request(f'/stats/v1/player/{player_id}/batting', force_cache=False)
+    if data:
         formatted_stats = {}
         headers = data.get('headers', [])
         values = data.get('values', [])
@@ -204,20 +124,13 @@ def get_player_batting_stats(player_id):
             formatted_stats[format_type] = stats
         
         return formatted_stats
-    except Exception as e:
-        print(f"Error fetching player batting stats: {e}")
-        return None
+    return None
 
-def get_player_bowling_stats(player_id):
-    url = f"https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/{player_id}/bowling"
-    headers = {
-        'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
-    }
-    try:
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
-        data = response.json()
+def get_player_bowling_stats(player_id, user=None, ip_address=None):
+    """Get player bowling stats using cached API manager"""
+    api_manager = CricketAPIManager(user=user, ip_address=ip_address)
+    data = api_manager.make_request(f'/stats/v1/player/{player_id}/bowling', force_cache=False)
+    if data:
         formatted_stats = {}
         headers = data.get('headers', [])
         values = data.get('values', [])
@@ -260,35 +173,21 @@ def get_player_bowling_stats(player_id):
             formatted_stats[format_type] = stats
         
         return formatted_stats
-    except Exception as e:
-        print(f"Error fetching player bowling stats: {e}")
-        return None
+    return None
 
-def get_recent_matches():
-    url = "https://cricbuzz-cricket.p.rapidapi.com/matches/v1/recent"
-    headers = {
-        'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
-    }
-    try:
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
-        data = response.json()
+def get_recent_matches(user=None, ip_address=None):
+    """Get recent matches using cached API manager"""
+    api_manager = CricketAPIManager(user=user, ip_address=ip_address)
+    data = api_manager.make_request('/matches/v1/recent', force_cache=False)
+    if data:
         return data.get('typeMatches', [])
-    except Exception as e:
-        print(f"Error fetching recent matches: {e}")
-        return []
+    return []
 
-def get_match_details(match_id):
-    url = f"https://cricbuzz-cricket.p.rapidapi.com/mcenter/v1/{match_id}"
-    headers = {
-        'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
-    }
-    try:
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
-        data = response.json()
+def get_match_details(match_id, user=None, ip_address=None):
+    """Get match details using cached API manager"""
+    api_manager = CricketAPIManager(user=user, ip_address=ip_address)
+    data = api_manager.make_request(f'/mcenter/v1/{match_id}', force_cache=False)
+    if data:
         
         # Extract match information
         match_info = {
@@ -323,9 +222,10 @@ def get_match_details(match_id):
         
         # Get leanback data for detailed match statistics
         leanback_url = f"https://cricbuzz-cricket.p.rapidapi.com/mcenter/v1/{match_id}/leanback"
-        leanback_response = requests.get(leanback_url, headers=headers)
-        leanback_response.raise_for_status()
-        leanback_data = leanback_response.json()
+        leanback_data = api_manager.make_request(leanback_url, user=user, ip_address=ip_address)
+        
+        if not leanback_data:
+            return match_info
         
         # Extract miniscore information
         miniscore = leanback_data.get('miniscore', {})
@@ -419,6 +319,4 @@ def get_match_details(match_id):
             'current_bowling': current_bowling,
             'match_progress': match_progress
         }
-    except Exception as e:
-        print(f"Error fetching match details: {e}")
-        return None
+    return None

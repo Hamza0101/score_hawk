@@ -16,8 +16,10 @@ def register_view(request):
         if form.is_valid():
             user = form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Account created for {username}! You can now log in.')
-            return redirect('accounts:login')
+            # Automatically log in the user after successful registration
+            login(request, user)
+            messages.success(request, f'Welcome to Score Hawk, {username}! Your account has been created and you are now logged in.')
+            return redirect('home')
         else:
             messages.error(request, 'Please correct the errors below.')
     else:

@@ -1,15 +1,13 @@
-import requests
-
-def get_match_leanback(match_id):
+def get_match_leanback(match_id, user=None, ip_address=None):
+    from .api_manager import CricketAPIManager
+    
+    api_manager = CricketAPIManager()
     url = f"https://cricbuzz-cricket.p.rapidapi.com/mcenter/v1/{match_id}/leanback"
-    headers = {
-        'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '957c5845demsha9df0a0d2beaa9ep1d8c0cjsnb07b3d0e1af4'
-    }
-    try:
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
-        data = response.json()
+    
+    data = api_manager.make_request(url, user=user, ip_address=ip_address)
+    
+    if not data:
+        return None
         
         # Extract miniscore information
         miniscore = data.get('miniscore', {})
@@ -63,7 +61,3 @@ def get_match_leanback(match_id):
             'match_summary': match_summary,
             'innings_details': innings_details
         }
-        
-    except Exception as e:
-        print(f"Error fetching match leanback data: {e}")
-        return None

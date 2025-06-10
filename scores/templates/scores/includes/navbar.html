@@ -1,16 +1,53 @@
 {% load static %}
-<nav class="bg-gradient-to-r from-blue-600 to-indigo-600 shadow-lg">
+<!-- Top Bar -->
+<div class="bg-slate-900 text-white py-2 hidden md:block">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center text-sm">
+            <div class="flex items-center space-x-6">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-envelope text-cricket-gold"></i>
+                    <span>info@championscricket.com</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-phone text-cricket-gold"></i>
+                    <span>+1 (555) 123-4567</span>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-gray-300">Follow Us:</span>
+                <a href="#" class="text-gray-300 hover:text-cricket-gold transition-colors duration-300">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="text-gray-300 hover:text-cricket-gold transition-colors duration-300">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="text-gray-300 hover:text-cricket-gold transition-colors duration-300">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="text-gray-300 hover:text-cricket-gold transition-colors duration-300">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Navigation -->
+<nav class="bg-white shadow-lg sticky top-0 z-50">
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-center py-4">
-            <a href="/" class="text-white text-2xl font-bold transform hover:scale-105 transition-all duration-300 flex items-center space-x-2">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                </svg>
-                <span>Score Hawk</span>
-            </a>
+            <!-- Logo -->
+            <div class="flex items-center space-x-3">
+                {% load static %}
+                <img src="{% static 'images/logo.svg' %}" alt="Score Hawk Logo" class="w-12 h-12 object-contain">
+                <div>
+                     <h1 class="text-2xl font-bold text-slate-900">Score Hawk</h1>
+                     <p class="text-sm text-cricket-blue font-medium">Cricket Scores</p>
+                 </div>
+            </div>
             
             <!-- Mobile menu button -->
-            <button type="button" class="lg:hidden text-white hover:text-blue-200 focus:outline-none focus:text-blue-200 transition-colors duration-200" aria-label="Toggle menu">
+            <button type="button" class="lg:hidden text-slate-900 hover:text-cricket-blue focus:outline-none focus:text-cricket-blue transition-colors duration-200" aria-label="Toggle menu">
                 <svg class="h-6 w-6 transform hover:scale-110 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -18,25 +55,25 @@
 
             <!-- Desktop menu -->
             <div class="hidden lg:flex space-x-8">
-                <a href="/" class="text-white hover:text-blue-200 transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
+                <a href="/" class="text-slate-900 hover:text-cricket-blue transition-all duration-200 transform hover:scale-105 flex items-center space-x-1 font-medium">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                     </svg>
                     <span>Home</span>
                 </a>
-                <a href="/matches/" class="text-white hover:text-blue-200 transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
+                <a href="/matches/" class="text-slate-900 hover:text-cricket-blue transition-all duration-200 transform hover:scale-105 flex items-center space-x-1 font-medium">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>
-                    <span>Recent Matches</span>
+                    <span>Matches</span>
                 </a>
-                <a href="/news/" class="text-white hover:text-blue-200 transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
+                <a href="/news/" class="text-slate-900 hover:text-cricket-blue transition-all duration-200 transform hover:scale-105 flex items-center space-x-1 font-medium">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2"></path>
                     </svg>
                     <span>News</span>
                 </a>
-                <a href="/rankings/" class="text-white hover:text-blue-200 transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
+                <a href="/rankings/" class="text-slate-900 hover:text-cricket-blue transition-all duration-200 transform hover:scale-105 flex items-center space-x-1 font-medium">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                     </svg>

@@ -20,10 +20,21 @@ import io
 import sys
 
 def home(request):
-    # Fetch cricket news
-    news_items = get_cricket_news()
+    # Fetch cricket news with user context for better caching
+    user = request.user if request.user.is_authenticated else None
+    ip_address = request.META.get('REMOTE_ADDR')
+    
+    # Fetch all data needed for home page
+    news_items = get_cricket_news(user=user, ip_address=ip_address)
+    team_rankings = get_rankings(user=user, ip_address=ip_address)
+    batsmen_rankings = get_batsmen_rankings(user=user, ip_address=ip_address)
+    bowlers_rankings = get_bowlers_rankings(user=user, ip_address=ip_address)
+    
     context = {
-        'news_items': news_items
+        'news_items': news_items,
+        'team_rankings': team_rankings,
+        'batsmen_rankings': batsmen_rankings,
+        'bowlers_rankings': bowlers_rankings
     }
     return render(request, 'scores/home.html', context)
 
@@ -31,7 +42,9 @@ from django.shortcuts import render
 from .cricbuzz_api import get_cricket_news
 
 def news(request):
-    news_items = get_cricket_news()
+    user = request.user if request.user.is_authenticated else None
+    ip_address = request.META.get('REMOTE_ADDR')
+    news_items = get_cricket_news(user=user, ip_address=ip_address)
     context = {
         'news_items': news_items
     }
@@ -41,7 +54,9 @@ def player_search(request):
     query = request.GET.get('q', '')
     players = []
     if query:
-        players = search_players(query)
+        user = request.user if request.user.is_authenticated else None
+        ip_address = request.META.get('REMOTE_ADDR')
+        players = search_players(query, user=user, ip_address=ip_address)
     context = {
         'players': players,
         'query': query
@@ -49,8 +64,10 @@ def player_search(request):
     return render(request, 'scores/player_search.html', context)
 
 def news_detail(request, news_id):
-    # Fetch detailed news article
-    news = get_news_detail(news_id)
+    # Fetch detailed news article with user context
+    user = request.user if request.user.is_authenticated else None
+    ip_address = request.META.get('REMOTE_ADDR')
+    news = get_news_detail(news_id, user=user, ip_address=ip_address)
     if news is None:
         messages.error(request, 'Unable to fetch news article. Please try again later.')
         return redirect('home')
@@ -63,11 +80,15 @@ def stats(request):
     # Get match type from request parameters
     match_type = request.GET.get('match_type', 'test')  # Default to test matches
     
+    # Get user context for caching
+    user = request.user if request.user.is_authenticated else None
+    ip_address = request.META.get('REMOTE_ADDR')
+    
     # Fetch team and player rankings for the selected format
-    team_rankings = get_rankings(match_type)
-    batsmen_rankings = get_batsmen_rankings(match_type)
-    bowlers_rankings = get_bowlers_rankings(match_type)
-    allrounders_rankings = get_allrounders_rankings(match_type)
+    team_rankings = get_rankings(match_type, user=user, ip_address=ip_address)
+    batsmen_rankings = get_batsmen_rankings(match_type, user=user, ip_address=ip_address)
+    bowlers_rankings = get_bowlers_rankings(match_type, user=user, ip_address=ip_address)
+    allrounders_rankings = get_allrounders_rankings(match_type, user=user, ip_address=ip_address)
     
     context = {
         'team_rankings': team_rankings,
@@ -88,8 +109,10 @@ from django.shortcuts import render
 from .team_stats import get_international_teams
 
 def stats_view(request):
-    # Get team rankings
-    team_rankings = get_international_teams()
+    # Get team rankings with user context
+    user = request.user if request.user.is_authenticated else None
+    ip_address = request.META.get('REMOTE_ADDR')
+    team_rankings = get_international_teams(user=user, ip_address=ip_address)
     
     context = {
         'team_rankings': team_rankings,
@@ -99,21 +122,13 @@ def stats_view(request):
     }
     return render(request, 'scores/stats.html', context)
 
-def player_search(request):
-    query = request.GET.get('q', '')
-    players = []
-    if query:
-        players = search_players(query)
-    context = {
-        'query': query,
-        'players': players
-    }
-    return render(request, 'scores/player_search.html', context)
-
 def player_details(request, player_id):
-    player_info = get_player_info(player_id)
-    batting_stats = get_player_batting_stats(player_id)
-    bowling_stats = get_player_bowling_stats(player_id)
+    user = request.user if request.user.is_authenticated else None
+    ip_address = request.META.get('REMOTE_ADDR')
+    
+    player_info = get_player_info(player_id, user=user, ip_address=ip_address)
+    batting_stats = get_player_batting_stats(player_id, user=user, ip_address=ip_address)
+    bowling_stats = get_player_bowling_stats(player_id, user=user, ip_address=ip_address)
     
     context = {
         'player_info': player_info,
@@ -123,8 +138,10 @@ def player_details(request, player_id):
     return render(request, 'scores/player_details.html', context)
 
 def matches(request):
-    # Fetch recent matches
-    matches = get_recent_matches()
+    # Fetch recent matches with user context
+    user = request.user if request.user.is_authenticated else None
+    ip_address = request.META.get('REMOTE_ADDR')
+    matches = get_recent_matches(user=user, ip_address=ip_address)
     context = {
         'matches': matches
     }
@@ -134,11 +151,15 @@ def rankings(request):
     # Get match type from request parameters
     format_type = request.GET.get('format_type', 'test')  # Default to test matches
     
+    # Get user context for caching
+    user = request.user if request.user.is_authenticated else None
+    ip_address = request.META.get('REMOTE_ADDR')
+    
     # Fetch rankings data
-    rankings = get_rankings(format_type)
-    batsmen_rankings = get_batsmen_rankings(format_type)
-    bowlers_rankings = get_bowlers_rankings(format_type)
-    allrounders_rankings = get_allrounders_rankings(format_type)
+    rankings = get_rankings(format_type, user=user, ip_address=ip_address)
+    batsmen_rankings = get_batsmen_rankings(format_type, user=user, ip_address=ip_address)
+    bowlers_rankings = get_bowlers_rankings(format_type, user=user, ip_address=ip_address)
+    allrounders_rankings = get_allrounders_rankings(format_type, user=user, ip_address=ip_address)
     
     context = {
         'format_type': format_type,
@@ -150,8 +171,10 @@ def rankings(request):
     return render(request, 'scores/rankings.html', context)
 
 def match_details(request, match_id):
-    # Fetch match details
-    match_data = get_match_details(match_id)
+    # Fetch match details with user context
+    user = request.user if request.user.is_authenticated else None
+    ip_address = request.META.get('REMOTE_ADDR')
+    match_data = get_match_details(match_id, user=user, ip_address=ip_address)
     if match_data is None:
         messages.error(request, 'Unable to fetch match details. Please try again later.')
         return redirect('matches')
