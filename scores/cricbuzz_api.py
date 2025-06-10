@@ -1,4 +1,7 @@
 import requests
+from django.core.cache import cache
+from django.conf import settings
+import logging
 
 def get_cricket_news():
     url = "https://cricbuzz-cricket.p.rapidapi.com/news/v1/index"

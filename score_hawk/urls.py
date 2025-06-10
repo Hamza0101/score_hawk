@@ -21,6 +21,7 @@ from scores import views
 urlpatterns = [
     path("__reload__/", include("django_browser_reload.urls")),
     path('admin/', admin.site.urls),
+    path('accounts/', include('accounts.urls')),
     path('', views.home, name='home'),
     path('news/', views.news, name='news'),
     path('news/<int:news_id>/', views.news_detail, name='news_detail'),
@@ -34,4 +35,8 @@ urlpatterns = [
     path('venues/', views.venues, name='venues'),
     path('compare/', views.compare, name='compare'),
     path('photos/', views.photos, name='photos'),
+    path('api_stats/', views.api_stats, name='api_stats'),
+    path('cache_stats/', views.cache_stats, name='cache_stats'),
+    path('api/cache/refresh/', views.refresh_cache_api, name='refresh_cache_api'),
+    path('api/cache/cleanup/', views.cleanup_cache_api, name='cleanup_cache_api'),
 ]

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'tailwind',
     'django_browser_reload',
     'scores',
+    'accounts',
 ]
 
 NPM_BIN_PATH = 'npm'
@@ -134,3 +135,21 @@ NPM_BIN_PATH = "npm"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Custom User Model
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
+# Login/Logout URLs
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+# Email Configuration for Password Reset
+# For development, we'll use console backend to print emails to console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+DEFAULT_FROM_EMAIL = 'noreply@scorehawk.com'
