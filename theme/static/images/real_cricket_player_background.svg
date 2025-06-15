@@ -1,0 +1,305 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients for realistic stadium background -->
+    <linearGradient id="stadiumGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A90E2"/>
+      <stop offset="50%" stop-color="#357ABD"/>
+      <stop offset="100%" stop-color="#2E5984"/>
+    </linearGradient>
+    
+    <linearGradient id="fieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4CAF50"/>
+      <stop offset="50%" stop-color="#388E3C"/>
+      <stop offset="100%" stop-color="#2E7D32"/>
+    </linearGradient>
+    
+    <linearGradient id="playerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00A651"/>
+      <stop offset="50%" stop-color="#008B43"/>
+      <stop offset="100%" stop-color="#006B33"/>
+    </linearGradient>
+    
+    <linearGradient id="skinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4A574"/>
+      <stop offset="50%" stop-color="#C19A6B"/>
+      <stop offset="100%" stop-color="#A0845C"/>
+    </linearGradient>
+    
+    <radialGradient id="ballGradient" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FF6B6B"/>
+      <stop offset="50%" stop-color="#E74C3C"/>
+      <stop offset="100%" stop-color="#C0392B"/>
+    </radialGradient>
+    
+    <!-- Shadow filter -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="4" dy="4" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    
+    <!-- Blur filter for background -->
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+  </defs>
+  
+  <!-- Stadium background with seats -->
+  <rect width="800" height="600" fill="url(#stadiumGradient)"/>
+  
+  <!-- Stadium seats pattern -->
+  <g opacity="0.6" filter="url(#blur)">
+    <rect x="0" y="0" width="800" height="150" fill="#2E5984"/>
+    <!-- Seat rows -->
+    <g fill="#1E3A5F">
+      <rect x="0" y="20" width="800" height="8"/>
+      <rect x="0" y="35" width="800" height="8"/>
+      <rect x="0" y="50" width="800" height="8"/>
+      <rect x="0" y="65" width="800" height="8"/>
+      <rect x="0" y="80" width="800" height="8"/>
+      <rect x="0" y="95" width="800" height="8"/>
+      <rect x="0" y="110" width="800" height="8"/>
+      <rect x="0" y="125" width="800" height="8"/>
+    </g>
+    
+    <!-- Individual seats -->
+    <g fill="#4A90E2" opacity="0.8">
+      <!-- Row 1 -->
+      <circle cx="50" cy="24" r="3"/>
+      <circle cx="70" cy="24" r="3"/>
+      <circle cx="90" cy="24" r="3"/>
+      <circle cx="110" cy="24" r="3"/>
+      <circle cx="130" cy="24" r="3"/>
+      <circle cx="150" cy="24" r="3"/>
+      <circle cx="170" cy="24" r="3"/>
+      <circle cx="190" cy="24" r="3"/>
+      <circle cx="210" cy="24" r="3"/>
+      <circle cx="230" cy="24" r="3"/>
+      <circle cx="250" cy="24" r="3"/>
+      <circle cx="270" cy="24" r="3"/>
+      <circle cx="290" cy="24" r="3"/>
+      <circle cx="310" cy="24" r="3"/>
+      <circle cx="330" cy="24" r="3"/>
+      <circle cx="350" cy="24" r="3"/>
+      <circle cx="370" cy="24" r="3"/>
+      <circle cx="390" cy="24" r="3"/>
+      <circle cx="410" cy="24" r="3"/>
+      <circle cx="430" cy="24" r="3"/>
+      <circle cx="450" cy="24" r="3"/>
+      <circle cx="470" cy="24" r="3"/>
+      <circle cx="490" cy="24" r="3"/>
+      <circle cx="510" cy="24" r="3"/>
+      <circle cx="530" cy="24" r="3"/>
+      <circle cx="550" cy="24" r="3"/>
+      <circle cx="570" cy="24" r="3"/>
+      <circle cx="590" cy="24" r="3"/>
+      <circle cx="610" cy="24" r="3"/>
+      <circle cx="630" cy="24" r="3"/>
+      <circle cx="650" cy="24" r="3"/>
+      <circle cx="670" cy="24" r="3"/>
+      <circle cx="690" cy="24" r="3"/>
+      <circle cx="710" cy="24" r="3"/>
+      <circle cx="730" cy="24" r="3"/>
+      <circle cx="750" cy="24" r="3"/>
+    </g>
+  </g>
+  
+  <!-- Cricket field -->
+  <ellipse cx="400" cy="450" rx="350" ry="120" fill="url(#fieldGradient)" opacity="0.9"/>
+  
+  <!-- Cricket pitch -->
+  <rect x="350" y="420" width="100" height="60" fill="#8D6E63" opacity="0.8"/>
+  
+  <!-- Pitch markings -->
+  <line x1="360" y1="420" x2="360" y2="480" stroke="white" stroke-width="2" opacity="0.7"/>
+  <line x1="440" y1="420" x2="440" y2="480" stroke="white" stroke-width="2" opacity="0.7"/>
+  <line x1="400" y1="420" x2="400" y2="480" stroke="white" stroke-width="1" opacity="0.5"/>
+  
+  <!-- Wickets -->
+  <g opacity="0.8">
+    <!-- Left wickets -->
+    <rect x="355" y="445" width="2" height="15" fill="#8B4513"/>
+    <rect x="360" y="445" width="2" height="15" fill="#8B4513"/>
+    <rect x="365" y="445" width="2" height="15" fill="#8B4513"/>
+    <rect x="355" y="443" width="12" height="2" fill="#8B4513"/>
+    
+    <!-- Right wickets -->
+    <rect x="433" y="445" width="2" height="15" fill="#8B4513"/>
+    <rect x="438" y="445" width="2" height="15" fill="#8B4513"/>
+    <rect x="443" y="445" width="2" height="15" fill="#8B4513"/>
+    <rect x="433" y="443" width="12" height="2" fill="#8B4513"/>
+  </g>
+  
+  <!-- Main cricket player (based on the image) -->
+  <g transform="translate(300, 200)" filter="url(#shadow)">
+    <!-- Player shadow -->
+    <ellipse cx="50" cy="180" rx="30" ry="8" fill="black" opacity="0.3"/>
+    
+    <!-- Legs with pads -->
+    <g>
+      <!-- Left leg -->
+      <rect x="35" y="140" width="12" height="50" fill="url(#skinGradient)" rx="6"/>
+      <!-- Right leg -->
+      <rect x="53" y="140" width="12" height="50" fill="url(#skinGradient)" rx="6"/>
+      
+      <!-- Cricket pads -->
+      <rect x="30" y="120" width="20" height="60" fill="white" stroke="#ccc" stroke-width="1" rx="3"/>
+      <rect x="50" y="120" width="20" height="60" fill="white" stroke="#ccc" stroke-width="1" rx="3"/>
+      
+      <!-- Pad straps -->
+      <rect x="30" y="135" width="20" height="2" fill="#333"/>
+      <rect x="30" y="155" width="20" height="2" fill="#333"/>
+      <rect x="50" y="135" width="20" height="2" fill="#333"/>
+      <rect x="50" y="155" width="20" height="2" fill="#333"/>
+    </g>
+    
+    <!-- Torso in green Pakistan jersey -->
+    <rect x="25" y="60" width="50" height="80" fill="url(#playerGradient)" rx="25"/>
+    
+    <!-- Jersey details -->
+    <rect x="30" y="70" width="40" height="6" fill="white"/>
+    <text x="50" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white">PAKISTAN</text>
+    
+    <!-- Jersey number -->
+    <circle cx="50" cy="100" r="12" fill="white" opacity="0.9"/>
+    <text x="50" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#00A651">56</text>
+    
+    <!-- Arms -->
+    <g>
+      <!-- Left arm -->
+      <rect x="10" y="70" width="20" height="50" fill="url(#playerGradient)" rx="10" transform="rotate(-15 20 95)"/>
+      <!-- Right arm (batting) -->
+      <rect x="70" y="70" width="20" height="50" fill="url(#playerGradient)" rx="10" transform="rotate(25 80 95)"/>
+      
+      <!-- Gloves -->
+      <circle cx="15" cy="115" r="8" fill="white" stroke="#333" stroke-width="1"/>
+      <circle cx="85" cy="105" r="8" fill="white" stroke="#333" stroke-width="1"/>
+    </g>
+    
+    <!-- Cricket bat -->
+    <g transform="rotate(20 85 105)">
+      <!-- Bat handle -->
+      <rect x="82" y="90" width="6" height="40" fill="#8B4513" rx="3"/>
+      <!-- Bat blade -->
+      <rect x="79" y="130" width="12" height="50" fill="#D2B48C" rx="6"/>
+      <!-- Bat grip -->
+      <rect x="82" y="90" width="6" height="15" fill="#333"/>
+    </g>
+    
+    <!-- Head and helmet -->
+    <g>
+      <!-- Neck -->
+      <rect x="42" y="50" width="16" height="15" fill="url(#skinGradient)" rx="8"/>
+      
+      <!-- Head -->
+      <circle cx="50" cy="40" r="20" fill="url(#skinGradient)"/>
+      
+      <!-- Facial features -->
+      <ellipse cx="45" cy="38" rx="2" ry="1" fill="#2C3E50"/>
+      <ellipse cx="55" cy="38" rx="2" ry="1" fill="#2C3E50"/>
+      <path d="M 50 42 L 48 46 L 52 46 Z" fill="#C19A6B"/>
+      <path d="M 47 48 Q 50 50 53 48" stroke="#A0845C" stroke-width="1" fill="none"/>
+      
+      <!-- Cricket helmet -->
+      <path d="M 32 25 Q 50 15 68 25 Q 68 40 65 48 Q 50 52 35 48 Q 32 40 32 25" fill="url(#playerGradient)"/>
+      
+      <!-- Helmet grill -->
+      <g stroke="#333" stroke-width="1" opacity="0.7">
+        <line x1="38" y1="35" x2="62" y2="35"/>
+        <line x1="38" y1="40" x2="62" y2="40"/>
+        <line x1="38" y1="45" x2="62" y2="45"/>
+        <line x1="42" y1="30" x2="42" y2="48"/>
+        <line x1="50" y1="30" x2="50" y2="48"/>
+        <line x1="58" y1="30" x2="58" y2="48"/>
+      </g>
+      
+      <!-- Pakistan flag on helmet -->
+      <rect x="55" y="20" width="10" height="6" fill="#00A651"/>
+      <circle cx="58" cy="23" r="1" fill="white"/>
+      <path d="M 60 22 L 62 23 L 60 24 Z" fill="white"/>
+    </g>
+  </g>
+  
+  <!-- Cricket ball in motion -->
+  <g>
+    <animateTransform attributeName="transform" type="translate"
+                      values="100 300; 600 400; 100 300"
+                      dur="4s" repeatCount="indefinite"/>
+    
+    <circle cx="0" cy="0" r="6" fill="url(#ballGradient)"/>
+    <!-- Ball seam -->
+    <path d="M -4 -2 Q 0 -6 4 -2 Q 0 2 -4 -2" stroke="white" stroke-width="0.8" fill="none"/>
+    <path d="M -4 2 Q 0 6 4 2 Q 0 -2 -4 2" stroke="white" stroke-width="0.8" fill="none"/>
+    
+    <!-- Motion lines -->
+    <g opacity="0.6">
+      <line x1="-12" y1="-1" x2="-20" y2="-1" stroke="#fff" stroke-width="1.5"/>
+      <line x1="-12" y1="1" x2="-20" y2="1" stroke="#fff" stroke-width="1.5"/>
+      <line x1="-15" y1="0" x2="-23" y2="0" stroke="#fff" stroke-width="1.5"/>
+    </g>
+  </g>
+  
+  <!-- Additional background players (smaller, blurred) -->
+  <g opacity="0.4" filter="url(#blur)">
+    <!-- Fielder 1 -->
+    <g transform="translate(150, 350) scale(0.6)">
+      <rect x="0" y="0" width="20" height="40" fill="url(#playerGradient)" rx="10"/>
+      <circle cx="10" cy="-5" r="8" fill="url(#skinGradient)"/>
+      <path d="M 2 -10 Q 10 -15 18 -10 Q 18 0 15 5 Q 10 8 5 5 Q 2 0 2 -10" fill="url(#playerGradient)"/>
+    </g>
+    
+    <!-- Fielder 2 -->
+    <g transform="translate(600, 380) scale(0.5)">
+      <rect x="0" y="0" width="20" height="40" fill="url(#playerGradient)" rx="10"/>
+      <circle cx="10" cy="-5" r="8" fill="url(#skinGradient)"/>
+      <path d="M 2 -10 Q 10 -15 18 -10 Q 18 0 15 5 Q 10 8 5 5 Q 2 0 2 -10" fill="url(#playerGradient)"/>
+    </g>
+    
+    <!-- Fielder 3 -->
+    <g transform="translate(500, 320) scale(0.4)">
+      <rect x="0" y="0" width="20" height="40" fill="url(#playerGradient)" rx="10"/>
+      <circle cx="10" cy="-5" r="8" fill="url(#skinGradient)"/>
+      <path d="M 2 -10 Q 10 -15 18 -10 Q 18 0 15 5 Q 10 8 5 5 Q 2 0 2 -10" fill="url(#playerGradient)"/>
+    </g>
+  </g>
+  
+  <!-- Stadium lights -->
+  <g opacity="0.7">
+    <circle cx="100" cy="80" r="15" fill="#FFD700" opacity="0.8"/>
+    <circle cx="300" cy="60" r="15" fill="#FFD700" opacity="0.8"/>
+    <circle cx="500" cy="60" r="15" fill="#FFD700" opacity="0.8"/>
+    <circle cx="700" cy="80" r="15" fill="#FFD700" opacity="0.8"/>
+    
+    <!-- Light beams -->
+    <path d="M 100 95 L 80 400 L 120 400 Z" fill="#FFD700" opacity="0.1"/>
+    <path d="M 300 75 L 280 400 L 320 400 Z" fill="#FFD700" opacity="0.1"/>
+    <path d="M 500 75 L 480 400 L 520 400 Z" fill="#FFD700" opacity="0.1"/>
+    <path d="M 700 95 L 680 400 L 720 400 Z" fill="#FFD700" opacity="0.1"/>
+  </g>
+  
+  <!-- Atmospheric effects -->
+  <g opacity="0.3">
+    <!-- Dust/grass particles -->
+    <circle cx="320" cy="420" r="2" fill="#8BC34A">
+      <animateTransform attributeName="transform" type="translate"
+                        values="0 0; 20 -10; 0 0"
+                        dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="380" cy="440" r="1.5" fill="#8BC34A">
+      <animateTransform attributeName="transform" type="translate"
+                        values="0 0; -15 -8; 0 0"
+                        dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="420" cy="430" r="1" fill="#8BC34A">
+      <animateTransform attributeName="transform" type="translate"
+                        values="0 0; 10 -12; 0 0"
+                        dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Match information overlay -->
+  <g opacity="0.8">
+    <rect x="20" y="20" width="200" height="60" fill="black" opacity="0.7" rx="5"/>
+    <text x="30" y="40" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">LIVE CRICKET</text>
+    <text x="30" y="55" font-family="Arial, sans-serif" font-size="10" fill="#4CAF50">Pakistan vs Opposition</text>
+    <text x="30" y="70" font-family="Arial, sans-serif" font-size="10" fill="#FFD700">Score Hawk Live</text>
+  </g>
+</svg>

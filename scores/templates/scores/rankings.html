@@ -1,45 +1,44 @@
 {% extends 'base.html' %}
-{% load static %}
+
+{% block title %}Rankings - Elite Cricket Club{% endblock %}
 
 {% block content %}
-<div class="max-w-7xl mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold text-gray-800 mb-8">Cricket Rankings</h1>
+<div class="container mx-auto px-4 py-8">
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-cricket-primary to-cricket-accent rounded-2xl p-8 mb-8 text-white">
+        <div class="text-center">
+            <h1 class="text-5xl font-bold mb-4">
+                <i class="fas fa-trophy mr-3"></i>
+                Cricket Rankings
+            </h1>
+            <p class="text-xl opacity-90 max-w-2xl mx-auto">
+                Explore the latest ICC rankings for teams and players across all cricket formats.
+            </p>
+        </div>
+    </div>
     
-    <!-- Format Type Selector -->
+    <!-- Format Selection -->
     <div class="mb-8">
-        <form method="get" class="flex justify-center">
-            <div class="inline-flex bg-white rounded-xl shadow-lg p-2 space-x-2">
-                <button type="submit" name="format_type" value="test" 
-                    class="flex items-center space-x-2 px-6 py-3 rounded-lg transition-all duration-200 {% if format_type == 'test' %}bg-blue-600 text-white shadow-md{% else %}text-gray-600 hover:bg-gray-100{% endif %}">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm0-2a8 8 0 100-16 8 8 0 000 16z"/>
-                        <path d="M12 18c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm0-2c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
-                        <path d="M12 14c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z"/>
-                    </svg>
-                    <span class="font-medium">Test</span>
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                <i class="fas fa-filter text-cricket-secondary mr-2"></i>
+                Select Format
+            </h3>
+            <div class="flex flex-wrap gap-4">
+                <button class="px-6 py-3 bg-gradient-to-r from-cricket-primary to-cricket-accent text-white rounded-lg hover:from-cricket-accent hover:to-cricket-primary transition-all duration-300 font-bold shadow-lg" data-format="test">
+                    <i class="fas fa-clock mr-2"></i>
+                    Test
                 </button>
-                
-                <button type="submit" name="format_type" value="odi" 
-                    class="flex items-center space-x-2 px-6 py-3 rounded-lg transition-all duration-200 {% if format_type == 'odi' %}bg-blue-600 text-white shadow-md{% else %}text-gray-600 hover:bg-gray-100{% endif %}">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M3 6c0-1.105.895-2 2-2h14c1.105 0 2 .895 2 2v12c0 1.105-.895 2-2 2H5c-1.105 0-2-.895-2-2V6z"/>
-                        <path d="M7 6h10v12H7V6zm2 2v8h6V8H9z"/>
-                        <circle cx="19" cy="12" r="3"/>
-                    </svg>
-                    <span class="font-medium">ODI</span>
+                <button class="px-6 py-3 bg-gray-200 text-slate-700 rounded-lg hover:bg-gradient-to-r hover:from-cricket-secondary hover:to-orange-500 hover:text-black transition-all duration-300 font-bold" data-format="odi">
+                    <i class="fas fa-circle mr-2"></i>
+                    ODI
                 </button>
-                
-                <button type="submit" name="format_type" value="t20" 
-                    class="flex items-center space-x-2 px-6 py-3 rounded-lg transition-all duration-200 {% if format_type == 't20' %}bg-blue-600 text-white shadow-md{% else %}text-gray-600 hover:bg-gray-100{% endif %}">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M13 3l9 4.5L13 12V3z"/>
-                        <path d="M2 7l9 4.5L2 16V7z"/>
-                        <circle cx="13" cy="16" r="6"/>
-                    </svg>
-                    <span class="font-medium">T20</span>
+                <button class="px-6 py-3 bg-gray-200 text-slate-700 rounded-lg hover:bg-gradient-to-r hover:from-cricket-secondary hover:to-orange-500 hover:text-black transition-all duration-300 font-bold" data-format="t20">
+                    <i class="fas fa-bolt mr-2"></i>
+                    T20
                 </button>
             </div>
-        </form>
+        </div>
     </div>
 
     <div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
@@ -143,4 +142,33 @@
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const formatButtons = document.querySelectorAll('[data-format]');
+    const currentFormat = '{{ format_type }}';
+    
+    // Set active button based on current format
+    formatButtons.forEach(button => {
+        const format = button.getAttribute('data-format');
+        if (format === currentFormat) {
+            button.classList.remove('bg-gray-200', 'text-slate-700');
+            button.classList.add('bg-gradient-to-r', 'from-cricket-primary', 'to-cricket-accent', 'text-white', 'shadow-lg');
+        } else {
+            button.classList.remove('bg-gradient-to-r', 'from-cricket-primary', 'to-cricket-accent', 'text-white', 'shadow-lg');
+            button.classList.add('bg-gray-200', 'text-slate-700');
+        }
+    });
+    
+    // Add click handlers
+    formatButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const format = this.getAttribute('data-format');
+            const currentUrl = new URL(window.location);
+            currentUrl.searchParams.set('format_type', format);
+            window.location.href = currentUrl.toString();
+        });
+    });
+});
+</script>
 {% endblock %}

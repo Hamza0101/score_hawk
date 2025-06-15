@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
@@ -8,6 +8,7 @@ from django.utils import timezone
 from django.core.management import call_command
 from django.db.models import Sum, Count, Q, Avg
 from django.db import models
+import requests
 from .cricbuzz_api import (get_cricket_news, get_news_detail, get_rankings, get_batsmen_rankings,
                          get_bowlers_rankings, get_allrounders_rankings, search_players,
                          get_player_info, get_player_batting_stats, get_player_bowling_stats,
@@ -303,3 +304,42 @@ def cleanup_cache_api(request):
             'success': False,
             'message': f'Error cleaning up cache: {str(e)}'
         })
+
+def proxy_image(request, image_id):
+    """Proxy view to serve images from RapidAPI with authentication"""
+    try:
+        # Construct the image URL
+        image_url = f"https://cricbuzz-cricket.p.rapidapi.com/img/v1/i1/c{image_id}/i.jpg"
+        
+        # Headers for RapidAPI authentication
+        headers = {
+            'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
+            'x-rapidapi-key': '66ffd0f389mshca8c74e3d412ffap1b2f16jsn09bff14e9726'
+        }
+        
+        # Make the request to the external API
+        response = requests.get(image_url, headers=headers, timeout=10)
+        
+        if response.status_code == 200:
+            # Return the image with proper content type
+            return HttpResponse(
+                response.content,
+                content_type='image/jpeg',
+                headers={
+                    'Cache-Control': 'public, max-age=86400',  # Cache for 24 hours
+                    'Content-Length': len(response.content)
+                }
+            )
+        else:
+            # Return a placeholder or error response
+            return HttpResponse(
+                status=404,
+                content="Image not found"
+            )
+            
+    except Exception as e:
+        # Return error response
+        return HttpResponse(
+            status=500,
+            content=f"Error loading image: {str(e)}"
+        )

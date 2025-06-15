@@ -1,65 +1,71 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Home - Score Hawk{% endblock %}
+{% block title %}Score Hawk - Elite Cricket Experience{% endblock %}
 
 {% block content %}
-<!-- Hero Section -->
-<section class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden min-h-screen">
-    <!-- Cricket Stadium Background with Parallax Effect -->
-    <div class="absolute inset-0 opacity-30 parallax-bg">
-        <img src="{% load static %}{% static 'images/cricket_stadium_bg.svg' %}" alt="Cricket Stadium" class="w-full h-full object-cover transform scale-110">
-    </div>
+<!-- Hero Section with Enhanced Design -->
+<section class="relative bg-gradient-to-br from-slate-900 via-emerald-900 to-slate-900 text-white overflow-hidden min-h-screen">
+    <!-- Subtle Overlay for Text Readability -->
+    <div class="absolute inset-0 bg-gradient-to-br from-black/40 via-emerald-900/30 to-black/50 z-20"></div>
     
-    <!-- Enhanced Background Overlays -->
-    <div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-slate-900/60 to-blue-900/40"></div>
-    <div class="hero-pattern absolute inset-0"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/70"></div>
-    
-    <!-- Animated Cricket Elements -->
-    <div class="absolute top-20 left-10 w-20 h-20 bg-gradient-to-r from-cricket-gold to-yellow-400 bg-opacity-20 rounded-full animate-pulse shadow-2xl"></div>
-    <div class="absolute top-40 right-20 w-16 h-16 bg-gradient-to-r from-cricket-green to-emerald-400 bg-opacity-20 rounded-full animate-bounce-slow shadow-xl" style="animation-delay: 1s;"></div>
-    <div class="absolute bottom-32 left-1/4 w-12 h-12 bg-gradient-to-r from-cricket-blue to-blue-400 bg-opacity-20 rounded-full animate-pulse shadow-lg" style="animation-delay: 2s;"></div>
-    <div class="absolute top-1/3 right-1/4 w-8 h-8 bg-gradient-to-r from-white to-gray-300 bg-opacity-10 rounded-full animate-bounce-slow" style="animation-delay: 3s;"></div>
-
-    
-    <div class="relative container mx-auto px-4 py-24 lg:py-32">
-        <div class="max-w-4xl mx-auto text-center">
+    <!-- Hero Content -->
+    <div class="relative container mx-auto px-4 py-32 lg:py-40 z-40">
+        <div class="max-w-5xl mx-auto text-center">
             <div class="animate-fade-in">
-                <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-                     Welcome to <span class="text-transparent bg-clip-text bg-gradient-to-r from-cricket-gold to-cricket-green">Score Hawk</span>
-                 </h1>
-                <p class="text-xl lg:text-2xl text-gray-300 mb-8 leading-relaxed">
-                    Join thousands of cricket fans who trust Score Hawk for the most accurate and up-to-date cricket information.
+                <!-- Enhanced Title with Better Typography -->
+                <div class="mb-8">
+                    <h1 class="text-7xl lg:text-9xl font-black mb-4 leading-none tracking-tight">
+                        <span class="text-white drop-shadow-2xl">SCORE</span><br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cricket-secondary via-orange-400 to-cricket-primary animate-pulse">HAWK</span>
+                    </h1>
+                    <div class="w-32 h-1 bg-gradient-to-r from-cricket-secondary to-cricket-primary mx-auto mb-6 rounded-full"></div>
+                </div>
+                
+                <p class="text-2xl lg:text-3xl text-gray-200 mb-12 leading-relaxed max-w-4xl mx-auto font-light">
+                    Your ultimate destination for <span class="text-cricket-secondary font-semibold">live cricket scores</span>, 
+                    <span class="text-cricket-primary font-semibold">player statistics</span>, and 
+                    <span class="text-orange-400 font-semibold">match insights</span>
                 </p>
                 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-                    <a href="/matches/" class="group bg-gradient-to-r from-cricket-green to-cricket-blue text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
-                        <i class="fas fa-play-circle"></i>
-                        <span>Watch Live Matches</span>
-                        <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform duration-300"></i>
+                <!-- Enhanced CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20">
+                    <a href="/matches/" class="group relative bg-gradient-to-r from-cricket-primary via-emerald-500 to-cricket-primary text-white px-12 py-5 rounded-full font-bold text-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-110 flex items-center space-x-4 overflow-hidden animate-pulse">
+                        <div class="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <i class="fas fa-play-circle text-2xl relative z-10"></i>
+                        <span class="relative z-10">LIVE MATCHES</span>
+                        <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform duration-500 relative z-10"></i>
                     </a>
-                    <a href="/rankings/" class="group glass-effect text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:bg-opacity-20 transition-all duration-300 flex items-center space-x-2">
-                        <i class="fas fa-chart-line"></i>
-                        <span>View Rankings</span>
+                    <a href="#features" class="group border-3 border-cricket-secondary text-cricket-secondary px-12 py-5 rounded-full font-bold text-xl hover:bg-cricket-secondary hover:text-black transition-all duration-500 flex items-center space-x-4 backdrop-blur-sm bg-white/10 animate-pulse" style="animation-delay: 0.5s;">
+                        <i class="fas fa-chart-line text-xl"></i>
+                        <span>EXPLORE STATS</span>
                     </a>
                 </div>
                 
-                <!-- Live Stats Banner -->
-                <div class="glass-effect rounded-xl p-6 max-w-2xl mx-auto">
-                    <div class="flex items-center justify-center space-x-8 text-center">
-                        <div class="flex-1">
-                            <div class="text-3xl font-bold text-cricket-gold">150+</div>
-                            <div class="text-sm text-gray-300">Live Matches</div>
+                <!-- Enhanced Stats with Animation -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                    <div class="text-center group hover:scale-105 transition-transform duration-300">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                            <div class="text-6xl font-black text-cricket-secondary mb-3 group-hover:scale-110 transition-transform duration-300">500K+</div>
+                            <div class="text-lg text-gray-300 font-medium">Live Scores Delivered</div>
                         </div>
-                        <div class="w-px h-12 bg-gray-600"></div>
-                        <div class="flex-1">
-                            <div class="text-3xl font-bold text-cricket-green">50K+</div>
-                            <div class="text-sm text-gray-300">Active Users</div>
+                    </div>
+                    <div class="text-center group hover:scale-105 transition-transform duration-300">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                            <div class="text-6xl font-black text-cricket-primary mb-3 group-hover:scale-110 transition-transform duration-300">10K+</div>
+                            <div class="text-lg text-gray-300 font-medium">Player Profiles</div>
                         </div>
-                        <div class="w-px h-12 bg-gray-600"></div>
-                        <div class="flex-1">
-                            <div class="text-3xl font-bold text-cricket-blue">24/7</div>
-                            <div class="text-sm text-gray-300">Live Updates</div>
+                    </div>
+                    <div class="text-center group hover:scale-105 transition-transform duration-300">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                            <div class="text-6xl font-black text-orange-400 mb-3 group-hover:scale-110 transition-transform duration-300">50+</div>
+                            <div class="text-lg text-gray-300 font-medium">Countries Covered</div>
+                        </div>
+                    </div>
+                    <div class="text-center group hover:scale-105 transition-transform duration-300">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                            <div class="text-6xl font-black text-purple-400 mb-3 group-hover:scale-110 transition-transform duration-300">24/7</div>
+                            <div class="text-lg text-gray-300 font-medium">Real-time Updates</div>
                         </div>
                     </div>
                 </div>
@@ -67,135 +73,490 @@
         </div>
     </div>
     
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <i class="fas fa-chevron-down text-2xl text-gray-400"></i>
+    <!-- Enhanced Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <div class="flex flex-col items-center space-y-2 animate-bounce">
+            <span class="text-cricket-secondary text-sm font-medium">Discover More</span>
+            <i class="fas fa-chevron-down text-2xl text-cricket-secondary"></i>
+        </div>
     </div>
 </section>
 
-    <!-- Feature Cards Section -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-        <!-- Matches Card -->
-        <a href="{% url 'matches' %}" class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden p-6">
-            <div class="flex items-center justify-center mb-4">
-                <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                </svg>
-            </div>
-            <h3 class="text-xl font-bold text-center text-gray-800 mb-2">Live Matches</h3>
-            <p class="text-gray-600 text-center">Stay updated with live cricket matches and scores</p>
-        </a>
-
-        <!-- Rankings Card -->
-        <a href="{% url 'rankings' %}" class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden p-6">
-            <div class="flex items-center justify-center mb-4">
-                <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                </svg>
-            </div>
-            <h3 class="text-xl font-bold text-center text-gray-800 mb-2">Rankings</h3>
-            <p class="text-gray-600 text-center">Explore team and player rankings across formats</p>
-        </a>
-
-        <!-- Players Card -->
-        <a href="{% url 'player_search' %}" class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden p-6">
-            <div class="flex items-center justify-center mb-4">
-                <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                </svg>
-            </div>
-            <h3 class="text-xl font-bold text-center text-gray-800 mb-2">Players</h3>
-            <p class="text-gray-600 text-center">Search and explore player profiles and statistics</p>
-        </a>
-
-        <!-- News Card -->
-        <a href="{% url 'news' %}" class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden p-6">
-            <div class="flex items-center justify-center mb-4">
-                <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2"></path>
-                </svg>
-            </div>
-            <h3 class="text-xl font-bold text-center text-gray-800 mb-2">News</h3>
-            <p class="text-gray-600 text-center">Latest updates from the world of cricket</p>
-        </a>
-
-        <!-- Weather Card -->
-        <a href="{% url 'weather' %}" class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden p-6">
-            <div class="flex items-center justify-center mb-4">
-                <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
-                </svg>
-            </div>
-            <h3 class="text-xl font-bold text-center text-gray-800 mb-2">Weather</h3>
-            <p class="text-gray-600 text-center">Match venue weather conditions and forecasts</p>
-        </a>
-
-        <!-- Venues Card -->
-        <a href="{% url 'venues' %}" class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden p-6">
-            <div class="flex items-center justify-center mb-4">
-                <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                </svg>
-            </div>
-            <h3 class="text-xl font-bold text-center text-gray-800 mb-2">Venues</h3>
-            <p class="text-gray-600 text-center">Explore cricket grounds and stadiums</p>
-        </a>
+<!-- Features Section -->
+<section id="features" class="py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <!-- Background Cricket Elements -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-20 right-10 w-48 h-48 transform rotate-12">
+            <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cricket Bat" class="w-full h-full animate-pulse object-cover rounded-lg">
+        </div>
+        <div class="absolute bottom-20 left-10 w-40 h-40">
+            <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cricket Ball" class="w-full h-full object-cover rounded-full">
+        </div>
+        <div class="absolute top-1/2 right-1/4 w-32 h-44">
+            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cricket Stumps" class="w-full h-full object-cover rounded-lg">
+        </div>
+        <div class="absolute top-10 left-1/3 w-56 h-56 opacity-60">
+            <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cricket Field" class="w-full h-full object-cover rounded-lg">
+        </div>
+        <div class="absolute bottom-10 right-1/3 w-36 h-36 transform -rotate-45">
+            <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cricket Bat" class="w-full h-full animate-pulse object-cover rounded-lg" style="animation-delay: 2s;">
+        </div>
+        <div class="absolute top-20 right-20 w-36 h-28">
+            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cricket Helmet" class="w-full h-full object-cover rounded-lg">
+        </div>
+        <div class="absolute bottom-20 left-20 w-32 h-40">
+            <img src="https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cricket Trophy" class="w-full h-full object-cover rounded-lg">
+        </div>
+        <div class="absolute top-1/3 right-1/3 w-44 h-20">
+            <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cricket Scoreboard" class="w-full h-full object-cover rounded-lg">
+        </div>
     </div>
-
-    <!-- Featured Stats Section -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-        <!-- Team Rankings -->
-        <a href="{% url 'stats' %}" class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-50 group block">
-            <div class="flex items-center justify-between mb-6">
-                <h2 class="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 group-hover:scale-105 transition-transform">Top Teams</h2>
-                <svg class="w-8 h-8 text-blue-500 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path>
-                </svg>
+    
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="text-center mb-20">
+            <h2 class="text-6xl font-bold text-slate-900 mb-6">
+                Why Choose <span class="text-transparent bg-clip-text bg-gradient-to-r from-cricket-primary to-emerald-600">Score Hawk</span>?
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Experience cricket like never before with our cutting-edge platform designed for true cricket enthusiasts
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- Feature 1 -->
+            <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 relative overflow-hidden">
+                <!-- Cricket ball animation in corner -->
+                <div class="absolute -top-2 -right-2 w-8 h-8 opacity-20">
+                    <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cricket Ball" class="w-full h-full object-cover rounded-full">
+                </div>
+                <div class="w-20 h-20 bg-gradient-to-br from-cricket-primary to-emerald-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-bolt text-3xl text-white"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Lightning Fast Updates</h3>
+                <p class="text-gray-600 leading-relaxed">Get real-time scores and updates faster than anywhere else. Our advanced system ensures you never miss a moment of the action.</p>
             </div>
-            <div class="space-y-4">
-                {% for team in team_rankings|slice:":5" %}
-                    <div class="flex items-center justify-between p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200 group-hover:translate-x-1">
-                        <span class="font-semibold text-gray-800">{{ team.name }}</span>
-                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full font-bold group-hover:bg-blue-200 transition-colors">{{ team.rating }}</span>
-                    </div>
-                {% endfor %}
+            
+            <!-- Feature 2 -->
+            <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 relative overflow-hidden">
+                <!-- Cricket bat animation in corner -->
+                <div class="absolute -top-1 -right-1 w-10 h-10 opacity-20 transform rotate-45">
+                    <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cricket Bat" class="w-full h-full animate-pulse object-cover rounded-lg">
+                </div>
+                <div class="w-20 h-20 bg-gradient-to-br from-cricket-secondary to-orange-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-chart-bar text-3xl text-white"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Advanced Analytics</h3>
+                <p class="text-gray-600 leading-relaxed">Dive deep into player statistics, team performance, and match insights with our comprehensive analytics dashboard.</p>
             </div>
-        </a>
-
-        <!-- Top Batsmen -->
-        <a href="{% url 'stats' %}?type=batsmen" class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-50 group block">
-            <div class="flex items-center justify-between mb-6">
-                <h2 class="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 group-hover:scale-105 transition-transform">Top Batsmen</h2>
-                <svg class="w-8 h-8 text-blue-500 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                </svg>
+            
+            <!-- Feature 3 -->
+            <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 relative overflow-hidden">
+                <!-- Cricket stumps animation in corner -->
+                <div class="absolute -top-1 -right-1 w-8 h-12 opacity-20">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cricket Stumps" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-globe text-3xl text-white"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Global Coverage</h3>
+                <p class="text-gray-600 leading-relaxed">From international tournaments to domestic leagues, we cover cricket matches from around the world with unmatched detail.</p>
             </div>
-            <div class="space-y-4">
-                {% for player in batsmen_rankings|slice:":5" %}
-                    <div class="flex items-center justify-between p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200 group-hover:translate-x-1">
-                        <span class="font-semibold text-gray-800">{{ player.name }}</span>
-                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full font-bold group-hover:bg-blue-200 transition-colors">{{ player.rating }}</span>
-                    </div>
-                {% endfor %}
-            </div>
-        </a>
-
-        <!-- Top Bowlers -->
-        <a href="{% url 'stats' %}?type=bowlers" class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-50 group block">
-            <div class="flex items-center justify-between mb-6">
-                <h2 class="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 group-hover:scale-105 transition-transform">Top Bowlers</h2>
-                <svg class="w-8 h-8 text-blue-500 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                </svg>
-            </div>
-            <div class="space-y-4">
-                {% for player in bowlers_rankings|slice:":5" %}
-                    <div class="flex items-center justify-between p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200 group-hover:translate-x-1">
-                        <span class="font-semibold text-gray-800">{{ player.name }}</span>
-                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full font-bold group-hover:bg-blue-200 transition-colors">{{ player.rating }}</span>
-                    </div>
-                {% endfor %}
-            </div>
-        </a>
+        </div>
     </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-24 bg-white relative overflow-hidden">
+    <!-- Background Cricket Field -->
+    <div class="absolute inset-0 opacity-8">
+        <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Cricket Field" class="w-full h-full object-cover scale-125">
+    </div>
+    
+    <!-- Floating Cricket Elements -->
+    <div class="absolute inset-0">
+        <div class="absolute top-10 left-1/4 w-64 h-80 opacity-50">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cricket Player - Captain" class="w-full h-full transform scale-x-[-1] object-cover rounded-lg">
+        </div>
+        <div class="absolute bottom-20 right-1/4 w-40 h-40 opacity-15 transform rotate-12 animate-pulse">
+            <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cricket Bat" class="w-full h-full object-cover rounded-lg">
+        </div>
+        <div class="absolute top-1/3 right-10 w-28 h-40 opacity-12 animate-pulse" style="animation-delay: 3s;">
+            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cricket Stumps" class="w-full h-full object-cover rounded-lg">
+        </div>
+        <div class="absolute bottom-1/3 left-10 w-36 h-36 opacity-18">
+            <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cricket Ball" class="w-full h-full object-cover rounded-full">
+        </div>
+        <div class="absolute top-20 right-1/3 w-32 h-42 opacity-15">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cricket Player" class="w-full h-full object-cover rounded-lg">
+        </div>
+        <div class="absolute bottom-10 left-1/3 w-28 h-35 opacity-18">
+            <img src="https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cricket Trophy" class="w-full h-full object-cover rounded-lg">
+        </div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-16 opacity-12">
+            <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cricket Scoreboard" class="w-full h-full object-cover rounded-lg">
+        </div>
+        <div class="absolute top-10 left-10 w-56 h-70 opacity-60">
+                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cricket Player - Captain" class="w-full h-full object-cover rounded-lg">
+            </div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div class="order-2 lg:order-1">
+                <div class="mb-8">
+                    <span class="text-cricket-primary font-semibold text-lg tracking-wide uppercase">About Score Hawk</span>
+                    <h2 class="text-5xl lg:text-6xl font-bold text-slate-900 mt-4 mb-8 leading-tight">
+                        Your Cricket <span class="text-transparent bg-clip-text bg-gradient-to-r from-cricket-primary to-emerald-600">Companion</span>
+                    </h2>
+                </div>
+                
+                <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+                    Score Hawk revolutionizes how cricket fans experience the game. Our platform combines cutting-edge technology with comprehensive cricket data to deliver an unparalleled experience for enthusiasts worldwide.
+                </p>
+                
+                <p class="text-lg text-gray-600 mb-10 leading-relaxed">
+                    From live ball-by-ball commentary to detailed player analytics, we provide everything you need to stay connected with the cricket world. Whether you're following your favorite team or discovering new talent, Score Hawk is your ultimate cricket companion.
+                </p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+                    <div class="group bg-gradient-to-br from-cricket-primary/10 to-emerald-100 p-6 rounded-2xl hover:shadow-lg transition-all duration-300">
+                        <div class="w-12 h-12 bg-cricket-primary rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-rocket text-xl text-white"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-900 mb-2">Innovation</h4>
+                        <p class="text-gray-600">Cutting-edge technology for the modern cricket fan</p>
+                    </div>
+                    <div class="group bg-gradient-to-br from-cricket-secondary/10 to-orange-100 p-6 rounded-2xl hover:shadow-lg transition-all duration-300">
+                        <div class="w-12 h-12 bg-cricket-secondary rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-heart text-xl text-white"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-900 mb-2">Passion</h4>
+                        <p class="text-gray-600">Built by cricket lovers, for cricket lovers</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="/players/" class="inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-cricket-primary to-emerald-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-users"></i>
+                        <span>Explore Players</span>
+                    </a>
+                    <a href="/rankings/" class="inline-flex items-center justify-center space-x-3 border-2 border-cricket-primary text-cricket-primary px-8 py-4 rounded-xl font-semibold hover:bg-cricket-primary hover:text-white transition-all duration-300">
+                        <i class="fas fa-trophy"></i>
+                        <span>View Rankings</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="order-1 lg:order-2">
+                <div class="relative">
+                    <!-- Main Image Container -->
+                    <div class="relative bg-gradient-to-br from-cricket-primary via-emerald-500 to-cricket-secondary p-8 rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Cricket Stadium" class="w-full h-96 object-cover rounded-2xl">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl"></div>
+                    </div>
+                    
+                    <!-- Floating Stats Cards -->
+                    <div class="absolute -top-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-gray-100 transform -rotate-6 hover:rotate-0 transition-transform duration-300">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-cricket-primary">Live</div>
+                            <div class="text-sm text-gray-600">Updates</div>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 transform rotate-6 hover:rotate-0 transition-transform duration-300">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-cricket-secondary">2024</div>
+                            <div class="text-sm text-gray-600">Cricket Season</div>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute top-1/2 -right-8 bg-gradient-to-r from-purple-500 to-purple-700 p-4 rounded-2xl shadow-xl text-white transform rotate-12 hover:rotate-0 transition-transform duration-300">
+                        <div class="text-center">
+                            <i class="fas fa-chart-line text-2xl mb-2"></i>
+                            <div class="text-xs font-semibold">Analytics</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Access Section -->
+<section id="quick-access" class="py-24 bg-gradient-to-br from-gray-50 to-gray-100">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-20">
+            <h2 class="text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+                Quick <span class="text-transparent bg-clip-text bg-gradient-to-r from-cricket-primary to-emerald-600">Access</span>
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Jump straight into the action with our most popular features and latest cricket content
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Live Matches -->
+            <a href="/matches/" class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 hover:border-cricket-primary/30">
+                <div class="relative mb-6">
+                    <div class="w-20 h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-broadcast-tower text-3xl text-white"></i>
+                    </div>
+                    <div class="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full animate-pulse"></div>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-cricket-primary transition-colors duration-300">Live Matches</h3>
+                <p class="text-gray-600 leading-relaxed mb-4">Follow ongoing matches with real-time scores and ball-by-ball commentary.</p>
+                <div class="flex items-center text-cricket-primary font-semibold group-hover:translate-x-2 transition-transform duration-300">
+                    <span>Watch Now</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </div>
+            </a>
+            
+            <!-- Player Stats -->
+            <a href="/players/" class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 hover:border-cricket-secondary/30">
+                <div class="w-20 h-20 bg-gradient-to-br from-cricket-secondary to-orange-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-user-friends text-3xl text-white"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-cricket-secondary transition-colors duration-300">Player Stats</h3>
+                <p class="text-gray-600 leading-relaxed mb-4">Explore comprehensive statistics and profiles of cricket players worldwide.</p>
+                <div class="flex items-center text-cricket-secondary font-semibold group-hover:translate-x-2 transition-transform duration-300">
+                    <span>Explore</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </div>
+            </a>
+            
+            <!-- Rankings -->
+            <a href="/rankings/" class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 hover:border-cricket-primary/30">
+                <div class="w-20 h-20 bg-gradient-to-br from-cricket-primary to-emerald-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-trophy text-3xl text-white"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-cricket-primary transition-colors duration-300">Rankings</h3>
+                <p class="text-gray-600 leading-relaxed mb-4">Check the latest ICC rankings for teams and players across all formats.</p>
+                <div class="flex items-center text-cricket-primary font-semibold group-hover:translate-x-2 transition-transform duration-300">
+                    <span>View Rankings</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </div>
+            </a>
+            
+            <!-- News -->
+            <a href="/news/" class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 hover:border-purple-500/30">
+                <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-newspaper text-3xl text-white"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-purple-600 transition-colors duration-300">Latest News</h3>
+                <p class="text-gray-600 leading-relaxed mb-4">Stay updated with the latest cricket news, transfers, and match reports.</p>
+                <div class="flex items-center text-purple-600 font-semibold group-hover:translate-x-2 transition-transform duration-300">
+                    <span>Read News</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Matches & News Section -->
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <!-- Recent Matches -->
+            <div>
+                <h2 class="text-4xl font-bold text-slate-900 mb-8">
+                    Recent <span class="text-cricket-secondary">Matches</span>
+                </h2>
+                
+                <div class="space-y-6">
+                    <!-- Match 1 -->
+                    <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-cricket-green text-white px-3 py-1 rounded-full text-sm font-semibold">WON</span>
+                            <span class="text-gray-500 text-sm">March 15, 2024</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-slate-900">Champions CC</h4>
+                                <p class="text-gray-600">285/7 (50 overs)</p>
+                            </div>
+                            <div class="text-center">
+                                <span class="text-2xl font-bold text-cricket-secondary">VS</span>
+                            </div>
+                            <div class="text-right">
+                                <h4 class="font-bold text-slate-900">Royal Warriors</h4>
+                                <p class="text-gray-600">240/10 (48.3 overs)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Match 2 -->
+                    <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-cricket-green text-white px-3 py-1 rounded-full text-sm font-semibold">WON</span>
+                            <span class="text-gray-500 text-sm">March 10, 2024</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-slate-900">Thunder Bolts</h4>
+                                <p class="text-gray-600">180/10 (45.2 overs)</p>
+                            </div>
+                            <div class="text-center">
+                                <span class="text-2xl font-bold text-cricket-secondary">VS</span>
+                            </div>
+                            <div class="text-right">
+                                <h4 class="font-bold text-slate-900">Champions CC</h4>
+                                <p class="text-gray-600">181/3 (38.4 overs)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Match 3 -->
+                    <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">LOST</span>
+                            <span class="text-gray-500 text-sm">March 5, 2024</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-slate-900">Champions CC</h4>
+                                <p class="text-gray-600">195/10 (47.1 overs)</p>
+                            </div>
+                            <div class="text-center">
+                                <span class="text-2xl font-bold text-cricket-secondary">VS</span>
+                            </div>
+                            <div class="text-right">
+                                <h4 class="font-bold text-slate-900">Elite Strikers</h4>
+                                <p class="text-gray-600">198/6 (49.2 overs)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8">
+                    <a href="/matches/" class="inline-flex items-center space-x-2 bg-cricket-accent text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300">
+                        <span>View All Matches</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Latest News -->
+            <div>
+                <h2 class="text-4xl font-bold text-slate-900 mb-8">
+                    Latest <span class="text-cricket-secondary">News</span>
+                </h2>
+                
+                <div class="space-y-6">
+                    <!-- News 1 -->
+                    <article class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-20 h-20 bg-gradient-to-br from-cricket-secondary to-orange-500 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-trophy text-2xl text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-bold text-slate-900 mb-2">Champions Win Regional Championship</h3>
+                                <p class="text-gray-600 text-sm mb-3">Our team secured the regional championship with an outstanding performance in the final match...</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs text-gray-500">March 18, 2024</span>
+                                    <a href="#" class="text-cricket-blue hover:text-blue-700 text-sm font-semibold">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- News 2 -->
+                    <article class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-20 h-20 bg-gradient-to-br from-cricket-primary to-green-500 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-star text-2xl text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-bold text-slate-900 mb-2">New Player Joins Champions Squad</h3>
+                                <p class="text-gray-600 text-sm mb-3">International player Rajesh Gupta joins our squad bringing years of experience...</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs text-gray-500">March 16, 2024</span>
+                                    <a href="#" class="text-cricket-blue hover:text-blue-700 text-sm font-semibold">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- News 3 -->
+                    <article class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-20 h-20 bg-gradient-to-br from-cricket-accent to-green-700 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-calendar text-2xl text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-bold text-slate-900 mb-2">Upcoming Tournament Schedule</h3>
+                                <p class="text-gray-600 text-sm mb-3">Check out our upcoming matches in the National Cricket League starting next month...</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs text-gray-500">March 14, 2024</span>
+                                    <a href="#" class="text-cricket-blue hover:text-blue-700 text-sm font-semibold">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="mt-8">
+                    <a href="/news/" class="inline-flex items-center space-x-2 bg-cricket-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300">
+                        <span>View All News</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="py-24 bg-gradient-to-br from-slate-900 via-emerald-900 to-slate-900 text-white relative overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-10 left-10 w-32 h-32 bg-cricket-secondary rounded-full animate-pulse"></div>
+        <div class="absolute bottom-20 right-20 w-24 h-24 bg-cricket-primary rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+        <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-orange-500 rounded-full animate-pulse" style="animation-delay: 2s;"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 text-center relative z-10">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+                Start Your Cricket <span class="text-transparent bg-clip-text bg-gradient-to-r from-cricket-secondary via-orange-400 to-cricket-primary">Journey</span>
+            </h2>
+            <p class="text-2xl text-gray-300 mb-12 leading-relaxed">
+                Join millions of cricket fans who trust Score Hawk for the most comprehensive and up-to-date cricket experience. Your cricket adventure starts here.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-8 justify-center items-center mb-16">
+                <a href="/matches/" class="group relative bg-gradient-to-r from-cricket-secondary via-orange-500 to-cricket-secondary text-black px-12 py-5 rounded-full font-bold text-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-110 flex items-center space-x-4 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <i class="fas fa-rocket text-2xl relative z-10"></i>
+                    <span class="relative z-10">GET STARTED</span>
+                    <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform duration-500 relative z-10"></i>
+                </a>
+                <a href="/players/" class="group border-3 border-white text-white px-12 py-5 rounded-full font-bold text-xl hover:bg-white hover:text-black transition-all duration-500 flex items-center space-x-4 backdrop-blur-sm bg-white/10">
+                    <i class="fas fa-search text-xl"></i>
+                    <span>EXPLORE PLAYERS</span>
+                </a>
+            </div>
+            
+            <!-- Trust Indicators -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-cricket-secondary mb-2">1M+</div>
+                    <div class="text-gray-400 text-sm">Active Users</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-cricket-primary mb-2">99.9%</div>
+                    <div class="text-gray-400 text-sm">Uptime</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-orange-400 mb-2">24/7</div>
+                    <div class="text-gray-400 text-sm">Support</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-purple-400 mb-2">5★</div>
+                    <div class="text-gray-400 text-sm">User Rating</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

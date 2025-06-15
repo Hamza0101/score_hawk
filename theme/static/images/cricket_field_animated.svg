@@ -1,0 +1,252 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="fieldGradient" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#90EE90"/>
+      <stop offset="50%" stop-color="#32CD32"/>
+      <stop offset="100%" stop-color="#228B22"/>
+    </radialGradient>
+    <linearGradient id="pitchGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#DEB887"/>
+      <stop offset="50%" stop-color="#F5DEB3"/>
+      <stop offset="100%" stop-color="#DEB887"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Field Background -->
+  <rect width="800" height="600" fill="url(#fieldGradient)">
+    <animate
+      attributeName="opacity"
+      values="0.8;1;0.8"
+      dur="8s"
+      repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Outer Boundary Circle -->
+  <circle cx="400" cy="300" r="280" fill="none" stroke="white" stroke-width="3" opacity="0.6">
+    <animate
+      attributeName="stroke-dasharray"
+      values="0 1760;880 880;0 1760"
+      dur="6s"
+      repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Inner Circle (30-yard circle) -->
+  <circle cx="400" cy="300" r="120" fill="none" stroke="white" stroke-width="2" opacity="0.5">
+    <animate
+      attributeName="stroke-dasharray"
+      values="0 754;377 377;0 754"
+      dur="4s"
+      repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Cricket Pitch -->
+  <rect x="380" y="250" width="40" height="100" fill="url(#pitchGradient)" stroke="white" stroke-width="1">
+    <animate
+      attributeName="opacity"
+      values="0.9;1;0.9"
+      dur="3s"
+      repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Pitch Markings -->
+  <g stroke="white" stroke-width="1" opacity="0.7">
+    <!-- Bowling Crease -->
+    <line x1="375" y1="260" x2="425" y2="260">
+      <animate
+        attributeName="opacity"
+        values="0.7;1;0.7"
+        dur="2s"
+        repeatCount="indefinite"/>
+    </line>
+    <line x1="375" y1="340" x2="425" y2="340">
+      <animate
+        attributeName="opacity"
+        values="0.7;1;0.7"
+        dur="2s"
+        begin="1s"
+        repeatCount="indefinite"/>
+    </line>
+    
+    <!-- Popping Crease -->
+    <line x1="375" y1="265" x2="425" y2="265">
+      <animate
+        attributeName="opacity"
+        values="0.7;1;0.7"
+        dur="2s"
+        begin="0.5s"
+        repeatCount="indefinite"/>
+    </line>
+    <line x1="375" y1="335" x2="425" y2="335">
+      <animate
+        attributeName="opacity"
+        values="0.7;1;0.7"
+        dur="2s"
+        begin="1.5s"
+        repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <!-- Animated Cricket Balls -->
+  <g>
+    <!-- Ball 1 -->
+    <circle cx="100" cy="100" r="8" fill="#DC143C" filter="url(#glow)">
+      <animateMotion
+        path="M 0 0 Q 200 -50 400 0 Q 600 50 700 0"
+        dur="8s"
+        repeatCount="indefinite"/>
+      <animate
+        attributeName="opacity"
+        values="0;1;0"
+        dur="8s"
+        repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Ball 2 -->
+    <circle cx="700" cy="500" r="8" fill="#DC143C" filter="url(#glow)">
+      <animateMotion
+        path="M 0 0 Q -200 -50 -400 0 Q -600 50 -700 0"
+        dur="10s"
+        begin="2s"
+        repeatCount="indefinite"/>
+      <animate
+        attributeName="opacity"
+        values="0;1;0"
+        dur="10s"
+        begin="2s"
+        repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Floating Stumps -->
+  <g opacity="0.3">
+    <!-- Left Side Stumps -->
+    <g transform="translate(150, 200)">
+      <rect x="0" y="0" width="4" height="30" fill="#F5DEB3">
+        <animateTransform
+          attributeName="transform"
+          type="translate"
+          values="0 0;0 -5;0 0"
+          dur="3s"
+          repeatCount="indefinite"/>
+      </rect>
+      <rect x="8" y="0" width="4" height="30" fill="#F5DEB3">
+        <animateTransform
+          attributeName="transform"
+          type="translate"
+          values="0 0;0 -5;0 0"
+          dur="3s"
+          begin="0.5s"
+          repeatCount="indefinite"/>
+      </rect>
+      <rect x="16" y="0" width="4" height="30" fill="#F5DEB3">
+        <animateTransform
+          attributeName="transform"
+          type="translate"
+          values="0 0;0 -5;0 0"
+          dur="3s"
+          begin="1s"
+          repeatCount="indefinite"/>
+      </rect>
+    </g>
+    
+    <!-- Right Side Stumps -->
+    <g transform="translate(630, 370)">
+      <rect x="0" y="0" width="4" height="30" fill="#F5DEB3">
+        <animateTransform
+          attributeName="transform"
+          type="translate"
+          values="0 0;0 -5;0 0"
+          dur="3s"
+          begin="1.5s"
+          repeatCount="indefinite"/>
+      </rect>
+      <rect x="8" y="0" width="4" height="30" fill="#F5DEB3">
+        <animateTransform
+          attributeName="transform"
+          type="translate"
+          values="0 0;0 -5;0 0"
+          dur="3s"
+          begin="2s"
+          repeatCount="indefinite"/>
+      </rect>
+      <rect x="16" y="0" width="4" height="30" fill="#F5DEB3">
+        <animateTransform
+          attributeName="transform"
+          type="translate"
+          values="0 0;0 -5;0 0"
+          dur="3s"
+          begin="2.5s"
+          repeatCount="indefinite"/>
+      </rect>
+    </g>
+  </g>
+  
+  <!-- Animated Grass Patterns -->
+  <g stroke="#90EE90" stroke-width="1" opacity="0.4">
+    <path d="M 50 550 Q 100 530 150 550 Q 200 570 250 550">
+      <animate
+        attributeName="opacity"
+        values="0.4;0.8;0.4"
+        dur="4s"
+        repeatCount="indefinite"/>
+    </path>
+    <path d="M 550 550 Q 600 530 650 550 Q 700 570 750 550">
+      <animate
+        attributeName="opacity"
+        values="0.4;0.8;0.4"
+        dur="4s"
+        begin="2s"
+        repeatCount="indefinite"/>
+    </path>
+    <path d="M 50 50 Q 100 30 150 50 Q 200 70 250 50">
+      <animate
+        attributeName="opacity"
+        values="0.4;0.8;0.4"
+        dur="4s"
+        begin="1s"
+        repeatCount="indefinite"/>
+    </path>
+    <path d="M 550 50 Q 600 30 650 50 Q 700 70 750 50">
+      <animate
+        attributeName="opacity"
+        values="0.4;0.8;0.4"
+        dur="4s"
+        begin="3s"
+        repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Scoreboard Effect -->
+  <g transform="translate(50, 50)" opacity="0.6">
+    <rect width="120" height="60" fill="#000" stroke="#fff" stroke-width="2" rx="5">
+      <animate
+        attributeName="opacity"
+        values="0.6;1;0.6"
+        dur="5s"
+        repeatCount="indefinite"/>
+    </rect>
+    <text x="60" y="25" text-anchor="middle" fill="#00ff00" font-family="monospace" font-size="12">
+      SCORE
+      <animate
+        attributeName="opacity"
+        values="1;0.5;1"
+        dur="2s"
+        repeatCount="indefinite"/>
+    </text>
+    <text x="60" y="45" text-anchor="middle" fill="#00ff00" font-family="monospace" font-size="16" font-weight="bold">
+      245/3
+      <animate
+        attributeName="opacity"
+        values="1;0.5;1"
+        dur="3s"
+        repeatCount="indefinite"/>
+    </text>
+  </g>
+</svg>

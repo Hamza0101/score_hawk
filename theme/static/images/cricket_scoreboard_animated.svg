@@ -1,0 +1,247 @@
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="boardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1a1a"/>
+      <stop offset="50%" stop-color="#2d2d2d"/>
+      <stop offset="100%" stop-color="#0f0f0f"/>
+    </linearGradient>
+    <linearGradient id="screenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#000000"/>
+      <stop offset="50%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <linearGradient id="frameGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C0C0C0"/>
+      <stop offset="50%" stop-color="#808080"/>
+      <stop offset="100%" stop-color="#404040"/>
+    </linearGradient>
+    <filter id="boardShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="8" dy="8" stdDeviation="10" flood-color="rgba(0,0,0,0.5)"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Scoreboard Frame -->
+  <rect x="20" y="30" width="360" height="190" rx="15" fill="url(#frameGradient)" filter="url(#boardShadow)">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0;0 -1;0 0"
+      dur="5s"
+      repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Main Screen -->
+  <rect x="35" y="45" width="330" height="160" rx="10" fill="url(#screenGradient)" stroke="#333" stroke-width="2">
+    <animate
+      attributeName="opacity"
+      values="0.9;1;0.9"
+      dur="3s"
+      repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Team Names Header -->
+  <rect x="45" y="55" width="310" height="25" fill="#1a472a" opacity="0.8">
+    <animate
+      attributeName="opacity"
+      values="0.8;1;0.8"
+      dur="4s"
+      repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Team 1 Section -->
+  <text x="60" y="72" fill="#00ff00" font-family="monospace" font-size="14" font-weight="bold" filter="url(#glow)">TEAM A</text>
+  
+  <!-- Team 2 Section -->
+  <text x="280" y="72" fill="#00ff00" font-family="monospace" font-size="14" font-weight="bold" filter="url(#glow)">TEAM B</text>
+  
+  <!-- Score Display Team A -->
+  <g>
+    <text x="60" y="105" fill="#00ff41" font-family="monospace" font-size="24" font-weight="bold" filter="url(#glow)">
+      <animate
+        attributeName="fill"
+        values="#00ff41;#00ff00;#00ff41"
+        dur="2s"
+        repeatCount="indefinite"/>
+      245
+    </text>
+    <text x="120" y="105" fill="#00ff41" font-family="monospace" font-size="16" filter="url(#glow)">/</text>
+    <text x="135" y="105" fill="#00ff41" font-family="monospace" font-size="20" filter="url(#glow)">
+      <animate
+        attributeName="fill"
+        values="#00ff41;#00ff00;#00ff41"
+        dur="2s"
+        begin="0.5s"
+        repeatCount="indefinite"/>
+      6
+    </text>
+  </g>
+  
+  <!-- Score Display Team B -->
+  <g>
+    <text x="280" y="105" fill="#ff4100" font-family="monospace" font-size="24" font-weight="bold" filter="url(#glow)">
+      <animate
+        attributeName="fill"
+        values="#ff4100;#ff6600;#ff4100"
+        dur="2s"
+        repeatCount="indefinite"/>
+      198
+    </text>
+    <text x="340" y="105" fill="#ff4100" font-family="monospace" font-size="16" filter="url(#glow)">/</text>
+    <text x="355" y="105" fill="#ff4100" font-family="monospace" font-size="20" filter="url(#glow)">
+      <animate
+        attributeName="fill"
+        values="#ff4100;#ff6600;#ff4100"
+        dur="2s"
+        begin="1s"
+        repeatCount="indefinite"/>
+      8
+    </text>
+  </g>
+  
+  <!-- Overs Display -->
+  <text x="60" y="130" fill="#ffff00" font-family="monospace" font-size="12" filter="url(#glow)">OVERS: </text>
+  <text x="110" y="130" fill="#ffff00" font-family="monospace" font-size="12" font-weight="bold" filter="url(#glow)">
+    <animate
+      attributeName="fill"
+      values="#ffff00;#ffff80;#ffff00"
+      dur="3s"
+      repeatCount="indefinite"/>
+    47.3
+  </text>
+  
+  <text x="280" y="130" fill="#ffff00" font-family="monospace" font-size="12" filter="url(#glow)">OVERS: </text>
+  <text x="330" y="130" fill="#ffff00" font-family="monospace" font-size="12" font-weight="bold" filter="url(#glow)">
+    <animate
+      attributeName="fill"
+      values="#ffff00;#ffff80;#ffff00"
+      dur="3s"
+      begin="1s"
+      repeatCount="indefinite"/>
+    42.1
+  </text>
+  
+  <!-- Current Batsmen -->
+  <text x="60" y="150" fill="#00ffff" font-family="monospace" font-size="10" filter="url(#glow)">BATSMAN 1: </text>
+  <text x="130" y="150" fill="#00ffff" font-family="monospace" font-size="10" font-weight="bold" filter="url(#glow)">
+    <animate
+      attributeName="opacity"
+      values="0.8;1;0.8"
+      dur="2s"
+      repeatCount="indefinite"/>
+    K. SHARMA 89*
+  </text>
+  
+  <text x="60" y="165" fill="#00ffff" font-family="monospace" font-size="10" filter="url(#glow)">BATSMAN 2: </text>
+  <text x="130" y="165" fill="#00ffff" font-family="monospace" font-size="10" font-weight="bold" filter="url(#glow)">
+    <animate
+      attributeName="opacity"
+      values="0.8;1;0.8"
+      dur="2s"
+      begin="1s"
+      repeatCount="indefinite"/>
+    R. PATEL 45
+  </text>
+  
+  <!-- Bowling Stats -->
+  <text x="280" y="150" fill="#ff80ff" font-family="monospace" font-size="10" filter="url(#glow)">BOWLER: </text>
+  <text x="320" y="150" fill="#ff80ff" font-family="monospace" font-size="10" font-weight="bold" filter="url(#glow)">
+    <animate
+      attributeName="opacity"
+      values="0.8;1;0.8"
+      dur="2s"
+      repeatCount="indefinite"/>
+    M. AHMED
+  </text>
+  
+  <text x="280" y="165" fill="#ff80ff" font-family="monospace" font-size="10" filter="url(#glow)">FIGURES: </text>
+  <text x="325" y="165" fill="#ff80ff" font-family="monospace" font-size="10" font-weight="bold" filter="url(#glow)">
+    <animate
+      attributeName="opacity"
+      values="0.8;1;0.8"
+      dur="2s"
+      begin="0.5s"
+      repeatCount="indefinite"/>
+    2/34
+  </text>
+  
+  <!-- Status Bar -->
+  <rect x="45" y="180" width="310" height="15" fill="#0a0a0a" stroke="#333" stroke-width="1">
+    <animate
+      attributeName="opacity"
+      values="0.9;1;0.9"
+      dur="4s"
+      repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Live Indicator -->
+  <circle cx="60" cy="187" r="4" fill="#ff0000">
+    <animate
+      attributeName="opacity"
+      values="1;0.3;1"
+      dur="1s"
+      repeatCount="indefinite"/>
+  </circle>
+  <text x="75" y="190" fill="#ff0000" font-family="monospace" font-size="8" font-weight="bold">LIVE</text>
+  
+  <!-- Match Status -->
+  <text x="200" y="190" fill="#00ff00" font-family="monospace" font-size="8" text-anchor="middle" filter="url(#glow)">
+    <animate
+      attributeName="fill"
+      values="#00ff00;#00ff80;#00ff00"
+      dur="3s"
+      repeatCount="indefinite"/>
+    TEAM A LEADS BY 47 RUNS
+  </text>
+  
+  <!-- Corner LEDs -->
+  <g fill="#00ff00" opacity="0.8">
+    <circle cx="50" cy="40" r="3">
+      <animate
+        attributeName="opacity"
+        values="0.8;1;0.8"
+        dur="2s"
+        repeatCount="indefinite"/>
+    </circle>
+    <circle cx="350" cy="40" r="3">
+      <animate
+        attributeName="opacity"
+        values="0.8;1;0.8"
+        dur="2s"
+        begin="0.5s"
+        repeatCount="indefinite"/>
+    </circle>
+    <circle cx="50" cy="210" r="3">
+      <animate
+        attributeName="opacity"
+        values="0.8;1;0.8"
+        dur="2s"
+        begin="1s"
+        repeatCount="indefinite"/>
+    </circle>
+    <circle cx="350" cy="210" r="3">
+      <animate
+        attributeName="opacity"
+        values="0.8;1;0.8"
+        dur="2s"
+        begin="1.5s"
+        repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Scrolling Text Effect -->
+  <rect x="45" y="85" width="310" height="1" fill="#00ff00" opacity="0.5">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="-310 0;310 0;-310 0"
+      dur="8s"
+      repeatCount="indefinite"/>
+  </rect>
+</svg>

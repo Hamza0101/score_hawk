@@ -1,72 +1,221 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Score Hawk - {{ news.hline }}</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    typography: {
-                        DEFAULT: {
-                            css: {
-                                maxWidth: 'none',
-                                color: '#333',
-                                p: {
-                                    marginBottom: '1.5em'
-                                },
-                                'ul, ol': {
-                                    marginTop: '1em',
-                                    marginBottom: '1em'
-                                }
-                            },
-                        },
-                    },
-                },
-            },
-        }
-    </script>
-</head>
-<body class="bg-gray-100">
-    <nav class="bg-blue-600 text-white shadow-lg">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Score Hawk</h1>
-            <div class="space-x-4">
-                <a href="{% url 'home' %}" class="hover:text-blue-200">Home</a>
-                <a href="{% url 'news' %}" class="hover:text-blue-200">News</a>
-                <a href="{% url 'stats' %}" class="hover:text-blue-200">Stats</a>
+
+{% block title %}{{ news.hline }} - Elite Cricket Club{% endblock %}
+
+{% block content %}
+<!-- Breadcrumb Section -->
+<section class="bg-gradient-to-r from-cricket-primary to-cricket-accent py-6">
+    <div class="container mx-auto px-4">
+        <nav class="flex items-center space-x-2 text-white">
+            <a href="/" class="hover:text-cricket-secondary transition-colors duration-300 flex items-center">
+                <i class="fas fa-home mr-2"></i>
+                Home
+            </a>
+            <i class="fas fa-chevron-right text-green-300"></i>
+            <a href="{% url 'news' %}" class="hover:text-cricket-secondary transition-colors duration-300 flex items-center">
+                <i class="fas fa-newspaper mr-2"></i>
+                News
+            </a>
+            <i class="fas fa-chevron-right text-green-300"></i>
+            <span class="text-green-200">Article</span>
+        </nav>
+    </div>
+</section>
+
+<!-- Article Content -->
+<section class="py-12 bg-gradient-to-br from-slate-50 to-gray-100">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- Back Button -->
+            <div class="mb-8">
+                <a href="{% url 'news' %}" class="inline-flex items-center space-x-2 text-cricket-primary hover:text-cricket-accent transition-colors duration-300 group">
+                    <i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform duration-300"></i>
+                    <span class="font-semibold">Back to News</span>
+                </a>
             </div>
+            
+            <!-- Article Card -->
+            <article class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                {% if news.coverImage %}
+                    <div class="relative">
+                        <img src="{% url 'proxy_image' news.coverImage.id %}" 
+                             alt="{{ news.hline }}" 
+                             class="w-full h-96 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <div class="flex items-center space-x-3 mb-4">
+                                <span class="bg-cricket-secondary text-black px-4 py-2 rounded-full text-sm font-bold">
+                                    <i class="fas fa-newspaper mr-2"></i>Cricket News
+                                </span>
+                                <span class="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-semibold">
+                                    {{ news.context|default:"Latest Update" }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="h-64 bg-gradient-to-br from-cricket-primary to-cricket-accent flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="fas fa-newspaper text-6xl mb-4 opacity-50"></i>
+                            <p class="text-xl font-semibold">Elite Cricket News</p>
+                        </div>
+                    </div>
+                {% endif %}
+                
+                <div class="p-8 lg:p-12">
+                    <!-- Article Header -->
+                    <header class="mb-8">
+                        <h1 class="text-4xl lg:text-5xl font-bold text-slate-800 mb-6 leading-tight">
+                            {{ news.hline }}
+                        </h1>
+                        
+                        <div class="flex flex-wrap items-center gap-6 text-sm">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-10 h-10 bg-gradient-to-br from-cricket-secondary to-orange-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-user text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-slate-800">{{ news.source|default:"Elite Cricket" }}</p>
+                                    <p class="text-gray-500">News Source</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-2 text-gray-500">
+                                <i class="fas fa-clock text-cricket-primary"></i>
+                                <span>{{ news.context|default:"Latest News" }}</span>
+                            </div>
+                            
+                            <div class="flex items-center space-x-2 text-gray-500">
+                                <i class="fas fa-tag text-cricket-secondary"></i>
+                                <span>Cricket News</span>
+                            </div>
+                        </div>
+                    </header>
+                    
+                    <!-- Article Content -->
+                    <div class="prose prose-lg max-w-none">
+                        <style>
+                            .prose {
+                                color: #374151;
+                                max-width: none;
+                            }
+                            .prose p {
+                                margin-bottom: 1.5em;
+                                line-height: 1.8;
+                                font-size: 1.125rem;
+                            }
+                            .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+                                color: #1f2937;
+                                font-weight: 700;
+                                margin-top: 2em;
+                                margin-bottom: 1em;
+                            }
+                            .prose ul, .prose ol {
+                                margin-top: 1em;
+                                margin-bottom: 1em;
+                                padding-left: 1.5em;
+                            }
+                            .prose li {
+                                margin-bottom: 0.5em;
+                            }
+                            .prose strong {
+                                color: #059669;
+                                font-weight: 600;
+                            }
+                            .prose a {
+                                color: #059669;
+                                text-decoration: underline;
+                            }
+                            .prose a:hover {
+                                color: #047857;
+                            }
+                        </style>
+                        
+                        {% for content_item in news.content %}
+                            {% if content_item.content.contentType == 'text' %}
+                                <p>{{ content_item.content.contentValue }}</p>
+                            {% elif content_item.content.contentType == 'html' %}
+                                <div>{{ content_item.content.contentValue|safe }}</div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    
+                    <!-- Article Footer -->
+                    <footer class="mt-12 pt-8 border-t border-gray-200">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-br from-cricket-primary to-cricket-accent rounded-full flex items-center justify-center">
+                                    <i class="fas fa-share-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-slate-800">Share this article</p>
+                                    <p class="text-gray-500 text-sm">Spread the cricket news</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex space-x-3">
+                                <a href="#" class="w-10 h-10 bg-gradient-to-br from-cricket-secondary to-orange-500 rounded-full flex items-center justify-center text-black hover:shadow-lg transition-all duration-300 transform hover:scale-110">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-gradient-to-br from-cricket-accent to-cricket-dark rounded-full flex items-center justify-center text-white hover:shadow-lg transition-all duration-300 transform hover:scale-110">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-gradient-to-br from-cricket-primary to-green-600 rounded-full flex items-center justify-center text-white hover:shadow-lg transition-all duration-300 transform hover:scale-110">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </article>
+            
+            <!-- Related Articles Section -->
+            <section class="mt-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-slate-800 mb-4">
+                        More Cricket <span class="text-cricket-secondary">News</span>
+                    </h2>
+                    <p class="text-gray-600">Stay updated with the latest cricket news and updates</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-cricket-primary to-cricket-accent rounded-full flex items-center justify-center">
+                                <i class="fas fa-newspaper text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-800">Latest News</h3>
+                                <p class="text-gray-500 text-sm">Stay updated</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">Discover more cricket news and updates from around the world.</p>
+                        <a href="{% url 'news' %}" class="inline-flex items-center space-x-2 text-cricket-primary hover:text-cricket-accent transition-colors duration-300 font-semibold">
+                            <span>View All News</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-cricket-secondary to-orange-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-home text-black"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-800">Elite Cricket Club</h3>
+                                <p class="text-gray-500 text-sm">Our home</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">Explore our club, matches, players, and rankings.</p>
+                        <a href="/" class="inline-flex items-center space-x-2 text-cricket-primary hover:text-cricket-accent transition-colors duration-300 font-semibold">
+                            <span>Back to Home</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
         </div>
-    </nav>
-    
-    <main class="container mx-auto px-6 py-8">
-        <article class="bg-white rounded-lg shadow-md overflow-hidden max-w-4xl mx-auto">
-            {% if news.coverImage %}
-                <img src="https://cricbuzz-cricket.p.rapidapi.com/img/v1/i1/c{{ news.coverImage.id }}/i.jpg" 
-                     alt="{{ news.hline }}" 
-                     class="w-full h-96 object-cover">
-            {% endif %}
-            <div class="p-8">
-                <h1 class="text-3xl font-bold mb-4">{{ news.hline }}</h1>
-                <div class="flex items-center text-sm text-gray-500 mb-6">
-                    <span class="mr-4">{{ news.context }}</span>
-                    <span>{{ news.source }}</span>
-                </div>
-                <div class="prose prose-lg max-w-none prose-headings:font-bold prose-p:text-gray-800">
-                    {% for content_item in news.content %}
-                        {% if content_item.content.contentType == 'text' %}
-                            <p>{{ content_item.content.contentValue }}</p>
-                        {% elif content_item.content.contentType == 'html' %}
-                            <div>{{ content_item.content.contentValue|safe }}</div>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            </div>
-        </article>
-    </main>
-</body>
-</html>
+    </div>
+</section>
+{% endblock %}

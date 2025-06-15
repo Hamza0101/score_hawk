@@ -1,0 +1,84 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="ballGradient" cx="0.3" cy="0.3" r="0.7">
+      <stop offset="0%" stop-color="#ff6b6b"/>
+      <stop offset="50%" stop-color="#dc143c"/>
+      <stop offset="100%" stop-color="#8b0000"/>
+    </radialGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.3)"/>
+    </filter>
+  </defs>
+  
+  <!-- Cricket Ball -->
+  <circle cx="50" cy="50" r="35" fill="url(#ballGradient)" filter="url(#shadow)">
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      values="0 50 50;360 50 50"
+      dur="3s"
+      repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Seam Lines -->
+  <path d="M 25 30 Q 50 20 75 30" stroke="white" stroke-width="2" fill="none" opacity="0.8">
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      values="0 50 50;360 50 50"
+      dur="3s"
+      repeatCount="indefinite"/>
+  </path>
+  <path d="M 25 70 Q 50 80 75 70" stroke="white" stroke-width="2" fill="none" opacity="0.8">
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      values="0 50 50;360 50 50"
+      dur="3s"
+      repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Stitching -->
+  <g stroke="white" stroke-width="1" fill="none" opacity="0.6">
+    <path d="M 30 35 L 32 33">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="0 50 50;360 50 50"
+        dur="3s"
+        repeatCount="indefinite"/>
+    </path>
+    <path d="M 40 30 L 42 28">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="0 50 50;360 50 50"
+        dur="3s"
+        repeatCount="indefinite"/>
+    </path>
+    <path d="M 50 28 L 52 26">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="0 50 50;360 50 50"
+        dur="3s"
+        repeatCount="indefinite"/>
+    </path>
+    <path d="M 60 30 L 62 28">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="0 50 50;360 50 50"
+        dur="3s"
+        repeatCount="indefinite"/>
+    </path>
+    <path d="M 70 35 L 72 33">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="0 50 50;360 50 50"
+        dur="3s"
+        repeatCount="indefinite"/>
+    </path>
+  </g>
+</svg>

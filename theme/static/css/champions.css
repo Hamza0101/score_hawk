@@ -1,0 +1,255 @@
+/* Elite Cricket Club Custom Styles */
+
+/* Hero Section Enhancements */
+.hero-gradient {
+    background: linear-gradient(135deg, 
+        rgba(22, 101, 52, 0.9) 0%, 
+        rgba(5, 46, 22, 0.8) 50%, 
+        rgba(0, 0, 0, 0.9) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="cricket" patternUnits="userSpaceOnUse" width="30" height="30"><circle cx="15" cy="15" r="2" fill="%23f59e0b" opacity="0.15"/><path d="M10 10 L20 20 M20 10 L10 20" stroke="%23f59e0b" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23cricket)"/></svg>');
+}
+
+/* Trophy Animation */
+@keyframes trophy-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.5); }
+    50% { box-shadow: 0 0 40px rgba(34, 197, 94, 0.8), 0 0 60px rgba(245, 158, 11, 0.4); }
+}
+
+.trophy-glow {
+    animation: trophy-glow 3s ease-in-out infinite;
+}
+
+/* Championship Badge */
+.championship-badge {
+    position: relative;
+    overflow: hidden;
+}
+
+.championship-badge::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(34, 197, 94, 0.15), transparent);
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+/* Floating Elements */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+    animation: float 3s ease-in-out infinite;
+}
+
+.float-animation:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.float-animation:nth-child(3) {
+    animation-delay: 1s;
+}
+
+/* Gradient Text Effects */
+.gradient-text-gold {
+    background: linear-gradient(135deg, #f59e0b, #d97706, #92400e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-text-green {
+    background: linear-gradient(135deg, #22c55e, #16a34a, #15803d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Card Hover Effects */
+.champion-card {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.champion-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.12), transparent);
+    transition: left 0.5s;
+}
+
+.champion-card:hover::before {
+    left: 100%;
+}
+
+.champion-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Enhancements */
+.btn-champion {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-champion::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-champion:hover::before {
+    left: 100%;
+}
+
+.btn-champion:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(34, 197, 94, 0.4);
+}
+
+/* Stats Counter Animation */
+@keyframes countUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.stat-counter {
+    animation: countUp 0.8s ease-out;
+}
+
+/* Team Member Cards */
+.team-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.team-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(to top, rgba(34, 197, 94, 0.9), transparent);
+    transition: height 0.3s ease;
+}
+
+.team-card:hover::after {
+    height: 100%;
+}
+
+.team-card:hover {
+    transform: scale(1.05);
+}
+
+/* News Card Animations */
+.news-card {
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.news-card:hover {
+    border-left-color: #22c55e;
+    transform: translateX(10px);
+    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading Spinner */
+.champion-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #22c55e;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+    .hero-gradient {
+        background-attachment: scroll;
+    }
+    
+    .champion-card:hover {
+        transform: translateY(-5px) scale(1.01);
+    }
+    
+    .team-card:hover {
+        transform: scale(1.02);
+    }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+    .float-animation,
+    .trophy-glow,
+    .championship-badge::before {
+        animation: none;
+    }
+    
+    .champion-card:hover,
+    .team-card:hover {
+        transform: none;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .champion-card {
+        background-color: rgba(30, 41, 59, 0.8);
+    }
+    
+    .news-card {
+        background-color: rgba(30, 41, 59, 0.6);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .hero-gradient,
+    .float-animation,
+    .trophy-glow {
+        background: none !important;
+        animation: none !important;
+    }
+    
+    .btn-champion {
+        background: #22c55e !important;
+        color: #fff !important;
+    }
+}

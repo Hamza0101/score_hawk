@@ -1,30 +1,34 @@
 {% load static %}
 <!-- Top Bar -->
-<div class="bg-slate-900 text-white py-2 hidden md:block">
+<div class="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-3 hidden md:block">
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-center text-sm">
-            <div class="flex items-center space-x-6">
-                <div class="flex items-center space-x-2">
-                    <i class="fas fa-envelope text-cricket-gold"></i>
-                    <span>info@championscricket.com</span>
-                </div>
+            <div class="flex items-center space-x-8">
                 <div class="flex items-center space-x-2">
                     <i class="fas fa-phone text-cricket-gold"></i>
-                    <span>+1 (555) 123-4567</span>
+                    <span>+1 (555) CHAMPIONS</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-envelope text-cricket-gold"></i>
+                    <span>info@championscc.com</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-map-marker-alt text-cricket-gold"></i>
+                    <span>Champions Stadium, Cricket City</span>
                 </div>
             </div>
             <div class="flex items-center space-x-4">
-                <span class="text-gray-300">Follow Us:</span>
-                <a href="#" class="text-gray-300 hover:text-cricket-gold transition-colors duration-300">
+                <span class="text-cricket-gold font-semibold">Follow Champions:</span>
+                <a href="#" class="hover:text-cricket-gold transition-colors duration-300 transform hover:scale-110">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="#" class="text-gray-300 hover:text-cricket-gold transition-colors duration-300">
+                <a href="#" class="hover:text-cricket-gold transition-colors duration-300 transform hover:scale-110">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a href="#" class="text-gray-300 hover:text-cricket-gold transition-colors duration-300">
+                <a href="#" class="hover:text-cricket-gold transition-colors duration-300 transform hover:scale-110">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="#" class="text-gray-300 hover:text-cricket-gold transition-colors duration-300">
+                <a href="#" class="hover:text-cricket-gold transition-colors duration-300 transform hover:scale-110">
                     <i class="fab fa-youtube"></i>
                 </a>
             </div>
@@ -37,13 +41,14 @@
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-center py-4">
             <!-- Logo -->
-            <div class="flex items-center space-x-3">
-                {% load static %}
-                <img src="{% static 'images/logo.svg' %}" alt="Score Hawk Logo" class="w-12 h-12 object-contain">
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <img src="{% static 'images/fyp_logo.jpeg' %}" alt="Score Hawk Logo" class="w-14 h-14">
+                </div>
                 <div>
-                     <h1 class="text-2xl font-bold text-slate-900">Score Hawk</h1>
-                     <p class="text-sm text-cricket-blue font-medium">Cricket Scores</p>
-                 </div>
+                    <h1 class="text-3xl font-bold bg-gradient-to-r from-cricket-primary to-cricket-secondary bg-clip-text text-transparent">SCORE</h1>
+                    <p class="text-sm text-cricket-secondary font-semibold tracking-wide">HAWK</p>
+                </div>
             </div>
             
             <!-- Mobile menu button -->
@@ -54,36 +59,36 @@
             </button>
 
             <!-- Desktop menu -->
-            <div class="hidden lg:flex space-x-8">
-                <a href="/" class="text-slate-900 hover:text-cricket-blue transition-all duration-200 transform hover:scale-105 flex items-center space-x-1 font-medium">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="hidden lg:flex space-x-2">
+                <a href="/" class="group px-4 py-2 text-slate-700 hover:text-cricket-primary font-semibold transition-all duration-300 flex items-center space-x-2 rounded-lg hover:bg-gray-50">
+                    <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                     </svg>
-                    <span>Home</span>
+                    <span>HOME</span>
                 </a>
-                <a href="/matches/" class="text-slate-900 hover:text-cricket-blue transition-all duration-200 transform hover:scale-105 flex items-center space-x-1 font-medium">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <a href="/matches/" class="group px-4 py-2 text-slate-700 hover:text-cricket-primary font-semibold transition-all duration-300 flex items-center space-x-2 rounded-lg hover:bg-gray-50">
+                    <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>
-                    <span>Matches</span>
+                    <span>MATCHES</span>
                 </a>
-                <a href="/news/" class="text-slate-900 hover:text-cricket-blue transition-all duration-200 transform hover:scale-105 flex items-center space-x-1 font-medium">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <a href="/news/" class="group px-4 py-2 text-slate-700 hover:text-cricket-primary font-semibold transition-all duration-300 flex items-center space-x-2 rounded-lg hover:bg-gray-50">
+                    <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2"></path>
                     </svg>
-                    <span>News</span>
+                    <span>NEWS</span>
                 </a>
-                <a href="/rankings/" class="text-slate-900 hover:text-cricket-blue transition-all duration-200 transform hover:scale-105 flex items-center space-x-1 font-medium">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <a href="/rankings/" class="group px-4 py-2 text-slate-700 hover:text-cricket-primary font-semibold transition-all duration-300 flex items-center space-x-2 rounded-lg hover:bg-gray-50">
+                    <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                     </svg>
-                    <span>Rankings</span>
+                    <span>RANKINGS</span>
                 </a>
-                <a href="/players/" class="text-white hover:text-blue-200 transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <a href="/players/" class="group px-4 py-2 text-slate-700 hover:text-cricket-primary font-semibold transition-all duration-300 flex items-center space-x-2 rounded-lg hover:bg-gray-50">
+                    <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                     </svg>
-                    <span>Players</span>
+                    <span>PLAYERS</span>
                 </a>
                 
                 <!-- Authentication Links -->
@@ -134,7 +139,7 @@
                         </svg>
                         <span>Login</span>
                     </a>
-                    <a href="{% url 'accounts:register' %}" class="bg-white text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:scale-105 px-4 py-2 rounded-md font-medium flex items-center space-x-1">
+                    <a href="{% url 'accounts:register' %}" class="bg-cricket-secondary text-white hover:bg-orange-500 transition-all duration-200 transform hover:scale-105 px-4 py-2 rounded-md font-medium flex items-center space-x-1">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
                         </svg>

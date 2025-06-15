@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" class="w-full h-full">
+  <defs>
+    <linearGradient id="stadiumGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a365d;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#2d5a87;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a365d;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="fieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#16a34a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#15803d;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0284c7;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="lightGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0.8" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Sky Background -->
+  <rect width="1920" height="1080" fill="url(#skyGradient)"/>
+  
+  <!-- Stadium Structure -->
+  <ellipse cx="960" cy="900" rx="800" ry="180" fill="url(#stadiumGradient)"/>
+  <rect x="160" y="720" width="1600" height="180" fill="url(#stadiumGradient)"/>
+  
+  <!-- Stadium Lights -->
+  <circle cx="300" cy="650" r="25" fill="url(#lightGradient)"/>
+  <circle cx="600" cy="630" r="25" fill="url(#lightGradient)"/>
+  <circle cx="960" cy="620" r="30" fill="url(#lightGradient)"/>
+  <circle cx="1320" cy="630" r="25" fill="url(#lightGradient)"/>
+  <circle cx="1620" cy="650" r="25" fill="url(#lightGradient)"/>
+  
+  <!-- Cricket Field -->
+  <ellipse cx="960" cy="800" rx="600" ry="200" fill="url(#fieldGradient)"/>
+  
+  <!-- Cricket Pitch -->
+  <rect x="930" y="750" width="60" height="100" fill="#8b5a2b" rx="5"/>
+  
+  <!-- Wickets -->
+  <g id="wickets">
+    <rect x="945" y="745" width="2" height="15" fill="#654321"/>
+    <rect x="950" y="745" width="2" height="15" fill="#654321"/>
+    <rect x="955" y="745" width="2" height="15" fill="#654321"/>
+    <rect x="943" y="743" width="18" height="2" fill="#654321"/>
+  </g>
+  
+  <!-- Pat Cummins Figure -->
+  <g id="patCummins" transform="translate(800, 400)">
+    <!-- Body -->
+    <ellipse cx="80" cy="180" rx="35" ry="60" fill="#ffd700"/> <!-- Australian Jersey -->
+    
+    <!-- Arms -->
+    <ellipse cx="50" cy="160" rx="15" ry="40" fill="#ffd700" transform="rotate(-20 50 160)"/>
+    <ellipse cx="110" cy="160" rx="15" ry="40" fill="#ffd700" transform="rotate(20 110 160)"/>
+    
+    <!-- Legs -->
+    <ellipse cx="65" cy="250" rx="12" ry="35" fill="#ffffff"/>
+    <ellipse cx="95" cy="250" rx="12" ry="35" fill="#ffffff"/>
+    
+    <!-- Head -->
+    <circle cx="80" cy="120" r="25" fill="#fdbcb4"/>
+    
+    <!-- Hair -->
+    <path d="M 55 105 Q 80 95 105 105 Q 100 115 80 120 Q 60 115 55 105" fill="#8b4513"/>
+    
+    <!-- Eyes -->
+    <circle cx="75" cy="118" r="2" fill="#000"/>
+    <circle cx="85" cy="118" r="2" fill="#000"/>
+    
+    <!-- Nose -->
+    <ellipse cx="80" cy="125" rx="1" ry="3" fill="#f4a460"/>
+    
+    <!-- Mouth -->
+    <path d="M 76 130 Q 80 133 84 130" stroke="#000" stroke-width="1" fill="none"/>
+    
+    <!-- Captain's Armband -->
+    <rect x="45" y="150" width="8" height="20" fill="#00ff00" rx="2"/>
+    <text x="49" y="162" font-family="Arial" font-size="6" fill="#000" text-anchor="middle">C</text>
+  </g>
+  
+  <!-- World Cup Trophy -->
+  <g id="worldCupTrophy" transform="translate(1100, 500)">
+    <!-- Trophy Base -->
+    <rect x="0" y="80" width="60" height="20" fill="#ffd700" rx="5"/>
+    <rect x="10" y="70" width="40" height="15" fill="#ffd700" rx="3"/>
+    
+    <!-- Trophy Stem -->
+    <rect x="25" y="40" width="10" height="40" fill="#ffd700"/>
+    
+    <!-- Trophy Cup -->
+    <ellipse cx="30" cy="30" rx="20" ry="15" fill="#ffd700"/>
+    <ellipse cx="30" cy="25" rx="18" ry="12" fill="#ffed4e"/>
+    
+    <!-- Trophy Handles -->
+    <ellipse cx="10" cy="30" rx="5" ry="8" fill="none" stroke="#ffd700" stroke-width="3"/>
+    <ellipse cx="50" cy="30" rx="5" ry="8" fill="none" stroke="#ffd700" stroke-width="3"/>
+    
+    <!-- Trophy Details -->
+    <text x="30" y="35" font-family="Arial" font-size="8" fill="#b8860b" text-anchor="middle">2023</text>
+    <text x="30" y="90" font-family="Arial" font-size="6" fill="#b8860b" text-anchor="middle">WORLD CUP</text>
+  </g>
+  
+  <!-- Cricket Ball -->
+  <g id="cricketBall" transform="translate(600, 600)">
+    <circle cx="0" cy="0" r="15" fill="#dc2626"/>
+    <path d="M -10 -8 Q 0 -5 10 -8" stroke="#ffffff" stroke-width="2" fill="none"/>
+    <path d="M -10 8 Q 0 5 10 8" stroke="#ffffff" stroke-width="2" fill="none"/>
+  </g>
+  
+  <!-- Australian Flag Elements -->
+  <g id="australianFlag" transform="translate(1400, 200)">
+    <rect x="0" y="0" width="120" height="60" fill="#012169"/>
+    <rect x="0" y="0" width="60" height="30" fill="#012169"/>
+    <!-- Union Jack simplified -->
+    <path d="M 0 0 L 60 30 M 60 0 L 0 30" stroke="#ffffff" stroke-width="3"/>
+    <path d="M 30 0 L 30 30 M 0 15 L 60 15" stroke="#ffffff" stroke-width="5"/>
+    <path d="M 30 0 L 30 30 M 0 15 L 60 15" stroke="#dc143c" stroke-width="3"/>
+    
+    <!-- Southern Cross Stars -->
+    <polygon points="80,10 82,15 87,15 83,18 85,23 80,20 75,23 77,18 73,15 78,15" fill="#ffffff"/>
+    <polygon points="95,20 97,25 102,25 98,28 100,33 95,30 90,33 92,28 88,25 93,25" fill="#ffffff"/>
+    <polygon points="85,35 87,40 92,40 88,43 90,48 85,45 80,48 82,43 78,40 83,40" fill="#ffffff"/>
+    <polygon points="105,40 107,45 112,45 108,48 110,53 105,50 100,53 102,48 98,45 103,45" fill="#ffffff"/>
+  </g>
+  
+  <!-- Victory Text -->
+  <g id="victoryText">
+    <text x="960" y="150" font-family="Arial Black" font-size="48" fill="#ffd700" text-anchor="middle" stroke="#000" stroke-width="2">WORLD CUP CHAMPIONS 2023</text>
+    <text x="960" y="200" font-family="Arial" font-size="32" fill="#ffffff" text-anchor="middle">PAT CUMMINS - CAPTAIN</text>
+  </g>
+  
+  <!-- Crowd Silhouettes -->
+  <g id="crowd" opacity="0.6">
+    <rect x="0" y="650" width="1920" height="150" fill="#1a1a1a"/>
+    <circle cx="100" cy="680" r="8" fill="#333"/>
+    <circle cx="120" cy="675" r="10" fill="#333"/>
+    <circle cx="140" cy="685" r="7" fill="#333"/>
+    <circle cx="200" cy="670" r="9" fill="#333"/>
+    <circle cx="220" cy="680" r="8" fill="#333"/>
+    <circle cx="300" cy="675" r="10" fill="#333"/>
+    <circle cx="1600" cy="680" r="8" fill="#333"/>
+    <circle cx="1620" cy="675" r="10" fill="#333"/>
+    <circle cx="1640" cy="685" r="7" fill="#333"/>
+    <circle cx="1700" cy="670" r="9" fill="#333"/>
+    <circle cx="1720" cy="680" r="8" fill="#333"/>
+    <circle cx="1800" cy="675" r="10" fill="#333"/>
+  </g>
+  
+  <!-- Celebration Confetti -->
+  <g id="confetti" opacity="0.8">
+    <rect x="200" y="300" width="4" height="4" fill="#ffd700" transform="rotate(45 202 302)"/>
+    <rect x="400" y="250" width="4" height="4" fill="#dc2626" transform="rotate(30 402 252)"/>
+    <rect x="600" y="200" width="4" height="4" fill="#22c55e" transform="rotate(60 602 202)"/>
+    <rect x="800" y="180" width="4" height="4" fill="#3b82f6" transform="rotate(15 802 182)"/>
+    <rect x="1000" y="220" width="4" height="4" fill="#ffd700" transform="rotate(75 1002 222)"/>
+    <rect x="1200" y="280" width="4" height="4" fill="#dc2626" transform="rotate(45 1202 282)"/>
+    <rect x="1400" y="320" width="4" height="4" fill="#22c55e" transform="rotate(90 1402 322)"/>
+    <rect x="1600" y="260" width="4" height="4" fill="#3b82f6" transform="rotate(30 1602 262)"/>
+  </g>
+</svg>

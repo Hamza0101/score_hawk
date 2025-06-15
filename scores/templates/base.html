@@ -4,23 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Score Hawk{% endblock %}</title>
+    <title>{% block title %}Champions Cricket Club - Where Legends Are Born{% endblock %}</title>
+    <meta name="description" content="{% block description %}Join Champions Cricket Club, the most prestigious cricket institution with a legacy of excellence. Professional coaching, world-class facilities, and championship-winning teams.{% endblock %}">
+    <meta name="keywords" content="champions cricket club, cricket club, professional cricket, cricket coaching, cricket training, cricket championship, cricket excellence">
+    <meta name="author" content="Champions Cricket Club">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/background.css' %}">
+    <link rel="stylesheet" href="{% static 'css/champions.css' %}">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0f172a',
-                        secondary: '#1e293b',
-                        accent: '#3b82f6',
-                        cricket: {
-                            green: '#16a34a',
-                            gold: '#f59e0b',
-                            blue: '#2563eb'
-                        }
+                        'cricket-primary': '#22c55e',
+                        'cricket-secondary': '#f59e0b',
+                        'cricket-accent': '#16a34a',
+                        'cricket-dark': '#15803d'
                     },
                     fontFamily: {
                         'sans': ['Inter', 'system-ui', 'sans-serif']
@@ -64,69 +65,125 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white">
-        <div class="container mx-auto px-4 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <!-- Logo and Description -->
-                <div class="md:col-span-2">
-                    <div class="flex items-center space-x-3 mb-4">
-                        {% load static %}
-                        <img src="{% static 'images/logo.svg' %}" alt="Score Hawk Logo" class="w-10 h-10 object-contain">
-                        <h3 class="text-2xl font-bold">Score Hawk</h3>
+    <footer class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <!-- Brand Section -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-4 mb-8">
+                        <div class="relative">
+                            <div class="w-16 h-16 bg-gradient-to-br from-cricket-secondary to-orange-500 rounded-full flex items-center justify-center shadow-xl">
+                                <i class="fas fa-trophy text-3xl text-white"></i>
+                            </div>
+                            <div class="absolute -top-1 -right-1 w-8 h-8 bg-cricket-primary rounded-full flex items-center justify-center">
+                                <i class="fas fa-star text-sm text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold text-white">ELITE</h3>
+                            <p class="text-cricket-secondary font-bold tracking-wide">CRICKET CLUB</p>
+                        </div>
                     </div>
-                    <p class="text-gray-300 mb-4 leading-relaxed">
-                        Your ultimate destination for cricket scores, statistics, and comprehensive coverage of the world's most beloved sport.
+                    <p class="text-gray-300 mb-8 leading-relaxed max-w-lg text-lg">
+                        Where legends are born and champions are made. Join the most prestigious cricket club with a legacy of excellence spanning over three decades of cricket mastery.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-cricket-blue rounded-full flex items-center justify-center transition-colors duration-300">
-                            <i class="fab fa-facebook-f text-white"></i>
+                        <a href="#" class="bg-gradient-to-r from-cricket-secondary to-orange-500 hover:shadow-xl text-black p-4 rounded-full transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-facebook-f text-lg"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-cricket-blue rounded-full flex items-center justify-center transition-colors duration-300">
-                            <i class="fab fa-twitter text-white"></i>
+                        <a href="#" class="bg-gradient-to-r from-cricket-accent to-cricket-dark hover:shadow-xl text-white p-4 rounded-full transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-twitter text-lg"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-cricket-blue rounded-full flex items-center justify-center transition-colors duration-300">
-                            <i class="fab fa-instagram text-white"></i>
+                        <a href="#" class="bg-gradient-to-r from-cricket-primary to-green-600 hover:shadow-xl text-white p-4 rounded-full transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-instagram text-lg"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-cricket-blue rounded-full flex items-center justify-center transition-colors duration-300">
-                            <i class="fab fa-youtube text-white"></i>
+                        <a href="#" class="bg-gradient-to-r from-red-500 to-red-600 hover:shadow-xl text-white p-4 rounded-full transition-all duration-300 transform hover:scale-110">
+                            <i class="fab fa-youtube text-lg"></i>
                         </a>
                     </div>
                 </div>
                 
                 <!-- Quick Links -->
                 <div>
-                    <h4 class="text-lg font-semibold mb-4 text-cricket-gold">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="/" class="text-gray-300 hover:text-white transition-colors duration-300">Home</a></li>
-                        <li><a href="/matches/" class="text-gray-300 hover:text-white transition-colors duration-300">Live Matches</a></li>
-                        <li><a href="/rankings/" class="text-gray-300 hover:text-white transition-colors duration-300">Rankings</a></li>
-                        <li><a href="/players/" class="text-gray-300 hover:text-white transition-colors duration-300">Players</a></li>
-                        <li><a href="/news/" class="text-gray-300 hover:text-white transition-colors duration-300">News</a></li>
+                    <h4 class="text-2xl font-bold text-white mb-8 flex items-center space-x-2">
+                        <i class="fas fa-link text-cricket-gold"></i>
+                        <span>Quick Links</span>
+                    </h4>
+                    <ul class="space-y-4">
+                        <li><a href="/" class="text-gray-300 hover:text-cricket-secondary transition-all duration-300 flex items-center space-x-3 group">
+                            <i class="fas fa-home text-cricket-secondary group-hover:scale-110 transition-transform"></i>
+                            <span class="group-hover:translate-x-1 transition-transform">Home</span>
+                        </a></li>
+                        <li><a href="/matches/" class="text-gray-300 hover:text-cricket-secondary transition-all duration-300 flex items-center space-x-3 group">
+                            <i class="fas fa-trophy text-cricket-secondary group-hover:scale-110 transition-transform"></i>
+                            <span class="group-hover:translate-x-1 transition-transform">Matches</span>
+                        </a></li>
+                        <li><a href="/rankings/" class="text-gray-300 hover:text-cricket-secondary transition-all duration-300 flex items-center space-x-3 group">
+                            <i class="fas fa-chart-line text-cricket-secondary group-hover:scale-110 transition-transform"></i>
+                            <span class="group-hover:translate-x-1 transition-transform">Rankings</span>
+                        </a></li>
+                        <li><a href="/players/" class="text-gray-300 hover:text-cricket-secondary transition-all duration-300 flex items-center space-x-3 group">
+                            <i class="fas fa-users text-cricket-secondary group-hover:scale-110 transition-transform"></i>
+                            <span class="group-hover:translate-x-1 transition-transform">Players</span>
+                        </a></li>
+                        <li><a href="/news/" class="text-gray-300 hover:text-cricket-secondary transition-all duration-300 flex items-center space-x-3 group">
+                            <i class="fas fa-newspaper text-cricket-secondary group-hover:scale-110 transition-transform"></i>
+                            <span class="group-hover:translate-x-1 transition-transform">News</span>
+                        </a></li>
                     </ul>
                 </div>
                 
                 <!-- Contact Info -->
                 <div>
-                    <h4 class="text-lg font-semibold mb-4 text-cricket-gold">Contact</h4>
-                    <div class="space-y-3">
-                        <div class="flex items-center space-x-3">
-                            <i class="fas fa-envelope text-cricket-blue"></i>
-                            <span class="text-gray-300">info@championscricket.com</span>
+                    <h4 class="text-2xl font-bold text-white mb-8 flex items-center space-x-2">
+                        <i class="fas fa-phone text-cricket-gold"></i>
+                        <span>Contact Us</span>
+                    </h4>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4 group">
+                            <div class="w-10 h-10 bg-cricket-secondary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i class="fas fa-envelope text-black"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-semibold">Email</p>
+                                <p class="text-gray-300">info@elitecc.com</p>
+                            </div>
                         </div>
-                        <div class="flex items-center space-x-3">
-                            <i class="fas fa-phone text-cricket-blue"></i>
-                            <span class="text-gray-300">+1 (555) 123-4567</span>
+                        <div class="flex items-start space-x-4 group">
+                            <div class="w-10 h-10 bg-cricket-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-semibold">Phone</p>
+                                <p class="text-gray-300">+1 (555) ELITE</p>
+                            </div>
                         </div>
-                        <div class="flex items-center space-x-3">
-                            <i class="fas fa-map-marker-alt text-cricket-blue"></i>
-                            <span class="text-gray-300">Cricket Stadium, Sports City</span>
+                        <div class="flex items-start space-x-4 group">
+                            <div class="w-10 h-10 bg-cricket-accent rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-semibold">Address</p>
+                                <p class="text-gray-300">Elite Stadium<br>Cricket City, EC 67890</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
-                <p class="text-gray-400">&copy; 2024 Score Hawk. All rights reserved. | Designed with passion for cricket.</p>
+            <!-- Copyright -->
+            <div class="border-t border-gray-700 pt-12 mt-16">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-6 md:mb-0 text-center md:text-left">
+                        © 2024 Elite Cricket Club. All rights reserved. | Where legends are born and champions are made. 🏆
+                    </p>
+                    <div class="flex flex-wrap justify-center md:justify-end space-x-6 text-sm">
+                        <a href="#" class="text-gray-400 hover:text-cricket-secondary transition-colors duration-300 hover:underline">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-cricket-secondary transition-colors duration-300 hover:underline">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-cricket-secondary transition-colors duration-300 hover:underline">Membership</a>
+                        <a href="#" class="text-gray-400 hover:text-cricket-secondary transition-colors duration-300 hover:underline">Coaching</a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>

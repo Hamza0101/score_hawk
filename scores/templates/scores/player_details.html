@@ -1,30 +1,105 @@
 {% extends 'base.html' %}
 
+{% block title %}{{ player_info.name }} - Elite Cricket Club{% endblock %}
+
 {% block content %}
-<div class="container max-w-6xl mx-auto px-4 py-8">
-    {% if player_info %}
-    <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
-        <div class="bg-blue-600 px-6 py-4">
-            <h2 class="text-2xl font-bold text-white">{{ player_info.name }}</h2>
+<div class="container mx-auto px-4 py-8">
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-cricket-primary to-cricket-accent rounded-2xl p-8 mb-8 text-white">
+        <div class="text-center">
+            <h1 class="text-5xl font-bold mb-4">
+                <i class="fas fa-user-circle mr-3"></i>
+                Player Profile
+            </h1>
+            <p class="text-xl opacity-90 max-w-2xl mx-auto">
+                Detailed statistics and career information for cricket players.
+            </p>
         </div>
-        <div class="p-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="space-y-4">
-                    <h4 class="text-xl font-semibold text-gray-800 mb-4">Personal Information</h4>
-                    <div class="space-y-3">
-                        <p class="flex items-center text-gray-700"><span class="font-medium w-32">Intl. Team:</span> {{ player_info.intlTeam }}</p>
-                        <p class="flex items-center text-gray-700"><span class="font-medium w-32">Role:</span> {{ player_info.role }}</p>
-                        <p class="flex items-center text-gray-700"><span class="font-medium w-32">Batting Style:</span> {{ player_info.bat }}</p>
-                        <p class="flex items-center text-gray-700"><span class="font-medium w-32">Bowling Style:</span> {{ player_info.bowl }}</p>
-                        <p class="flex items-center text-gray-700"><span class="font-medium w-32">Teams:</span> {{ player_info.teams }}</p>
+    </div>
+
+    {% if player_info %}
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 mb-8">
+        <!-- Player Header -->
+        <div class="bg-gradient-to-r from-cricket-primary to-cricket-accent px-8 py-8">
+            <div class="flex items-center space-x-8">
+                {% if player_info.image %}
+                <img src="{{ player_info.image }}" alt="{{ player_info.name }}" class="w-32 h-32 rounded-full border-4 border-white shadow-xl">
+                {% else %}
+                <div class="w-32 h-32 rounded-full bg-white bg-opacity-20 flex items-center justify-center border-4 border-white shadow-xl">
+                    <i class="fas fa-user text-white text-4xl"></i>
+                </div>
+                {% endif %}
+                <div>
+                    <h1 class="text-4xl font-bold text-white mb-4">{{ player_info.name }}</h1>
+                    <div class="flex flex-wrap gap-6 text-white opacity-90">
+                        <span class="bg-white bg-opacity-20 px-3 py-2 rounded-lg flex items-center">
+                            <i class="fas fa-flag mr-2"></i>{{ player_info.intlTeam }}
+                        </span>
+                        <span class="bg-white bg-opacity-20 px-3 py-2 rounded-lg flex items-center">
+                            <i class="fas fa-user-tag mr-2"></i>{{ player_info.role }}
+                        </span>
+                        {% if player_info.bat %}
+                        <span class="bg-white bg-opacity-20 px-3 py-2 rounded-lg flex items-center">
+                            <i class="fas fa-baseball-ball mr-2"></i>{{ player_info.bat }}
+                        </span>
+                        {% endif %}
+                        {% if player_info.bowl %}
+                        <span class="bg-white bg-opacity-20 px-3 py-2 rounded-lg flex items-center">
+                            <i class="fas fa-bowling-ball mr-2"></i>{{ player_info.bowl }}
+                        </span>
+                        {% endif %}
                     </div>
                 </div>
-                <div class="space-y-4">
-                    <h4 class="text-xl font-semibold text-gray-800 mb-4">Career Details</h4>
-                    <div class="space-y-3">
-                        <p class="flex items-center text-gray-700"><span class="font-medium w-32">Date of Birth:</span> {{ player_info.dob }}</p>
-                        <p class="flex items-center text-gray-700"><span class="font-medium w-32">Birth Place:</span> {{ player_info.birthPlace }}</p>
-                        <p class="flex items-center text-gray-700"><span class="font-medium w-32">Intl. Debut:</span> {{ player_info.intlDebut }}</p>
+            </div>
+        </div>
+        <div class="p-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 border border-green-100">
+                    <h4 class="text-xl font-bold text-slate-800 mb-6 flex items-center">
+                        <i class="fas fa-user text-cricket-primary mr-3"></i>
+                        Personal Information
+                    </h4>
+                    <div class="space-y-4">
+                        <p class="flex items-center text-slate-700">
+                            <span class="font-bold text-cricket-primary w-32">Intl. Team:</span> 
+                            <span class="bg-white px-3 py-1 rounded-lg shadow-sm">{{ player_info.intlTeam }}</span>
+                        </p>
+                        <p class="flex items-center text-slate-700">
+                            <span class="font-bold text-cricket-primary w-32">Role:</span> 
+                            <span class="bg-white px-3 py-1 rounded-lg shadow-sm">{{ player_info.role }}</span>
+                        </p>
+                        <p class="flex items-center text-slate-700">
+                            <span class="font-bold text-cricket-primary w-32">Batting Style:</span> 
+                            <span class="bg-white px-3 py-1 rounded-lg shadow-sm">{{ player_info.bat }}</span>
+                        </p>
+                        <p class="flex items-center text-slate-700">
+                            <span class="font-bold text-cricket-primary w-32">Bowling Style:</span> 
+                            <span class="bg-white px-3 py-1 rounded-lg shadow-sm">{{ player_info.bowl }}</span>
+                        </p>
+                        <p class="flex items-center text-slate-700">
+                            <span class="font-bold text-cricket-primary w-32">Teams:</span> 
+                            <span class="bg-white px-3 py-1 rounded-lg shadow-sm">{{ player_info.teams }}</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-r from-orange-50 to-yellow-50 rounded-xl p-6 border border-orange-100">
+                    <h4 class="text-xl font-bold text-slate-800 mb-6 flex items-center">
+                        <i class="fas fa-calendar-alt text-cricket-secondary mr-3"></i>
+                        Career Details
+                    </h4>
+                    <div class="space-y-4">
+                        <p class="flex items-center text-slate-700">
+                            <span class="font-bold text-cricket-primary w-32">Date of Birth:</span> 
+                            <span class="bg-white px-3 py-1 rounded-lg shadow-sm">{{ player_info.dob }}</span>
+                        </p>
+                        <p class="flex items-center text-slate-700">
+                            <span class="font-bold text-cricket-primary w-32">Birth Place:</span> 
+                            <span class="bg-white px-3 py-1 rounded-lg shadow-sm">{{ player_info.birthPlace }}</span>
+                        </p>
+                        <p class="flex items-center text-slate-700">
+                            <span class="font-bold text-cricket-primary w-32">Intl. Debut:</span> 
+                            <span class="bg-white px-3 py-1 rounded-lg shadow-sm">{{ player_info.intlDebut }}</span>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -32,27 +107,31 @@
     </div>
 
     {% if batting_stats %}
-    <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
-        <div class="bg-blue-600 px-6 py-4">
-            <h3 class="text-xl font-bold text-white">Batting Statistics</h3>
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8 border border-gray-100">
+        <div class="bg-gradient-to-r from-cricket-primary to-cricket-accent px-8 py-6">
+            <h3 class="text-2xl font-bold text-white flex items-center">
+                <i class="fas fa-baseball-ball mr-3"></i>
+                Batting Statistics
+            </h3>
         </div>
-        <div class="p-6 overflow-x-auto">
-            <table class="min-w-full divide-y divide-gray-200">
-                <thead>
-                    <tr class="bg-gray-50">
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Format</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Matches</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Innings</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Runs</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Average</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Strike Rate</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Highest</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">100s</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">50s</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">4s</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">6s</th>
-                    </tr>
-                </thead>
+        <div class="p-8 overflow-x-auto">
+            <div class="rounded-lg border border-gray-200 overflow-hidden">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead>
+                        <tr class="bg-gradient-to-r from-cricket-primary to-cricket-accent">
+                            <th class="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">Format</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">Matches</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">Innings</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">Runs</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">Average</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">Strike Rate</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">Highest</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">100s</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">50s</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">4s</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">6s</th>
+                        </tr>
+                    </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                     {% for format, stats in batting_stats.items %}
                     <tr class="{% if forloop.counter|divisibleby:2 %}bg-gray-50{% endif %} hover:bg-gray-100">
@@ -71,63 +150,75 @@
                     {% endfor %}
                 </tbody>
             </table>
+            </div>
         </div>
     </div>
     {% endif %}
 
     {% if bowling_stats %}
-    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-        <div class="bg-blue-600 px-6 py-4">
-            <h3 class="text-xl font-bold text-white">Bowling Statistics</h3>
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+        <div class="bg-gradient-to-r from-cricket-secondary to-orange-500 px-8 py-6">
+            <h3 class="text-2xl font-bold text-black flex items-center">
+                <i class="fas fa-bowling-ball mr-3"></i>
+                Bowling Statistics
+            </h3>
         </div>
-        <div class="p-6 overflow-x-auto">
-            <table class="min-w-full divide-y divide-gray-200">
-                <thead>
-                    <tr class="bg-gray-50">
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Format</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Matches</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Innings</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Balls</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Runs</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Maidens</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Wickets</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Average</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Economy</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">SR</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">BBI</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">BBM</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">4W</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">5W</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">10W</th>
-                    </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                    {% for format, stats in bowling_stats.items %}
-                    <tr class="{% if forloop.counter|divisibleby:2 %}bg-gray-50{% endif %} hover:bg-gray-100">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ format }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ stats.matches|default:'-' }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ stats.innings|default:'-' }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ stats.balls|default:'-' }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ stats.runs|default:'-' }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ stats.maidens|default:'-' }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ stats.wickets|default:'-' }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ stats.avg|default:'-' }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ stats.eco|default:'-' }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ stats.sr|default:'-' }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ stats.bbi|default:'-/-' }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ stats.bbm|default:'-/-' }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ stats.four_wickets|default:'0' }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ stats.five_wickets|default:'0' }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ stats.ten_wickets|default:'0' }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+        <div class="p-8 overflow-x-auto">
+            <div class="rounded-lg border border-gray-200 overflow-hidden">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead>
+                        <tr class="bg-gradient-to-r from-cricket-secondary to-orange-500">
+                            <th class="px-6 py-4 text-left text-sm font-bold text-black uppercase tracking-wider">Format</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-black uppercase tracking-wider">Matches</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-black uppercase tracking-wider">Innings</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-black uppercase tracking-wider">Balls</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-black uppercase tracking-wider">Runs</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-black uppercase tracking-wider">Maidens</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-black uppercase tracking-wider">Wickets</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-black uppercase tracking-wider">Average</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-black uppercase tracking-wider">Economy</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-black uppercase tracking-wider">SR</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-black uppercase tracking-wider">BBI</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-black uppercase tracking-wider">BBM</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-black uppercase tracking-wider">4W</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-black uppercase tracking-wider">5W</th>
+                            <th class="px-6 py-4 text-left text-sm font-bold text-black uppercase tracking-wider">10W</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        {% for format, stats in bowling_stats.items %}
+                        <tr class="{% if forloop.counter|divisibleby:2 %}bg-gradient-to-r from-green-50 to-orange-50{% endif %} hover:bg-gradient-to-r hover:from-cricket-primary/10 hover:to-cricket-accent/10 transition-all duration-200">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-cricket-primary">{{ format }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ stats.matches|default:'-' }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ stats.innings|default:'-' }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ stats.balls|default:'-' }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ stats.runs|default:'-' }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ stats.maidens|default:'-' }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ stats.wickets|default:'-' }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ stats.avg|default:'-' }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ stats.eco|default:'-' }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ stats.sr|default:'-' }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ stats.bbi|default:'-/-' }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ stats.bbm|default:'-/-' }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ stats.four_wickets|default:'0' }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ stats.five_wickets|default:'0' }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ stats.ten_wickets|default:'0' }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     {% endif %}
     {% else %}
-    <p class="text-center text-gray-600">Player information not found.</p>
+    <div class="text-center py-16">
+        <div class="bg-gradient-to-r from-cricket-primary/10 to-cricket-accent/10 rounded-xl p-8 max-w-md mx-auto">
+            <i class="fas fa-user-slash text-6xl text-cricket-secondary mb-4"></i>
+            <h3 class="text-xl font-bold text-cricket-primary mb-2">Player Not Found</h3>
+            <p class="text-gray-600">The requested player information could not be found in our database.</p>
+        </div>
+    </div>
     {% endif %}
 </div>
 {% endblock %}

@@ -1,45 +1,88 @@
 {% extends 'base.html' %}
 
+{% block title %}Players - Elite Cricket Club{% endblock %}
+
 {% block content %}
-<div class="max-w-7xl mx-auto">
-    <h1 class="text-3xl font-bold text-gray-800 mb-8">Player Search</h1>
+<div class="container mx-auto px-4 py-8">
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-cricket-primary to-cricket-accent rounded-2xl p-8 mb-8 text-white">
+        <div class="text-center">
+            <h1 class="text-5xl font-bold mb-4">
+                <i class="fas fa-users mr-3"></i>
+                Cricket Players
+            </h1>
+            <p class="text-xl opacity-90 max-w-2xl mx-auto">
+                Discover profiles, statistics, and achievements of cricket's finest players from around the world.
+            </p>
+        </div>
+    </div>
     
-    <div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
-        <div class="p-6">
-            <form method="GET" action="{% url 'players' %}" class="flex flex-col md:flex-row gap-4">
-                <input 
-                    type="text" 
-                    name="player_name" 
-                    value="{{ request.GET.player_name }}" 
-                    placeholder="Search for a player..."
-                    class="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-                <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                    </svg>
+    <!-- Search and Filter Section -->
+    <div class="mb-8">
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                <i class="fas fa-search text-cricket-secondary mr-2"></i>
+                Search & Filter Players
+            </h3>
+            <div class="flex flex-wrap gap-4 mb-4">
+                <input type="text" placeholder="Search players..." class="flex-1 px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cricket-primary focus:border-cricket-primary transition-all duration-300">
+                <button class="px-8 py-3 bg-gradient-to-r from-cricket-primary to-cricket-accent text-white rounded-lg hover:from-cricket-accent hover:to-cricket-primary transition-all duration-300 font-bold shadow-lg hover:shadow-xl">
+                    <i class="fas fa-search mr-2"></i>
                     Search
                 </button>
-            </form>
+            </div>
+            
+            <div class="flex flex-wrap gap-4">
+                <select class="px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cricket-primary focus:border-cricket-primary transition-all duration-300 bg-white">
+                    <option value="">All Countries</option>
+                    <option value="india">India</option>
+                    <option value="australia">Australia</option>
+                    <option value="england">England</option>
+                    <option value="pakistan">Pakistan</option>
+                    <option value="south-africa">South Africa</option>
+                </select>
+                
+                <select class="px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cricket-primary focus:border-cricket-primary transition-all duration-300 bg-white">
+                    <option value="">All Roles</option>
+                    <option value="batsman">Batsman</option>
+                    <option value="bowler">Bowler</option>
+                    <option value="all-rounder">All-rounder</option>
+                    <option value="wicket-keeper">Wicket-keeper</option>
+                </select>
+            </div>
         </div>
     </div>
 
     {% if players %}
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Players Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {% for player in players %}
-        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+            <div class="bg-gradient-to-r from-cricket-primary to-cricket-accent p-4">
+                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-3">
+                    <i class="fas fa-user text-cricket-primary text-2xl"></i>
+                </div>
+            </div>
             <div class="p-6">
-                <h2 class="text-xl font-semibold text-gray-800 mb-2">{{ player.name }}</h2>
+                <h2 class="text-2xl font-bold text-slate-800 mb-3 text-center">{{ player.name }}</h2>
                 {% if player.teamName %}
-                <p class="text-gray-600 mb-4">Team: {{ player.teamName }}</p>
+                <div class="flex items-center justify-center mb-4">
+                    <div class="bg-gradient-to-r from-gray-100 to-orange-100 rounded-full px-4 py-2 flex items-center">
+                        <i class="fas fa-shield-alt text-cricket-secondary mr-2"></i>
+                        <span class="text-slate-700 font-medium">{{ player.teamName }}</span>
+                    </div>
+                </div>
                 {% endif %}
                 <div class="flex justify-between items-center">
-                    <span class="text-sm text-gray-500">{{ player.role|default:"Player" }}</span>
-                    <a href="{% url 'player_details' player.id %}" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-gradient-to-br from-cricket-secondary to-orange-500 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-star text-white text-sm"></i>
+                        </div>
+                        <span class="text-slate-600 font-medium">{{ player.role|default:"Player" }}</span>
+                    </div>
+                    <a href="{% url 'player_details' player.id %}" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-cricket-primary to-cricket-accent text-white rounded-lg hover:from-cricket-accent hover:to-cricket-primary transition-all duration-300 font-bold shadow-lg hover:shadow-xl">
                         View Details
-                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
+                        <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
             </div>
@@ -47,8 +90,30 @@
         {% endfor %}
     </div>
     {% elif request.GET.player_name %}
-    <div class="text-center py-8">
-        <p class="text-gray-600 text-lg">No players found matching your search criteria.</p>
+    <!-- No Results Found -->
+    <div class="text-center py-16">
+        <div class="bg-white rounded-2xl shadow-xl p-12 border border-gray-100 max-w-md mx-auto">
+            <div class="w-24 h-24 bg-gradient-to-br from-cricket-primary to-cricket-accent rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-search text-white text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">No Players Found</h3>
+            <p class="text-slate-600 text-lg">
+                No players found matching your search criteria. Try adjusting your search terms.
+            </p>
+        </div>
+    </div>
+    {% else %}
+    <!-- Initial State -->
+    <div class="text-center py-16">
+        <div class="bg-white rounded-2xl shadow-xl p-12 border border-gray-100 max-w-md mx-auto">
+            <div class="w-24 h-24 bg-gradient-to-br from-cricket-primary to-cricket-accent rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-users text-white text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">Search for Players</h3>
+            <p class="text-slate-600 text-lg">
+                Use the search bar above to find cricket players and explore their profiles and statistics.
+            </p>
+        </div>
     </div>
     {% endif %}
 </div>

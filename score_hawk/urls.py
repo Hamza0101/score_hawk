@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 from scores import views
 
 urlpatterns = [
@@ -39,4 +41,9 @@ urlpatterns = [
     path('cache_stats/', views.cache_stats, name='cache_stats'),
     path('api/cache/refresh/', views.refresh_cache_api, name='refresh_cache_api'),
     path('api/cache/cleanup/', views.cleanup_cache_api, name='cleanup_cache_api'),
+    path('proxy/image/<str:image_id>/', views.proxy_image, name='proxy_image'),
 ]
+
+# Serve static files during development
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])

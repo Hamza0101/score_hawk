@@ -1,0 +1,141 @@
+<svg width="200" height="300" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="stumpGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F5DEB3"/>
+      <stop offset="50%" stop-color="#DEB887"/>
+      <stop offset="100%" stop-color="#D2B48C"/>
+    </linearGradient>
+    <linearGradient id="bailGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B4513"/>
+      <stop offset="50%" stop-color="#A0522D"/>
+      <stop offset="100%" stop-color="#8B4513"/>
+    </linearGradient>
+    <filter id="stumpShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.4)"/>
+    </filter>
+  </defs>
+  
+  <!-- Left Stump -->
+  <rect x="40" y="80" width="12" height="180" rx="6" ry="6" fill="url(#stumpGradient)" filter="url(#stumpShadow)">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0;0 -3;0 0"
+      dur="2s"
+      repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Middle Stump -->
+  <rect x="94" y="80" width="12" height="180" rx="6" ry="6" fill="url(#stumpGradient)" filter="url(#stumpShadow)">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0;0 -3;0 0"
+      dur="2s"
+      begin="0.3s"
+      repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Right Stump -->
+  <rect x="148" y="80" width="12" height="180" rx="6" ry="6" fill="url(#stumpGradient)" filter="url(#stumpShadow)">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0;0 -3;0 0"
+      dur="2s"
+      begin="0.6s"
+      repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Left Bail -->
+  <ellipse cx="67" cy="85" rx="15" ry="3" fill="url(#bailGradient)" filter="url(#stumpShadow)">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0;0 -2;0 0"
+      dur="2s"
+      repeatCount="indefinite"/>
+    <animate
+      attributeName="opacity"
+      values="1;0.8;1"
+      dur="3s"
+      repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Right Bail -->
+  <ellipse cx="121" cy="85" rx="15" ry="3" fill="url(#bailGradient)" filter="url(#stumpShadow)">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0;0 -2;0 0"
+      dur="2s"
+      begin="0.3s"
+      repeatCount="indefinite"/>
+    <animate
+      attributeName="opacity"
+      values="1;0.8;1"
+      dur="3s"
+      begin="0.5s"
+      repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Ground Line -->
+  <line x1="20" y1="260" x2="180" y2="260" stroke="#228B22" stroke-width="4" opacity="0.6">
+    <animate
+      attributeName="opacity"
+      values="0.6;0.8;0.6"
+      dur="4s"
+      repeatCount="indefinite"/>
+  </line>
+  
+  <!-- Grass Effect -->
+  <g stroke="#32CD32" stroke-width="2" opacity="0.4">
+    <line x1="25" y1="260" x2="25" y2="265">
+      <animate
+        attributeName="opacity"
+        values="0.4;0.7;0.4"
+        dur="3s"
+        repeatCount="indefinite"/>
+    </line>
+    <line x1="35" y1="260" x2="35" y2="268">
+      <animate
+        attributeName="opacity"
+        values="0.4;0.7;0.4"
+        dur="3s"
+        begin="0.5s"
+        repeatCount="indefinite"/>
+    </line>
+    <line x1="45" y1="260" x2="45" y2="266">
+      <animate
+        attributeName="opacity"
+        values="0.4;0.7;0.4"
+        dur="3s"
+        begin="1s"
+        repeatCount="indefinite"/>
+    </line>
+    <line x1="155" y1="260" x2="155" y2="265">
+      <animate
+        attributeName="opacity"
+        values="0.4;0.7;0.4"
+        dur="3s"
+        begin="1.5s"
+        repeatCount="indefinite"/>
+    </line>
+    <line x1="165" y1="260" x2="165" y2="268">
+      <animate
+        attributeName="opacity"
+        values="0.4;0.7;0.4"
+        dur="3s"
+        begin="2s"
+        repeatCount="indefinite"/>
+    </line>
+    <line x1="175" y1="260" x2="175" y2="266">
+      <animate
+        attributeName="opacity"
+        values="0.4;0.7;0.4"
+        dur="3s"
+        begin="2.5s"
+        repeatCount="indefinite"/>
+    </line>
+  </g>
+</svg>

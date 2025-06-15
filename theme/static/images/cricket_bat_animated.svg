@@ -1,0 +1,134 @@
+<svg width="120" height="400" viewBox="0 0 120 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="batGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B4513"/>
+      <stop offset="30%" stop-color="#D2691E"/>
+      <stop offset="70%" stop-color="#CD853F"/>
+      <stop offset="100%" stop-color="#8B4513"/>
+    </linearGradient>
+    <linearGradient id="handleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#654321"/>
+      <stop offset="50%" stop-color="#8B4513"/>
+      <stop offset="100%" stop-color="#654321"/>
+    </linearGradient>
+    <filter id="batShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="3" dy="3" stdDeviation="4" flood-color="rgba(0,0,0,0.3)"/>
+    </filter>
+  </defs>
+  
+  <!-- Cricket Bat Blade -->
+  <rect x="20" y="50" width="80" height="250" rx="40" ry="40" fill="url(#batGradient)" filter="url(#batShadow)">
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      values="-5 60 175;5 60 175;-5 60 175"
+      dur="4s"
+      repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Handle -->
+  <rect x="45" y="300" width="30" height="80" rx="15" ry="15" fill="url(#handleGradient)" filter="url(#batShadow)">
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      values="-5 60 175;5 60 175;-5 60 175"
+      dur="4s"
+      repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Grip Tape -->
+  <g fill="#2F4F4F" opacity="0.7">
+    <rect x="47" y="305" width="26" height="3">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="-5 60 175;5 60 175;-5 60 175"
+        dur="4s"
+        repeatCount="indefinite"/>
+    </rect>
+    <rect x="47" y="315" width="26" height="3">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="-5 60 175;5 60 175;-5 60 175"
+        dur="4s"
+        repeatCount="indefinite"/>
+    </rect>
+    <rect x="47" y="325" width="26" height="3">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="-5 60 175;5 60 175;-5 60 175"
+        dur="4s"
+        repeatCount="indefinite"/>
+    </rect>
+    <rect x="47" y="335" width="26" height="3">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="-5 60 175;5 60 175;-5 60 175"
+        dur="4s"
+        repeatCount="indefinite"/>
+    </rect>
+    <rect x="47" y="345" width="26" height="3">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="-5 60 175;5 60 175;-5 60 175"
+        dur="4s"
+        repeatCount="indefinite"/>
+    </rect>
+    <rect x="47" y="355" width="26" height="3">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="-5 60 175;5 60 175;-5 60 175"
+        dur="4s"
+        repeatCount="indefinite"/>
+    </rect>
+    <rect x="47" y="365" width="26" height="3">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="-5 60 175;5 60 175;-5 60 175"
+        dur="4s"
+        repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Wood Grain Lines -->
+  <g stroke="#654321" stroke-width="1" fill="none" opacity="0.4">
+    <path d="M 25 60 Q 60 80 95 60">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="-5 60 175;5 60 175;-5 60 175"
+        dur="4s"
+        repeatCount="indefinite"/>
+    </path>
+    <path d="M 25 120 Q 60 140 95 120">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="-5 60 175;5 60 175;-5 60 175"
+        dur="4s"
+        repeatCount="indefinite"/>
+    </path>
+    <path d="M 25 180 Q 60 200 95 180">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="-5 60 175;5 60 175;-5 60 175"
+        dur="4s"
+        repeatCount="indefinite"/>
+    </path>
+    <path d="M 25 240 Q 60 260 95 240">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="-5 60 175;5 60 175;-5 60 175"
+        dur="4s"
+        repeatCount="indefinite"/>
+    </path>
+  </g>
+</svg>

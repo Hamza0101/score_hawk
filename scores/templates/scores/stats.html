@@ -1,123 +1,297 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Cricket Statistics - Elite Cricket Club{% endblock %}
 
 {% block content %}
-<div class="container mx-auto px-4 py-8">
-    <!-- Format Selection -->
-    <div class="mb-6">
-        <div class="inline-flex rounded-md shadow-sm" role="group">
-            {% for type in match_types %}
-            <a href="{% url 'stats' %}?match_type={{ type.id }}" 
-               class="px-4 py-2 text-sm font-medium {% if match_type == type.id %}bg-blue-600 text-white{% else %}bg-white text-gray-700 hover:bg-gray-50{% endif %} border {% if forloop.first %}rounded-l-lg{% elif forloop.last %}rounded-r-lg{% endif %}">
-                {{ type.name }}
-            </a>
-            {% endfor %}
-        </div>
+<!-- Hero Section -->
+<section class="bg-gradient-to-r from-cricket-primary to-cricket-accent py-16">
+    <div class="container mx-auto px-4 text-center">
+        <h1 class="text-5xl font-bold text-white mb-4">
+            Cricket <span class="text-cricket-secondary">Statistics</span>
+        </h1>
+        <p class="text-xl text-green-100 max-w-2xl mx-auto">
+            Comprehensive cricket rankings and statistics from around the world
+        </p>
     </div>
+</section>
 
-    <!-- Team Rankings Section -->
-    <div class="mb-8">
-        <h2 class="text-2xl font-bold mb-4">Team Rankings</h2>
-        <div class="bg-white shadow-md rounded-lg overflow-hidden">
-            <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
-                    <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rank</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Team</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rating</th>
-                    </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                    {% for team in team_rankings %}
-                    <tr class="{% if forloop.counter|divisibleby:2 %}bg-gray-50{% endif %} hover:bg-gray-100">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ team.rank }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ team.name }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ team.rating }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+<section class="py-12 bg-gradient-to-br from-slate-50 to-gray-100">
+    <div class="container mx-auto px-4">
+        <!-- Format Selection -->
+        <div class="mb-12 text-center">
+            <h2 class="text-3xl font-bold text-slate-800 mb-8">Select Format</h2>
+            <div class="inline-flex bg-white rounded-2xl shadow-xl p-2 space-x-2">
+                {% for type in match_types %}
+                <a href="{% url 'stats' %}?match_type={{ type.id }}" 
+                   class="flex items-center space-x-2 px-6 py-3 rounded-xl transition-all duration-300 {% if match_type == type.id %}bg-gradient-to-r from-cricket-primary to-cricket-accent text-white shadow-lg transform scale-105{% else %}text-gray-600 hover:bg-gray-100 hover:text-cricket-primary{% endif %}">
+                    <i class="fas fa-cricket-ball"></i>
+                    <span class="font-semibold">{{ type.name }}</span>
+                </a>
+                {% endfor %}
+            </div>
         </div>
-    </div>
 
-    <!-- Batsmen Rankings Section -->
-    <div class="mb-8">
-        <h2 class="text-2xl font-bold mb-4">Batsmen Rankings</h2>
-        <div class="bg-white shadow-md rounded-lg overflow-hidden">
-            <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
-                    <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rank</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Player</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Country</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rating</th>
-                    </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                    {% for player in batsmen_rankings %}
-                    <tr class="{% if forloop.counter|divisibleby:2 %}bg-gray-50{% endif %} hover:bg-gray-100">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ player.rank }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ player.name }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ player.country }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ player.rating }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+        <!-- Team Rankings Section -->
+        <div class="mb-12">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-slate-800 mb-4">
+                    Team <span class="text-cricket-secondary">Rankings</span>
+                </h2>
+                <p class="text-gray-600">Current ICC team rankings</p>
+            </div>
+            <div class="bg-white shadow-xl rounded-2xl overflow-hidden">
+                <div class="bg-gradient-to-r from-cricket-primary to-cricket-accent px-6 py-4">
+                    <h3 class="text-xl font-bold text-white flex items-center">
+                        <i class="fas fa-trophy mr-3 text-cricket-secondary"></i>
+                        Team Rankings
+                    </h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gradient-to-r from-gray-50 to-gray-100">
+                            <tr>
+                                <th class="px-6 py-4 text-left text-sm font-bold text-cricket-primary uppercase tracking-wider">Rank</th>
+                                <th class="px-6 py-4 text-left text-sm font-bold text-cricket-primary uppercase tracking-wider">Team</th>
+                                <th class="px-6 py-4 text-left text-sm font-bold text-cricket-primary uppercase tracking-wider">Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-100">
+                            {% for team in team_rankings %}
+                            <tr class="hover:bg-gradient-to-r hover:from-green-50 hover:to-orange-50 transition-all duration-300 {% if forloop.counter <= 3 %}bg-gradient-to-r from-yellow-50 to-orange-50{% endif %}">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        {% if forloop.counter == 1 %}
+                                            <div class="w-8 h-8 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center mr-3">
+                                                <i class="fas fa-crown text-white text-sm"></i>
+                                            </div>
+                                        {% elif forloop.counter == 2 %}
+                                            <div class="w-8 h-8 bg-gradient-to-r from-gray-400 to-gray-500 rounded-full flex items-center justify-center mr-3">
+                                                <i class="fas fa-medal text-white text-sm"></i>
+                                            </div>
+                                        {% elif forloop.counter == 3 %}
+                                            <div class="w-8 h-8 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full flex items-center justify-center mr-3">
+                                                <i class="fas fa-award text-white text-sm"></i>
+                                            </div>
+                                        {% else %}
+                                            <div class="w-8 h-8 bg-gradient-to-r from-cricket-primary to-cricket-accent rounded-full flex items-center justify-center mr-3">
+                                                <span class="text-white text-sm font-bold">{{ team.rank }}</span>
+                                            </div>
+                                        {% endif %}
+                                        <span class="text-lg font-bold text-slate-800">{{ team.rank }}</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 bg-gradient-to-br from-cricket-secondary to-orange-500 rounded-full flex items-center justify-center mr-4">
+                                            <i class="fas fa-flag text-white"></i>
+                                        </div>
+                                        <span class="text-lg font-semibold text-slate-800">{{ team.name }}</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold bg-gradient-to-r from-cricket-primary to-cricket-accent text-white">
+                                        {{ team.rating }}
+                                    </span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <!-- Bowlers Rankings Section -->
-    <div class="mb-8">
-        <h2 class="text-2xl font-bold mb-4">Bowlers Rankings</h2>
-        <div class="bg-white shadow-md rounded-lg overflow-hidden">
-            <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
-                    <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rank</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Player</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Country</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rating</th>
-                    </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                    {% for player in bowlers_rankings %}
-                    <tr class="{% if forloop.counter|divisibleby:2 %}bg-gray-50{% endif %} hover:bg-gray-100">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ player.rank }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ player.name }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ player.country }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ player.rating }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+        <!-- Batsmen Rankings Section -->
+        <div class="mb-12">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-slate-800 mb-4">
+                    Batsmen <span class="text-cricket-secondary">Rankings</span>
+                </h2>
+                <p class="text-gray-600">Top batsmen in international cricket</p>
+            </div>
+            <div class="bg-white shadow-xl rounded-2xl overflow-hidden">
+                <div class="bg-gradient-to-r from-cricket-secondary to-orange-500 px-6 py-4">
+                    <h3 class="text-xl font-bold text-black flex items-center">
+                        <i class="fas fa-baseball-ball mr-3 text-white"></i>
+                        Batsmen Rankings
+                    </h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gradient-to-r from-gray-50 to-gray-100">
+                            <tr>
+                                <th class="px-6 py-4 text-left text-sm font-bold text-cricket-primary uppercase tracking-wider">Rank</th>
+                                <th class="px-6 py-4 text-left text-sm font-bold text-cricket-primary uppercase tracking-wider">Player</th>
+                                <th class="px-6 py-4 text-left text-sm font-bold text-cricket-primary uppercase tracking-wider">Country</th>
+                                <th class="px-6 py-4 text-left text-sm font-bold text-cricket-primary uppercase tracking-wider">Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-100">
+                            {% for player in batsmen_rankings %}
+                            <tr class="hover:bg-gradient-to-r hover:from-orange-50 hover:to-yellow-50 transition-all duration-300">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 bg-gradient-to-r from-cricket-secondary to-orange-500 rounded-full flex items-center justify-center mr-3">
+                                            <span class="text-white text-sm font-bold">{{ player.rank }}</span>
+                                        </div>
+                                        <span class="text-lg font-bold text-slate-800">{{ player.rank }}</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 bg-gradient-to-br from-cricket-primary to-cricket-accent rounded-full flex items-center justify-center mr-4">
+                                            <i class="fas fa-user text-white"></i>
+                                        </div>
+                                        <span class="text-lg font-semibold text-slate-800">{{ player.name }}</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
+                                        {{ player.country }}
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold bg-gradient-to-r from-cricket-secondary to-orange-500 text-black">
+                                        {{ player.rating }}
+                                    </span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <!-- All-rounders Rankings Section -->
-    <div class="mb-8">
-        <h2 class="text-2xl font-bold mb-4">All-rounders Rankings</h2>
-        <div class="bg-white shadow-md rounded-lg overflow-hidden">
-            <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
-                    <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rank</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Player</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Country</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rating</th>
-                    </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                    {% for player in allrounders_rankings %}
-                    <tr class="{% if forloop.counter|divisibleby:2 %}bg-gray-50{% endif %} hover:bg-gray-100">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ player.rank }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ player.name }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ player.country }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ player.rating }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+        <!-- Bowlers Rankings Section -->
+        <div class="mb-12">
+            <div class="text-center mb-8">
+                <h2 class="text-4xl font-bold text-slate-800 mb-4">
+                    <i class="fas fa-bowling-ball text-cricket-secondary mr-3"></i>
+                    Bowlers Rankings
+                </h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                    Discover the world's finest bowlers and their exceptional performances across all formats.
+                </p>
+            </div>
+            <div class="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100">
+                <div class="bg-gradient-to-r from-cricket-primary to-cricket-accent p-6">
+                    <h3 class="text-2xl font-bold text-white flex items-center">
+                        <i class="fas fa-trophy mr-3"></i>
+                        Top Bowlers
+                    </h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gradient-to-r from-gray-50 to-gray-100">
+                            <tr>
+                                <th class="px-6 py-4 text-left text-sm font-bold text-cricket-primary uppercase tracking-wider">Rank</th>
+                                <th class="px-6 py-4 text-left text-sm font-bold text-cricket-primary uppercase tracking-wider">Player</th>
+                                <th class="px-6 py-4 text-left text-sm font-bold text-cricket-primary uppercase tracking-wider">Country</th>
+                                <th class="px-6 py-4 text-left text-sm font-bold text-cricket-primary uppercase tracking-wider">Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-100">
+                            {% for player in bowlers_rankings %}
+                            <tr class="hover:bg-gradient-to-r hover:from-orange-50 hover:to-yellow-50 transition-all duration-300">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 bg-gradient-to-r from-cricket-secondary to-orange-500 rounded-full flex items-center justify-center mr-3">
+                                            <span class="text-white text-sm font-bold">{{ player.rank }}</span>
+                                        </div>
+                                        <span class="text-lg font-bold text-slate-800">{{ player.rank }}</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 bg-gradient-to-br from-cricket-primary to-cricket-accent rounded-full flex items-center justify-center mr-4">
+                                            <i class="fas fa-bowling-ball text-white"></i>
+                                        </div>
+                                        <span class="text-lg font-semibold text-slate-800">{{ player.name }}</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
+                                        {{ player.country }}
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold bg-gradient-to-r from-cricket-secondary to-orange-500 text-black">
+                                        {{ player.rating }}
+                                    </span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
+
+        <!-- All-rounders Rankings Section -->
+        <div class="mb-12">
+            <div class="text-center mb-8">
+                <h2 class="text-4xl font-bold text-slate-800 mb-4">
+                    <i class="fas fa-star text-cricket-secondary mr-3"></i>
+                    All-rounders Rankings
+                </h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                    Celebrate the versatile champions who excel in both batting and bowling across all formats.
+                </p>
+            </div>
+            <div class="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100">
+                <div class="bg-gradient-to-r from-cricket-primary to-cricket-accent p-6">
+                    <h3 class="text-2xl font-bold text-white flex items-center">
+                        <i class="fas fa-trophy mr-3"></i>
+                        Top All-rounders
+                    </h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gradient-to-r from-gray-50 to-gray-100">
+                            <tr>
+                                <th class="px-6 py-4 text-left text-sm font-bold text-cricket-primary uppercase tracking-wider">Rank</th>
+                                <th class="px-6 py-4 text-left text-sm font-bold text-cricket-primary uppercase tracking-wider">Player</th>
+                                <th class="px-6 py-4 text-left text-sm font-bold text-cricket-primary uppercase tracking-wider">Country</th>
+                                <th class="px-6 py-4 text-left text-sm font-bold text-cricket-primary uppercase tracking-wider">Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-100">
+                            {% for player in allrounders_rankings %}
+                            <tr class="hover:bg-gradient-to-r hover:from-orange-50 hover:to-yellow-50 transition-all duration-300">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 bg-gradient-to-r from-cricket-secondary to-orange-500 rounded-full flex items-center justify-center mr-3">
+                                            <span class="text-white text-sm font-bold">{{ player.rank }}</span>
+                                        </div>
+                                        <span class="text-lg font-bold text-slate-800">{{ player.rank }}</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 bg-gradient-to-br from-cricket-primary to-cricket-accent rounded-full flex items-center justify-center mr-4">
+                                            <i class="fas fa-star text-white"></i>
+                                        </div>
+                                        <span class="text-lg font-semibold text-slate-800">{{ player.name }}</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
+                                        {{ player.country }}
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold bg-gradient-to-r from-cricket-secondary to-orange-500 text-black">
+                                        {{ player.rating }}
+                                    </span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 </div>
 {% endblock %}
