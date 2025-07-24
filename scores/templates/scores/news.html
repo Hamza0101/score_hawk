@@ -33,26 +33,22 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {% for item in news_items %}
                     <article class="news-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
-                        {% if item.story.coverImage %}
-                            <div class="relative overflow-hidden">
-                                <img src="{% url 'proxy_image' item.story.coverImage.id %}" 
-                                     alt="{{ item.story.hline }}" 
-                                     class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                <div class="absolute top-4 right-4">
-                                    <span class="bg-cricket-secondary text-black px-3 py-1 rounded-full text-sm font-semibold">
-                                        <i class="fas fa-newspaper mr-1"></i>News
-                                    </span>
-                                </div>
-                            </div>
-                        {% else %}
-                            <div class="h-56 bg-gradient-to-br from-cricket-primary to-cricket-accent flex items-center justify-center">
+                        <div class="relative overflow-hidden">
+                            <div class="w-full h-56 bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center">
                                 <div class="text-center text-white">
-                                    <i class="fas fa-newspaper text-4xl mb-2 opacity-50"></i>
-                                    <p class="text-sm opacity-75">Cricket News</p>
+                                    <svg class="w-16 h-16 mx-auto mb-4 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd"></path>
+                                        <path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"></path>
+                                    </svg>
+                                    <p class="text-sm font-medium">Cricket News</p>
                                 </div>
                             </div>
-                        {% endif %}
+                            <div class="absolute top-4 right-4">
+                                <span class="bg-cricket-secondary text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                    <i class="fas fa-newspaper mr-1"></i>News
+                                </span>
+                            </div>
+                        </div>
                         
                         <div class="p-6">
                             <a href="{% url 'news_detail' item.story.id %}" class="block group-hover:text-cricket-primary transition-colors duration-300">

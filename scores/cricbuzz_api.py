@@ -222,7 +222,7 @@ def get_match_details(match_id, user=None, ip_address=None):
         
         # Get leanback data for detailed match statistics
         leanback_url = f"https://cricbuzz-cricket.p.rapidapi.com/mcenter/v1/{match_id}/leanback"
-        leanback_data = api_manager.make_request(leanback_url, user=user, ip_address=ip_address)
+        leanback_data = api_manager.make_request('/mcenter/v1/{}/leanback'.format(match_id))
         
         if not leanback_data:
             return match_info

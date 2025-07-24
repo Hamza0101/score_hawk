@@ -2,6 +2,7 @@ import requests
 import hashlib
 import json
 import time
+import os
 from datetime import timedelta
 from django.utils import timezone
 from django.core.cache import cache
@@ -17,7 +18,7 @@ class CricketAPIManager:
     BASE_URL = "https://cricbuzz-cricket.p.rapidapi.com"
     HEADERS = {
         'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        'x-rapidapi-key': '66ffd0f389mshca8c74e3d412ffap1b2f16jsn09bff14e9726'
+        'x-rapidapi-key': os.getenv('RAPIDAPI_KEY', '66ffd0f389mshca8c74e3d412ffap1b2f16jsn09bff14e9726')
     }
     
     # Cache durations for different endpoints (in minutes)
@@ -51,17 +52,23 @@ class CricketAPIManager:
                 return duration
         return self.CACHE_DURATIONS['default']  # Default 1 week
     
-    def _log_api_call(self, endpoint, method='GET', params=None, 
+    def _log_api_call(self, endpoint, params=None, 
                      response_status=None, response_time=None, 
                      success=False, error_message=''):
         """Log API call to database"""
         try:
+            import json
+            import hashlib
+            
+            params_str = json.dumps(params or {}, sort_keys=True)
+            request_hash = hashlib.md5(params_str.encode()).hexdigest()
+            
             APICallLog.objects.create(
                 endpoint=endpoint,
-                method=method,
-                parameters=params or {},
-                response_status=response_status,
-                response_time=response_time,
+                request_params=params_str,
+                request_hash=request_hash,
+                status_code=response_status or 0,
+                response_time=response_time or 0.0,
                 user=self.user,
                 ip_address=self.ip_address,
                 success=success,
@@ -78,8 +85,8 @@ class CricketAPIManager:
             # Check if cache is still valid (within 30 days)
             if cached.expires_at > timezone.now():
                 cached.hit_count += 1
-                cached.last_refreshed = timezone.now()
-                cached.save(update_fields=['hit_count', 'last_refreshed'])
+                cached.last_accessed = timezone.now()
+                cached.save(update_fields=['hit_count', 'last_accessed'])
                 logger.info(f"Cache hit for {cache_key} - expires at {cached.expires_at}, hit count: {cached.hit_count}")
                 return cached.response_data
             else:
@@ -106,8 +113,7 @@ class CricketAPIManager:
                 cache_key=cache_key,
                 defaults={
                     'endpoint': endpoint,
-                    'parameters': params or {},  # Store actual parameters for refresh
-                    'parameters_hash': params_hash,
+                    'request_params_hash': params_hash,
                     'response_data': data,
                     'expires_at': expires_at,
                     'hit_count': 0

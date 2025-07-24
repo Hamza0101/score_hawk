@@ -1,0 +1,2215 @@
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/macbook/www/score-hawk/scores/views.py", line 32, in home
+    news_items = get_cricket_news(user=user, ip_address=ip_address)
+  File "/Users/macbook/www/score-hawk/scores/cricbuzz_api.py", line 10, in get_cricket_news
+    data = api_manager.make_request('/news/v1/index', force_cache=False)
+  File "/Users/macbook/www/score-hawk/scores/api_manager.py", line 142, in make_request
+    cached_data = self._get_cached_response(cache_key)
+  File "/Users/macbook/www/score-hawk/scores/api_manager.py", line 77, in _get_cached_response
+    cached = CachedAPIResponse.objects.get(cache_key=cache_key)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 635, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1768, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'cache_key' into field. Choices are: created_at, endpoint, expires_at, hit_count, id, key, last_accessed, request_params_hash, response_data
+"GET / HTTP/1.1" 500 127788
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/macbook/www/score-hawk/scores/views.py", line 32, in home
+    news_items = get_cricket_news(user=user, ip_address=ip_address)
+  File "/Users/macbook/www/score-hawk/scores/cricbuzz_api.py", line 10, in get_cricket_news
+    data = api_manager.make_request('/news/v1/index', force_cache=False)
+  File "/Users/macbook/www/score-hawk/scores/api_manager.py", line 142, in make_request
+    cached_data = self._get_cached_response(cache_key)
+  File "/Users/macbook/www/score-hawk/scores/api_manager.py", line 77, in _get_cached_response
+    cached = CachedAPIResponse.objects.get(cache_key=cache_key)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 635, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1768, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'cache_key' into field. Choices are: created_at, endpoint, expires_at, hit_count, id, key, last_accessed, request_params_hash, response_data
+"GET / HTTP/1.1" 500 129834
+"GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 200 623
+"GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 200 2711
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 8941
+/Users/macbook/www/score-hawk/scores/api_manager.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 22, 2025 - 16:06:19
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/backends/sqlite3/base.py", line 354, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: scores_cachedapiresponse.key
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/macbook/www/score-hawk/scores/views.py", line 32, in home
+    news_items = get_cricket_news(user=user, ip_address=ip_address)
+  File "/Users/macbook/www/score-hawk/scores/cricbuzz_api.py", line 10, in get_cricket_news
+    data = api_manager.make_request('/news/v1/index', force_cache=False)
+  File "/Users/macbook/www/score-hawk/scores/api_manager.py", line 142, in make_request
+    cached_data = self._get_cached_response(cache_key)
+  File "/Users/macbook/www/score-hawk/scores/api_manager.py", line 77, in _get_cached_response
+    cached = CachedAPIResponse.objects.get(key=cache_key)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/backends/sqlite3/base.py", line 354, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: scores_cachedapiresponse.key
+"GET / HTTP/1.1" 500 155000
+/Users/macbook/www/score-hawk/scores/api_manager.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 22, 2025 - 16:07:29
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/backends/sqlite3/base.py", line 354, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: scores_cachedapiresponse.key
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/macbook/www/score-hawk/scores/views.py", line 32, in home
+    news_items = get_cricket_news(user=user, ip_address=ip_address)
+  File "/Users/macbook/www/score-hawk/scores/cricbuzz_api.py", line 10, in get_cricket_news
+    data = api_manager.make_request('/news/v1/index', force_cache=False)
+  File "/Users/macbook/www/score-hawk/scores/api_manager.py", line 142, in make_request
+    cached_data = self._get_cached_response(cache_key)
+  File "/Users/macbook/www/score-hawk/scores/api_manager.py", line 77, in _get_cached_response
+    cached = CachedAPIResponse.objects.get(key=cache_key)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/backends/sqlite3/base.py", line 354, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: scores_cachedapiresponse.key
+"GET / HTTP/1.1" 500 154998
+/Users/macbook/www/score-hawk/scores/api_manager.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 22, 2025 - 16:08:05
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/macbook/www/score-hawk/scores/views.py", line 32, in home
+    news_items = get_cricket_news(user=user, ip_address=ip_address)
+  File "/Users/macbook/www/score-hawk/scores/cricbuzz_api.py", line 10, in get_cricket_news
+    data = api_manager.make_request('/news/v1/index', force_cache=False)
+  File "/Users/macbook/www/score-hawk/scores/api_manager.py", line 142, in make_request
+    cached_data = self._get_cached_response(cache_key)
+  File "/Users/macbook/www/score-hawk/scores/api_manager.py", line 77, in _get_cached_response
+    cached = CachedAPIResponse.objects.get(cache_key=cache_key)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 635, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1768, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'cache_key' into field. Choices are: created_at, endpoint, expires_at, hit_count, id, key, last_accessed, request_params_hash, response_data
+"GET / HTTP/1.1" 500 129852
+/Users/macbook/www/score-hawk/scores/models.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 22, 2025 - 16:08:22
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/lib/python3.13/threading.py", line 1043, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+  File "/usr/local/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/lib/python3.13/threading.py", line 994, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+    ~~^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/management/commands/runserver.py", line 134, in inner_run
+    self.check(display_num_errors=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/management/base.py", line 563, in check
+    raise SystemCheckError(msg)
+django.core.management.base.SystemCheckError: SystemCheckError: System check identified some issues:
+
+ERRORS:
+<class 'scores.admin.CachedAPIResponseAdmin'>: (admin.E108) The value of 'list_display[0]' refers to 'key', which is not a callable or attribute of 'CachedAPIResponseAdmin', or an attribute, method, or field on 'scores.CachedAPIResponse'.
+
+System check identified 1 issue (0 silenced).
+/Users/macbook/www/score-hawk/scores/admin.py changed, reloading.
+Performing system checks...
+
+Watching for file changes with StatReloader
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+"GET / HTTP/1.1" 200 66083
+"GET /static/css/background.css HTTP/1.1" 200 931
+"GET /static/css/champions.css HTTP/1.1" 200 5767
+"GET /static/images/fyp_logo.jpeg HTTP/1.1" 200 99794
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+"GET /news/ HTTP/1.1" 200 64825
+"GET /weather/ HTTP/1.1" 200 30191
+"GET /venues/ HTTP/1.1" 200 32217
+"GET /venues/ HTTP/1.1" 200 32217
+"GET /players/ HTTP/1.1" 200 28279
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+Cache expired for api_cache__stats_v1_rankings_allrounders_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:37.582374+00:00, returning cached data
+Cache hit for /stats/v1/rankings/allrounders - using cached data
+"GET /rankings/ HTTP/1.1" 200 45997
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+"GET /news/ HTTP/1.1" 200 64825
+Not Found: /proxy/image/716020/
+"GET /proxy/image/716020/ HTTP/1.1" 404 15
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+"GET /matches/ HTTP/1.1" 200 386826
+Not Found: /proxy/image/716036/
+"GET /proxy/image/716036/ HTTP/1.1" 404 15
+Not Found: /proxy/image/716049/
+"GET /proxy/image/716049/ HTTP/1.1" 404 15
+Not Found: /proxy/image/716054/
+"GET /proxy/image/716054/ HTTP/1.1" 404 15
+Not Found: /proxy/image/716067/
+- Broken pipe from ('127.0.0.1', 60428)
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+"GET / HTTP/1.1" 200 66083
+Not Found: /proxy/image/716017/
+- Broken pipe from ('127.0.0.1', 60435)
+- Broken pipe from ('127.0.0.1', 60449)
+- Broken pipe from ('127.0.0.1', 60443)
+- Broken pipe from ('127.0.0.1', 60430)
+- Broken pipe from ('127.0.0.1', 60433)
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+"GET /matches/ HTTP/1.1" 200 386826
+Failed to log API call: APICallLog() got unexpected keyword arguments: 'method', 'parameters', 'response_status'
+Failed to cache response: Invalid field name(s) for model CachedAPIResponse: 'parameters', 'parameters_hash'.
+Internal Server Error: /matches/117080/
+Traceback (most recent call last):
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/macbook/www/score-hawk/scores/views.py", line 181, in match_details
+    match_data = get_match_details(match_id, user=user, ip_address=ip_address)
+  File "/Users/macbook/www/score-hawk/scores/cricbuzz_api.py", line 225, in get_match_details
+    leanback_data = api_manager.make_request(leanback_url, user=user, ip_address=ip_address)
+TypeError: CricketAPIManager.make_request() got an unexpected keyword argument 'user'
+"GET /matches/117080/ HTTP/1.1" 500 80221
+"GET /chat/ HTTP/1.1" 200 39389
+"GET /chat HTTP/1.1" 301 0
+"GET /chat/ HTTP/1.1" 200 39389
+Error in chatbot response: 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+"POST /api/chat/ HTTP/1.1" 200 430
+Error in chatbot response: 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+"POST /api/chat/ HTTP/1.1" 200 429
+Error in chatbot response: 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+"POST /api/chat/ HTTP/1.1" 200 430
+Error in chatbot response: 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+"POST /api/chat/ HTTP/1.1" 200 430
+Error in chatbot response: 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+"POST /api/chat/ HTTP/1.1" 200 430
+Error in quick query: CricketAPIManager.make_request() got an unexpected keyword argument 'user'
+"GET /api/quick-query/?type=team_rankings HTTP/1.1" 200 143
+Error in chatbot response: 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+"POST /api/chat/ HTTP/1.1" 200 430
+Error in chatbot response: 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+"POST /api/chat/ HTTP/1.1" 200 429
+Error in chatbot response: 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+"POST /api/chat/ HTTP/1.1" 200 430
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 22, 2025 - 16:09:15
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 39389
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 22, 2025 - 16:14:43
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 39389
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 22, 2025 - 16:14:59
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 39389
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 22, 2025 - 16:16:42
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 39389
+/Users/macbook/www/score-hawk/scores/cricbuzz_api.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 22, 2025 - 16:16:49
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 39389
+"GET /chat/ HTTP/1.1" 200 40079
+"GET /chat/ HTTP/1.1" 200 40079
+"GET /chat/ HTTP/1.1" 200 40079
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+Error in chatbot response: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your-ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+"POST /api/chat/ HTTP/1.1" 200 430
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+Error in chatbot response: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your-ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+"POST /api/chat/ HTTP/1.1" 200 430
+"GET /chat/ HTTP/1.1" 200 40079
+"GET /chat/ HTTP/1.1" 200 40079
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 22, 2025 - 16:17:08
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 40079
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 22, 2025 - 16:24:00
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 40079
+Forbidden (CSRF cookie not set.): /api/chat/
+"POST /api/chat/ HTTP/1.1" 403 3045
+/Users/macbook/www/score-hawk/scores/views.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 22, 2025 - 16:51:22
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 40079
+"GET /chat/ HTTP/1.1" 200 36054
+/Users/macbook/www/score-hawk/scores/api_manager.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 22, 2025 - 17:58:17
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 36054
+/Users/macbook/www/score-hawk/scores/models.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 08:25:14
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 36054
+/Users/macbook/www/score-hawk/scores/api_manager.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 08:41:05
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 36054
+/Users/macbook/www/score-hawk/scores/api_manager.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 08:42:17
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 36054
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/macbook/www/score-hawk/scores/views.py", line 33, in home
+    news_items = get_cricket_news(user=user, ip_address=ip_address)
+  File "/Users/macbook/www/score-hawk/scores/cricbuzz_api.py", line 10, in get_cricket_news
+    data = api_manager.make_request('/news/v1/index', force_cache=False)
+  File "/Users/macbook/www/score-hawk/scores/api_manager.py", line 147, in make_request
+    cached_data = self._get_cached_response(cache_key)
+  File "/Users/macbook/www/score-hawk/scores/api_manager.py", line 83, in _get_cached_response
+    cached = CachedAPIResponse.objects.get(key=cache_key)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 635, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1768, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'key' into field. Choices are: cache_key, created_at, endpoint, expires_at, hit_count, id, last_accessed, request_params_hash, response_data
+"GET / HTTP/1.1" 500 136617
+/Users/macbook/www/score-hawk/scores/views.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 08:42:33
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/macbook/www/score-hawk/scores/views.py", line 33, in home
+    news_items = get_cricket_news(user=user, ip_address=ip_address)
+  File "/Users/macbook/www/score-hawk/scores/cricbuzz_api.py", line 10, in get_cricket_news
+    data = api_manager.make_request('/news/v1/index', force_cache=False)
+  File "/Users/macbook/www/score-hawk/scores/api_manager.py", line 147, in make_request
+    cached_data = self._get_cached_response(cache_key)
+  File "/Users/macbook/www/score-hawk/scores/api_manager.py", line 83, in _get_cached_response
+    cached = CachedAPIResponse.objects.get(key=cache_key)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 635, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1768, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'key' into field. Choices are: cache_key, created_at, endpoint, expires_at, hit_count, id, last_accessed, request_params_hash, response_data
+"GET / HTTP/1.1" 500 136774
+/Users/macbook/www/score-hawk/scores/api_manager.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 08:52:16
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+"GET / HTTP/1.1" 200 62748
+"GET /chat/ HTTP/1.1" 200 36054
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+Error in chatbot response: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your-ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+"POST /api/chat/ HTTP/1.1" 200 430
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+Error in chatbot response: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your-ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+"POST /api/chat/ HTTP/1.1" 200 430
+"GET /chat/ HTTP/1.1" 200 36792
+"GET /chat/ HTTP/1.1" 200 36730
+"GET /chat/ HTTP/1.1" 200 36730
+"GET /chat/ HTTP/1.1" 200 36740
+"GET /chat/ HTTP/1.1" 200 36752
+"GET /chat/ HTTP/1.1" 200 36752
+"GET /chat/ HTTP/1.1" 200 36752
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+"GET / HTTP/1.1" 200 63446
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+"GET / HTTP/1.1" 200 63446
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+"GET / HTTP/1.1" 200 63446
+"GET /chat/ HTTP/1.1" 200 36752
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+Error in chatbot response: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your-ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+"POST /api/chat/ HTTP/1.1" 200 430
+"GET /chat/ HTTP/1.1" 200 38695
+"GET /chat/ HTTP/1.1" 200 38701
+"GET /chat/ HTTP/1.1" 200 38690
+"GET /chat/ HTTP/1.1" 200 38630
+"GET /chat/ HTTP/1.1" 200 38651
+"GET /chat/ HTTP/1.1" 200 38697
+"GET /chat/ HTTP/1.1" 200 38697
+"GET /chat/ HTTP/1.1" 200 38697
+"GET /chat/ HTTP/1.1" 200 38697
+"GET /chat/ HTTP/1.1" 200 38697
+"GET /chat/ HTTP/1.1" 200 38697
+"GET /chat/ HTTP/1.1" 200 38739
+"GET /chat/ HTTP/1.1" 200 38739
+"GET /chat/ HTTP/1.1" 200 38739
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+"GET / HTTP/1.1" 200 63446
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+"GET /matches/ HTTP/1.1" 200 384189
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+"GET /news/ HTTP/1.1" 200 64825
+"GET /players/ HTTP/1.1" 200 25642
+"GET /chat/ HTTP/1.1" 200 38739
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+Error in chatbot response: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your-ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+"POST /api/chat/ HTTP/1.1" 200 430
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+Error in chatbot response: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your-ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+"POST /api/chat/ HTTP/1.1" 200 430
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+Error in chatbot response: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your-ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+"POST /api/chat/ HTTP/1.1" 200 430
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+Error in chatbot response: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your-ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+"POST /api/chat/ HTTP/1.1" 200 430
+Error in quick query: CricketAPIManager.make_request() got an unexpected keyword argument 'user'
+"GET /api/quick-query/?type=live_scores HTTP/1.1" 200 143
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+Error in chatbot response: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your-ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+"POST /api/chat/ HTTP/1.1" 200 430
+"GET /players/ HTTP/1.1" 200 25642
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+Cache expired for api_cache__stats_v1_rankings_allrounders_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:37.582374+00:00, returning cached data
+Cache hit for /stats/v1/rankings/allrounders - using cached data
+"GET /rankings/ HTTP/1.1" 200 43360
+Cache expired for api_cache__stats_v1_rankings_teams_aca88f6566a79add39dd0937f3ce5376 - last updated 2025-06-13 19:38:29.190922+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_aca88f6566a79add39dd0937f3ce5376 - last updated 2025-06-13 19:38:30.251170+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_aca88f6566a79add39dd0937f3ce5376 - last updated 2025-06-13 19:38:32.103897+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+Cache expired for api_cache__stats_v1_rankings_allrounders_aca88f6566a79add39dd0937f3ce5376 - last updated 2025-06-13 19:38:32.937049+00:00, returning cached data
+Cache hit for /stats/v1/rankings/allrounders - using cached data
+"GET /rankings/?format_type=odi HTTP/1.1" 200 46723
+Cache expired for api_cache__stats_v1_rankings_teams_252ae3084ee75af3ad2b1bcbae78a63d - last updated 2025-06-13 19:38:30.288890+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_252ae3084ee75af3ad2b1bcbae78a63d - last updated 2025-06-13 19:38:32.248904+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_252ae3084ee75af3ad2b1bcbae78a63d - last updated 2025-06-13 19:38:32.959227+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+Cache expired for api_cache__stats_v1_rankings_allrounders_252ae3084ee75af3ad2b1bcbae78a63d - last updated 2025-06-13 19:38:33.903438+00:00, returning cached data
+Cache hit for /stats/v1/rankings/allrounders - using cached data
+"GET /rankings/?format_type=t20 HTTP/1.1" 200 80375
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+"GET /news/ HTTP/1.1" 200 64825
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+"GET /matches/ HTTP/1.1" 200 384189
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+"GET / HTTP/1.1" 200 63446
+"GET /players/ HTTP/1.1" 200 25642
+"GET /accounts/register/ HTTP/1.1" 200 29030
+"GET /accounts/register/ HTTP/1.1" 200 29030
+"GET /accounts/login/ HTTP/1.1" 200 27558
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+"GET / HTTP/1.1" 200 63446
+"GET /players/ HTTP/1.1" 200 25642
+"GET /chat/ HTTP/1.1" 200 38739
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 08:55:31
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 38739
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 12:18:23
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 38739
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 12:18:41
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 38739
+"POST /api/chat/ HTTP/1.1" 200 648
+"POST /api/chat/ HTTP/1.1" 200 646
+"GET /chat/ HTTP/1.1" 200 38739
+"GET /chat/ HTTP/1.1" 200 38759
+"GET /chat/ HTTP/1.1" 200 38785
+"POST /api/chat/ HTTP/1.1" 200 447
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+Error in quick query: slice(None, 5, None)
+"GET /api/quick-query/?type=live_scores HTTP/1.1" 200 89
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 12:19:50
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 38785
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+"GET /api/quick-query/?type=live_scores HTTP/1.1" 200 99
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+"GET /api/quick-query/?type=live_scores HTTP/1.1" 200 99
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/teams: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/teams
+"GET /api/quick-query/?type=team_rankings HTTP/1.1" 200 73
+"POST /api/chat/ HTTP/1.1" 200 649
+"POST /api/chat/ HTTP/1.1" 200 732
+"POST /api/chat/ HTTP/1.1" 200 649
+"POST /api/chat/ HTTP/1.1" 200 630
+"POST /api/chat/ HTTP/1.1" 200 648
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 12:25:00
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 38785
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 12:26:50
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 38785
+Initializing CricketChatbot with API key: None
+No valid Gemini API key found, using fallback responses
+Getting response for message: babar azam...
+No Gemini model available, using fallback responses
+"POST /api/chat/ HTTP/1.1" 200 649
+Initializing CricketChatbot with API key: None
+No valid Gemini API key found, using fallback responses
+Getting response for message: Hello, test Gemini connection...
+No Gemini model available, using fallback responses
+"POST /api/chat/ HTTP/1.1" 200 448
+/Users/macbook/www/score-hawk/score_hawk/settings.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 12:27:09
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 38785
+/Users/macbook/www/score-hawk/score_hawk/settings.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 12:30:21
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 38785
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: Hello, can you tell me about cricket?...
+Using Gemini model for response
+Making request to Gemini API
+Error in Gemini chatbot response: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+Falling back to predefined responses
+"POST /api/chat/ HTTP/1.1" 200 448
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 12:30:28
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 38785
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: What is cricket?...
+Using Gemini model for response
+Making request to Gemini API
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: baBAR AZAM...
+Using Gemini model for response
+Making request to Gemini API
+Error in Gemini chatbot response: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 53
+}
+]
+Falling back to predefined responses
+"POST /api/chat/ HTTP/1.1" 200 587
+Error in Gemini chatbot response: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 51
+}
+]
+Falling back to predefined responses
+"POST /api/chat/ HTTP/1.1" 200 650
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 12:31:03
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 38785
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: gill...
+Using Gemini model for response
+Making request to Gemini API
+/Users/macbook/www/score-hawk/scores/api_manager.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 12:32:26
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 38785
+/Users/macbook/www/score-hawk/scores/api_manager.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 12:34:07
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 38785
+/Users/macbook/www/score-hawk/scores/api_manager.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 12:34:13
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 38785
+/Users/macbook/www/score-hawk/scores/api_manager.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 12:34:24
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 38785
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: gill...
+Using Gemini model for response
+Making request to Gemini API
+"GET /chat/ HTTP/1.1" 200 38785
+Received Gemini response: Looking up information for Shubman Gill...  I can provide you with his batting stats, recent perform...
+"POST /api/chat/ HTTP/1.1" 200 683
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: can you tell me how many 100s have shubman gill...
+Using Gemini model for response
+Making request to Gemini API
+Received Gemini response: I can certainly help with that!  I'll need to access real-time data to get the exact number of centu...
+"POST /api/chat/ HTTP/1.1" 200 626
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: Explain the LBW rule in cricket...
+Using Gemini model for response
+Making request to Gemini API
+Received Gemini response: The LBW (Leg Before Wicket) rule in cricket dismisses a batsman if the ball would have hit the stump...
+"POST /api/chat/ HTTP/1.1" 200 785
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: can you tell me who was number 1 batsman in odis i...
+Using Gemini model for response
+Making request to Gemini API
+Received Gemini response: I don't have access to real-time, continuously updated rankings.  To find the number one ODI batsman...
+"POST /api/chat/ HTTP/1.1" 200 697
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 12:34:29
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 38785
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 12:40:20
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 38785
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: babar azam highest score...
+Using Gemini model for response
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/batsmen: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/batsmen
+Making request to Gemini API
+Received Gemini response: Babar Azam's highest ODI score is 158, achieved against Australia in 2022.  His highest Test score i...
+"POST /api/chat/ HTTP/1.1" 200 609
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: who was number 1 batsman in 2021...
+Using Gemini model for response
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/batsmen: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/batsmen
+Making request to Gemini API
+Received Gemini response: Determining the #1 batsman of 2021 depends on the ranking system used (e.g., ICC, ESPNcricinfo).  I ...
+"POST /api/chat/ HTTP/1.1" 200 740
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 12:40:46
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 38785
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 12:43:04
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 38785
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 12:43:48
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 38785
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 12:44:20
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 38785
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: What are the current live matches?...
+Using Gemini model for response
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+Making request to Gemini API
+Received Gemini response: Okay, let me check the current live matches for you.  (Please provide the "Current cricket data" so ...
+"POST /api/chat/ HTTP/1.1" 200 541
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 12:44:36
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 38785
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: What are the current live matches?...
+Using Gemini model for response
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+No cricket data fetched for this query
+Making request to Gemini API
+Received Gemini response: Please provide me with the current cricket data. I need that information to tell you what the curren...
+"POST /api/chat/ HTTP/1.1" 200 475
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 12:45:55
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: live matches...
+Using Gemini model for response
+Fetching live matches data for query: live matches
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+Recent matches data type: <class 'dict'>, keys: ['typeMatches', 'filters', 'appIndex', 'responseLastUpdated']
+No cricket data fetched for this query
+Making request to Gemini API
+Received Gemini response: Okay, let me access the current cricket data...  (Assuming I have access to a live data feed which I...
+"POST /api/chat/ HTTP/1.1" 200 1175
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 14:04:15
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: live matches...
+Using Gemini model for response
+Fetching live matches data for query: live matches
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+Recent matches data type: <class 'dict'>, keys: ['typeMatches', 'filters', 'appIndex', 'responseLastUpdated']
+Found 4 match types
+Processing match type 0: International
+Processing series 0
+Processing series 1
+Processing series 2
+Processing series 3
+Processing series 4
+Processing series 5
+Processing series 6
+Processing series 7
+Processing series 8
+Processing match type 1: League
+Processing series 0
+Processing series 1
+Processing series 2
+Processing series 3
+Processing series 4
+Processing series 5
+Processing series 6
+Processing match type 2: Domestic
+Processing series 0
+Processing series 1
+Processing match type 3: Women
+Processing series 0
+Processing series 1
+Processing series 2
+Processing series 3
+Processing series 4
+Processing series 5
+Found 129 total matches, 0 live matches
+Added cricket data to context: RECENT MATCHES: ENG vs WI (England won by 37 runs) at The Rose Bowl; WI vs ENG (England won by 4 wkts) at County Ground; ENG vs WI (England won by 21 runs) at Riverside Ground...
+Making request to Gemini API
+Received Gemini response: Hello!  Based on our current cricket data, England has just completed a very successful series again...
+"POST /api/chat/ HTTP/1.1" 200 985
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: Who are the top cricket teams?...
+Using Gemini model for response
+No cricket data fetched for this query
+Making request to Gemini API
+Received Gemini response: To answer your question about the top cricket teams, I need access to the current cricket data provi...
+"POST /api/chat/ HTTP/1.1" 200 697
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: team rankings...
+Using Gemini model for response
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/teams: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/teams
+No cricket data fetched for this query
+Making request to Gemini API
+Received Gemini response: Okay, I need the current cricket data to provide you with accurate team rankings.  Please provide me...
+"POST /api/chat/ HTTP/1.1" 200 612
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 14:33:45
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 14:35:02
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: What matches happened recently?...
+Using Gemini model for response
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Added cricket data to context for query: What matches happened recently?
+Making request to Gemini API
+Received Gemini response: Hi there!  Recently, there have been a series of matches between England and the West Indies.  Engla...
+"POST /api/chat/ HTTP/1.1" 200 918
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+"GET / HTTP/1.1" 200 63446
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 8941
+"GET /chat/ HTTP/1.1" 200 38785
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: who is babar azam...
+Using Gemini model for response
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/batsmen: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/batsmen
+Making request to Gemini API
+Received Gemini response: Babar Azam is a highly-rated Pakistani cricketer.  Unfortunately, I don't have access to specific re...
+"POST /api/chat/ HTTP/1.1" 200 803
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: whats babar azam satats...
+Using Gemini model for response
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/batsmen: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/batsmen
+Making request to Gemini API
+Gemini API rate limit exceeded: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 55
+}
+]
+Falling back to predefined responses
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/batsmen: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/batsmen
+"POST /api/chat/ HTTP/1.1" 200 650
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: What are the current live matches?...
+Using Gemini model for response
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+Added cricket data to context for query: What are the current live matches?
+Making request to Gemini API
+Gemini API rate limit exceeded: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 47
+}
+]
+Falling back to predefined responses
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+"POST /api/chat/ HTTP/1.1" 200 459
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: Who are the top batsmen in ODI cricket?...
+Using Gemini model for response
+Making request to Gemini API
+Gemini API rate limit exceeded: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 44
+}
+]
+Falling back to predefined responses
+"POST /api/chat/ HTTP/1.1" 200 650
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: Who are the top ODI batsmen?...
+Using Gemini model for response
+Making request to Gemini API
+Gemini API rate limit exceeded: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 31
+}
+]
+Falling back to predefined responses
+"POST /api/chat/ HTTP/1.1" 200 650
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: Explain the LBW rule...
+Using Gemini model for response
+Making request to Gemini API
+Gemini API rate limit exceeded: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 28
+}
+]
+Falling back to predefined responses
+"POST /api/chat/ HTTP/1.1" 200 733
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: Latest cricket news summary...
+Using Gemini model for response
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Added cricket data to context for query: Latest cricket news summary
+Making request to Gemini API
+Gemini API rate limit exceeded: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 24
+}
+]
+Falling back to predefined responses
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+"POST /api/chat/ HTTP/1.1" 200 510
+"GET /players/ HTTP/1.1" 200 25642
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+Cache expired for api_cache__stats_v1_rankings_allrounders_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:37.582374+00:00, returning cached data
+Cache hit for /stats/v1/rankings/allrounders - using cached data
+"GET /rankings/ HTTP/1.1" 200 43360
+"GET /players/ HTTP/1.1" 200 25642
+Failed to log API call: table scores_apicalllog has no column named request_params
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"GET /players/?q=babar HTTP/1.1" 200 37727
+"GET /proxy/image/182026/ HTTP/1.1" 200 1048
+"GET /proxy/image/153642/ HTTP/1.1" 200 4545
+"GET /proxy/image/155974/ HTTP/1.1" 200 1539
+"GET /proxy/image/616440/ HTTP/1.1" 200 1473
+Failed to log API call: table scores_apicalllog has no column named request_params
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to log API call: table scores_apicalllog has no column named request_params
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to log API call: table scores_apicalllog has no column named request_params
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to log API call: table scores_apicalllog has no column named request_params
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"GET /players/8991/ HTTP/1.1" 200 45950
+- Broken pipe from ('127.0.0.1', 64262)
+Failed to log API call: table scores_apicalllog has no column named request_params
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to log API call: table scores_apicalllog has no column named request_params
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"GET /players/8991/ HTTP/1.1" 200 45950
+"GET /players/ HTTP/1.1" 200 25642
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+Cache expired for api_cache__stats_v1_rankings_allrounders_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:37.582374+00:00, returning cached data
+Cache hit for /stats/v1/rankings/allrounders - using cached data
+"GET /rankings/ HTTP/1.1" 200 43360
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+"GET /news/ HTTP/1.1" 200 64825
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+"GET /matches/ HTTP/1.1" 200 384189
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+"GET / HTTP/1.1" 200 63446
+"GET /players/ HTTP/1.1" 200 25642
+"GET /accounts/login/ HTTP/1.1" 200 27558
+"GET /accounts/register/ HTTP/1.1" 200 29030
+"GET /accounts/register/ HTTP/1.1" 200 29030
+"POST /accounts/register/ HTTP/1.1" 302 0
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+"GET / HTTP/1.1" 200 64926
+Internal Server Error: /favorites/
+Traceback (most recent call last):
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/contrib/auth/decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/macbook/www/score-hawk/scores/views.py", line 283, in user_favorites
+    return render(request, 'scores/user_favorites.html', context)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: scores/user_favorites.html
+"GET /favorites/ HTTP/1.1" 500 90620
+Internal Server Error: /preferences/
+Traceback (most recent call last):
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/contrib/auth/decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/macbook/www/score-hawk/scores/views.py", line 494, in user_preferences
+    return render(request, 'scores/user_preferences.html', context)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: scores/user_preferences.html
+"GET /preferences/ HTTP/1.1" 500 89859
+"GET /accounts/profile/ HTTP/1.1" 200 35850
+"GET /players/ HTTP/1.1" 200 27122
+"GET /chat/ HTTP/1.1" 200 42577
+Internal Server Error: /chat/history/
+Traceback (most recent call last):
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/contrib/auth/decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/macbook/www/score-hawk/scores/views.py", line 467, in chat_history
+    return render(request, 'scores/chat_history.html', context)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: scores/chat_history.html
+"GET /chat/history/ HTTP/1.1" 500 89827
+Internal Server Error: /alerts/
+Traceback (most recent call last):
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/contrib/auth/decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/macbook/www/score-hawk/scores/views.py", line 564, in user_alerts
+    return render(request, 'scores/user_alerts.html', context)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: scores/user_alerts.html
+"GET /alerts/ HTTP/1.1" 500 89866
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: who is virat kohli...
+Using Gemini model for response
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/batsmen: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/batsmen
+Making request to Gemini API
+Gemini API rate limit exceeded: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 1
+}
+]
+Falling back to predefined responses
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/batsmen: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/batsmen
+"POST /api/chat/ HTTP/1.1" 200 650
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 14:36:01
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 42577
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 15:04:36
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 42577
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 15:15:32
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 42577
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 15:52:20
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 42577
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: brain lara...
+Using Gemini model for response
+Making request to Gemini API
+Gemini API rate limit exceeded: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 2
+}
+]
+Falling back to predefined responses
+"POST /api/chat/ HTTP/1.1" 200 650
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: who is brain lara...
+Using Gemini model for response
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/batsmen: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/batsmen
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/bowlers: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/bowlers
+Making request to Gemini API
+Gemini API rate limit exceeded: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 50
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 49
+}
+]
+Falling back to predefined responses
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/batsmen: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/batsmen
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/bowlers: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/bowlers
+"POST /api/chat/ HTTP/1.1" 200 650
+"GET /chat/ HTTP/1.1" 200 42577
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: who is shubman gill...
+Using Gemini model for response
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/batsmen: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/batsmen
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/bowlers: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/bowlers
+Making request to Gemini API
+Received Gemini response: I need some current cricket data to answer your questions about Shubman Gill and Bevis Goodman.  I d...
+"POST /api/chat/ HTTP/1.1" 200 705
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 23, 2025 - 15:52:35
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 42577
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 24, 2025 - 08:05:28
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 42577
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: Who is Virat Kohli?...
+Using Gemini model for response
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/batsmen: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/batsmen
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/teams: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/teams
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Added cricket data to context for query: Who is Virat Kohli?
+Making request to Gemini API
+Received Gemini response: Virat Kohli is arguably one of the greatest batsmen of all time, a modern legend of Indian cricket. ...
+"POST /api/chat/ HTTP/1.1" 200 2755
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: Tell me about MS Dhoni career...
+Using Gemini model for response
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/batsmen: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/batsmen
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/teams: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/teams
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Added cricket data to context for query: Tell me about MS Dhoni career
+Making request to Gemini API
+Received Gemini response: MS Dhoni's career is a captivating saga of unparalleled success in the world of cricket.  He's not j...
+"POST /api/chat/ HTTP/1.1" 200 2471
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: Explain the LBW rule in cricket...
+Using Gemini model for response
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/batsmen: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/batsmen
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/teams: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/teams
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Added cricket data to context for query: Explain the LBW rule in cricket
+Making request to Gemini API
+Received Gemini response: The Leg Before Wicket (LBW) rule in cricket is a method of dismissing a batsman.  It's a complex rul...
+"POST /api/chat/ HTTP/1.1" 200 2485
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: shubman gill...
+Using Gemini model for response
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/batsmen: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/batsmen
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/teams: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/teams
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Added cricket data to context for query: shubman gill
+Making request to Gemini API
+Received Gemini response: Okay, let's dive into those cricket personalities.  You've asked about Shubman Gill and Bevis Goodma...
+"POST /api/chat/ HTTP/1.1" 200 2672
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: who ois babr azam...
+Using Gemini model for response
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/batsmen: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/batsmen
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/teams: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/teams
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Added cricket data to context for query: who ois babr azam
+Making request to Gemini API
+Received Gemini response: Okay, you've asked about two individuals: Babar Azam and Bevis Goodman. Let's address them separatel...
+"POST /api/chat/ HTTP/1.1" 200 2755
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: how many 100s babar azam have...
+Using Gemini model for response
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/batsmen: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/batsmen
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/teams: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/teams
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Added cricket data to context for query: how many 100s babar azam have
+Making request to Gemini API
+Received Gemini response: Babar Azam is a phenomenal batsman, and to answer your question directly, I don't have access to rea...
+"POST /api/chat/ HTTP/1.1" 200 2685
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 24, 2025 - 08:06:57
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 42577
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 24, 2025 - 09:28:43
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 42577
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 24, 2025 - 09:29:05
+Django version 5.1.5, using settings 'score_hawk.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+"GET /chat/ HTTP/1.1" 200 42577
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: Who is Virat Kohli?...
+Using Gemini model for response
+Proactively fetching real-time cricket data for: Who is Virat Kohli?
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/batsmen: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/batsmen
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/bowlers: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/bowlers
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Player-specific query detected - using comprehensive rankings data
+Successfully fetched real-time data: recent matches, test team rankings, latest news
+Added comprehensive cricket data to context for: Who is Virat Kohli?
+Making request to Gemini API
+Received Gemini response: Virat Kohli is undoubtedly one of the greatest batsmen of all time, a true legend of Indian cricket....
+"POST /api/chat/ HTTP/1.1" 200 2754
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: What are the current team rankings?...
+Using Gemini model for response
+Proactively fetching real-time cricket data for: What are the current team rankings?
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/batsmen: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/batsmen
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/bowlers: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/bowlers
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Successfully fetched real-time data: recent matches, test team rankings, latest news
+Added comprehensive cricket data to context for: What are the current team rankings?
+Making request to Gemini API
+Received Gemini response: The current Test team rankings, according to the provided data, are as follows:
+
+1. **Australia:** 1...
+"POST /api/chat/ HTTP/1.1" 200 1827
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+Getting response for message: how many 100s have babar azam...
+Using Gemini model for response
+Proactively fetching real-time cricket data for: how many 100s have babar azam
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/batsmen: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/batsmen
+Failed to log API call: table scores_apicalllog has no column named request_params
+API request failed for /stats/v1/rankings/bowlers: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/bowlers
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Player-specific query detected - using comprehensive rankings data
+Successfully fetched real-time data: recent matches, test team rankings, latest news
+Added comprehensive cricket data to context for: how many 100s have babar azam
+Making request to Gemini API
+Received Gemini response: Babar Azam is a phenomenal batsman and a key figure in Pakistan cricket.  While I don't have access ...
+"POST /api/chat/ HTTP/1.1" 200 1482

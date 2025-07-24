@@ -1,0 +1,480 @@
+{% extends 'base.html' %}
+
+{% block title %}CricBot - AI Cricket Assistant (Powered by Gemini){% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 py-8 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+        
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <div class="flex justify-center items-center mb-4">
+                <div class="bg-gradient-to-r from-blue-600 to-green-600 rounded-full p-3">
+                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+            </div>
+            <h1 class="text-3xl font-bold mb-2" style="color: #1f2937 !important;">CricBot</h1>
+            <p class="max-w-2xl mx-auto" style="color: #4b5563 !important;">
+                Your AI-powered cricket assistant, powered by Google Gemini. Ask me anything about cricket - live scores, player stats, 
+                match analysis, rules, or general cricket knowledge!
+            </p>
+        </div>
+
+        <!-- Chat Interface -->
+        <div class="chat-container rounded-2xl shadow-xl overflow-hidden">
+            
+            <!-- Chat Messages Container -->
+            <div id="chat-messages" class="h-96 overflow-y-auto p-6 space-y-4">
+                <!-- Welcome Message -->
+                <div class="flex items-start space-x-3">
+                    <div class="flex-shrink-0">
+                        <div class="bg-gradient-to-r from-blue-500 to-green-500 rounded-full p-2">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <div class="message-bubble-bot">
+                            <p>
+                                👋 Hello! I'm CricBot, your cricket assistant. I can help you with:
+                                <br>• Live scores and match updates
+                                <br>• Player statistics and comparisons  
+                                <br>• Cricket rules and terminology
+                                <br>• Team rankings and analysis
+                                <br>• Historical cricket data
+                                <br><br>
+                                What would you like to know about cricket today?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="px-6 py-4 bg-white border-t border-gray-100">
+                <h3 class="text-sm font-medium mb-3" style="color: #374151 !important;">Quick Actions:</h3>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="sendQuickQuery('live_scores')" class="quick-action-btn">
+                        🔴 Live Scores
+                    </button>
+                    <button onclick="sendQuickQuery('team_rankings')" class="quick-action-btn">
+                        🏏 Team Rankings
+                    </button>
+                    <button onclick="sendMessage('Who are the top ODI batsmen?')" class="quick-action-btn">
+                        📊 Top Batsmen
+                    </button>
+                    <button onclick="sendMessage('Explain the LBW rule')" class="quick-action-btn">
+                        📚 Cricket Rules
+                    </button>
+                    <button onclick="sendMessage('Latest cricket news summary')" class="quick-action-btn">
+                        📰 News Summary
+                    </button>
+                </div>
+            </div>
+
+            <!-- Message Input -->
+            <div class="p-6 bg-white border-t border-gray-200" style="background-color: #ffffff !important;">
+                <form id="chat-form" class="flex space-x-4">
+                    <div class="flex-1">
+                        <input 
+                            type="text" 
+                            id="message-input" 
+                            placeholder="Ask me anything about cricket..."
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            autocomplete="off"
+                        >
+                    </div>
+                    <button 
+                        type="submit" 
+                        id="send-button"
+                        class="px-6 py-3 bg-gradient-to-r from-blue-600 to-green-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-green-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        </svg>
+                    </button>
+                </form>
+                
+                <!-- Typing Indicator -->
+                <div id="typing-indicator" class="hidden mt-4 flex items-center space-x-2 text-gray-500">
+                    <div class="flex space-x-1">
+                        <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                        <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                        <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                    </div>
+                    <span class="text-sm">CricBot is typing...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Features -->
+        {% if user.is_authenticated %}
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-lg font-semibold mb-3" style="color: #1f2937 !important;">Chat History</h3>
+                <p class="text-sm mb-4" style="color: #4b5563 !important;">View your previous conversations with CricBot.</p>
+                <a href="{% url 'chat_history' %}" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium">
+                    View History
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-lg font-semibold mb-3" style="color: #1f2937 !important;">Favorites</h3>
+                <p class="text-sm mb-4" style="color: #4b5563 !important;">Quick access to your favorite teams and players.</p>
+                <a href="{% url 'user_favorites' %}" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium">
+                    View Favorites
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-lg font-semibold mb-3" style="color: #1f2937 !important;">Alerts</h3>
+                <p class="text-sm mb-4" style="color: #4b5563 !important;">Get notified about your favorite matches and teams.</p>
+                <a href="{% url 'user_alerts' %}" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium">
+                    Manage Alerts
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<style>
+.quick-action-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    background-color: #f3f4f6;
+    color: #374151;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    border: 1px solid #e5e7eb;
+    font-weight: 500;
+}
+
+.quick-action-btn:hover {
+    background-color: #e5e7eb;
+    color: #1f2937;
+    border-color: #d1d5db;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.message-user {
+    margin-left: auto;
+    max-width: 24rem;
+}
+
+.message-bot {
+    margin-right: auto;
+    max-width: 24rem;
+}
+
+.message-bubble-user {
+    background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+    color: #ffffff;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.message-bubble-bot {
+    background-color: #ffffff;
+    color: #1f2937;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.message-bubble-bot p {
+    color: #1f2937 !important;
+    margin: 0;
+}
+
+.message-bubble-user p {
+    color: #ffffff !important;
+    margin: 0;
+}
+
+#chat-messages {
+    scroll-behavior: smooth;
+    background-color: #f8fafc;
+}
+
+/* Enhanced input styling */
+#message-input {
+    border: 2px solid #e5e7eb;
+    color: #1f2937;
+    background-color: #ffffff;
+}
+
+#message-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    outline: none;
+}
+
+#message-input::placeholder {
+    color: #6b7280;
+}
+
+/* Send button enhancement */
+#send-button {
+    background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+    color: #ffffff;
+    font-weight: 600;
+    border: none;
+}
+
+#send-button:hover:not(:disabled) {
+    background: linear-gradient(135deg, #2563eb 0%, #059669 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+#send-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Chat container enhancements */
+.chat-container {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+}
+
+/* Typography improvements */
+h1, h2, h3 {
+    color: #1f2937 !important;
+}
+
+p {
+    color: #374151 !important;
+}
+
+/* Ensure all text is visible */
+.text-gray-600 {
+    color: #4b5563 !important;
+}
+
+.text-gray-700 {
+    color: #374151 !important;
+}
+
+.text-gray-800 {
+    color: #1f2937 !important;
+}
+</style>
+
+<script>
+const chatMessages = document.getElementById('chat-messages');
+const messageInput = document.getElementById('message-input');
+const sendButton = document.getElementById('send-button');
+const typingIndicator = document.getElementById('typing-indicator');
+const chatForm = document.getElementById('chat-form');
+
+// Context data for the chatbot
+const chatContext = {
+    page_type: '{{ page_type }}',
+    match_id: '{{ match_id }}',
+    player_id: '{{ player_id }}'
+};
+
+// CSRF token for API requests
+const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]')?.value || 
+                  '{{ csrf_token }}';
+
+chatForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const message = messageInput.value.trim();
+    if (message) {
+        sendMessage(message);
+    }
+});
+
+function sendMessage(message) {
+    if (!message.trim()) return;
+    
+    // Add user message to chat
+    addMessage(message, true);
+    
+    // Clear input and disable send button
+    messageInput.value = '';
+    sendButton.disabled = true;
+    showTypingIndicator();
+    
+    // Send message to API
+    fetch('{% url "chatbot_api" %}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrfToken
+        },
+        body: JSON.stringify({
+            message: message,
+            context: chatContext
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        hideTypingIndicator();
+        sendButton.disabled = false;
+        
+        if (data.success) {
+            addMessage(data.response, false);
+            
+            // Add suggested questions if available
+            if (data.suggested_questions && data.suggested_questions.length > 0) {
+                addSuggestedQuestions(data.suggested_questions);
+            }
+        } else {
+            addMessage('Sorry, I encountered an error. Please try again.', false, true);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        hideTypingIndicator();
+        sendButton.disabled = false;
+        addMessage('Sorry, I\'m having trouble connecting. Please try again.', false, true);
+    });
+}
+
+function sendQuickQuery(queryType) {
+    showTypingIndicator();
+    
+    fetch(`{% url "quick_query_api" %}?type=${queryType}`, {
+        method: 'GET',
+        headers: {
+            'X-CSRFToken': csrfToken
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        hideTypingIndicator();
+        
+        if (data.success) {
+            addMessage(data.response, false);
+        } else {
+            addMessage('Sorry, I couldn\'t get that information right now.', false, true);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        hideTypingIndicator();
+        addMessage('Sorry, I\'m having trouble connecting. Please try again.', false, true);
+    });
+}
+
+function addMessage(message, isUser, isError = false) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'flex items-start space-x-3';
+    
+    let avatarHtml, bubbleClass, alignClass;
+    
+    if (isUser) {
+        alignClass = 'flex-row-reverse space-x-reverse';
+        avatarHtml = `
+            <div class="flex-shrink-0">
+                <div class="bg-gray-600 rounded-full p-2">
+                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+            </div>
+        `;
+        bubbleClass = 'message-bubble-user';
+    } else {
+        alignClass = '';
+        avatarHtml = `
+            <div class="flex-shrink-0">
+                <div class="bg-gradient-to-r from-blue-500 to-green-500 rounded-full p-2">
+                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+            </div>
+        `;
+        bubbleClass = isError ? 'bg-red-50 text-red-800 border-red-200' : 'message-bubble-bot';
+    }
+    
+    messageDiv.className += ` ${alignClass}`;
+    messageDiv.innerHTML = `
+        ${avatarHtml}
+        <div class="flex-1">
+            <div class="${bubbleClass}">
+                <p style="white-space: pre-line;">${message}</p>
+            </div>
+        </div>
+    `;
+    
+    chatMessages.appendChild(messageDiv);
+    scrollToBottom();
+}
+
+function addSuggestedQuestions(questions) {
+    const suggestionsDiv = document.createElement('div');
+    suggestionsDiv.className = 'mt-4 space-y-2';
+    
+    const suggestionsLabel = document.createElement('p');
+    suggestionsLabel.className = 'text-sm text-gray-600 font-medium';
+    suggestionsLabel.textContent = 'Suggested questions:';
+    suggestionsDiv.appendChild(suggestionsLabel);
+    
+    questions.slice(0, 3).forEach(question => {
+        const questionBtn = document.createElement('button');
+        questionBtn.className = 'block w-full text-left px-3 py-2 text-sm bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors duration-200';
+        questionBtn.textContent = question;
+        questionBtn.onclick = () => sendMessage(question);
+        suggestionsDiv.appendChild(questionBtn);
+    });
+    
+    chatMessages.appendChild(suggestionsDiv);
+    scrollToBottom();
+}
+
+function showTypingIndicator() {
+    typingIndicator.classList.remove('hidden');
+    scrollToBottom();
+}
+
+function hideTypingIndicator() {
+    typingIndicator.classList.add('hidden');
+}
+
+function scrollToBottom() {
+    setTimeout(() => {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }, 100);
+}
+
+// Allow Enter to send messages
+messageInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        chatForm.dispatchEvent(new Event('submit'));
+    }
+});
+
+// Focus on input when page loads
+window.addEventListener('load', function() {
+    messageInput.focus();
+});
+</script>
+{% endblock %}
