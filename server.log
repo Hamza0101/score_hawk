@@ -2213,3 +2213,102 @@ Added comprehensive cricket data to context for: how many 100s have babar azam
 Making request to Gemini API
 Received Gemini response: Babar Azam is a phenomenal batsman and a key figure in Pakistan cricket.  While I don't have access ...
 "POST /api/chat/ HTTP/1.1" 200 1482
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+"GET /matches/ HTTP/1.1" 200 385669
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+"GET / HTTP/1.1" 200 64926
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+"GET /matches/ HTTP/1.1" 200 385669
+"GET /players/ HTTP/1.1" 200 27122
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+Cache expired for api_cache__stats_v1_rankings_allrounders_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:37.582374+00:00, returning cached data
+Cache hit for /stats/v1/rankings/allrounders - using cached data
+"GET /rankings/ HTTP/1.1" 200 44840
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+"GET /news/ HTTP/1.1" 200 66305
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+"GET /news/ HTTP/1.1" 200 66305
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+"GET /matches/ HTTP/1.1" 200 385669
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+"GET /matches/ HTTP/1.1" 200 385669
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+"GET / HTTP/1.1" 200 64926
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+"GET / HTTP/1.1" 200 65491
+"GET /compare/ HTTP/1.1" 200 32730
+Not Found: /players/search/
+"GET /players/search/?q=bb HTTP/1.1" 404 8958
+Not Found: /players/search/
+"GET /players/search/?q=Bbb HTTP/1.1" 404 8959
+Not Found: /players/search/
+"GET /players/search/?q=Babarbb HTTP/1.1" 404 8963
+Not Found: /players/search/
+"GET /players/search/?q=Babar%20bb HTTP/1.1" 404 8966
+Not Found: /players/search/
+"GET /players/search/?q=Babar%20abb HTTP/1.1" 404 8967
+Not Found: /players/search/
+"GET /players/search/?q=Babar%20azambb HTTP/1.1" 404 8970
+Not Found: /players/search/
+"GET /players/search/?q=c HTTP/1.1" 404 8957
+Not Found: /players/search/
+"GET /players/search/?q= HTTP/1.1" 404 8956
+Not Found: /players/search/
+"GET /players/search/?q=virat%20 HTTP/1.1" 404 8964
+"GET /compare/?player2=virat+kohli HTTP/1.1" 200 32730
+"GET /compare/?player2=virat+kohli HTTP/1.1" 200 39163
+Not Found: /players/search/
+"GET /players/search/?q=baba HTTP/1.1" 404 8960
+Not Found: /players/search/
+"GET /players/search/?q=babar%20 HTTP/1.1" 404 8964
+Not Found: /players/search/
+"GET /players/search/?q=babar%20a HTTP/1.1" 404 8965
+Not Found: /players/search/
+"GET /players/search/?q=babar%20aza HTTP/1.1" 404 8967
+Not Found: /players/search/
+"GET /players/search/?q=babar%20azam HTTP/1.1" 404 8968
+Not Found: /players/search/
+"GET /players/search/?q=v HTTP/1.1" 404 8957
+Not Found: /players/search/
+"GET /players/search/?q=vi HTTP/1.1" 404 8958
+Not Found: /players/search/
+"GET /players/search/?q=virat%20 HTTP/1.1" 404 8964
+Not Found: /players/search/
+"GET /players/search/?q=virat%20koh HTTP/1.1" 404 8967
+Not Found: /players/search/
+"GET /players/search/?q=virat%20kohlu HTTP/1.1" 404 8969
+Not Found: /players/search/
+"GET /players/search/?q=virat%20kohli HTTP/1.1" 404 8969
+"GET /compare/?player2=virat+kohli HTTP/1.1" 200 53194

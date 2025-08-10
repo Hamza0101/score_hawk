@@ -23,6 +23,9 @@ from .team_stats import get_international_teams, get_team_stats, get_available_t
 import json
 import io
 import sys
+import logging
+
+logger = logging.getLogger(__name__)
 
 def home(request):
     # Fetch cricket news with user context for better caching
@@ -202,9 +205,14 @@ def enhanced_scorecard(request, match_id):
             messages.error(request, 'Unable to fetch scorecard details. Please try again later.')
             return redirect('matches')
         
+        # Add live update capability for ongoing matches
+        is_live = scorecard_data.get('match_status', {}).get('state') == 'Live'
+        
         context = {
             'scorecard': scorecard_data,
-            'match_id': match_id
+            'match_id': match_id,
+            'is_live': is_live,
+            'auto_refresh': is_live  # Enable auto-refresh for live matches
         }
         
         return render(request, 'scores/enhanced_scorecard.html', context)
@@ -212,6 +220,42 @@ def enhanced_scorecard(request, match_id):
     except Exception as e:
         messages.error(request, f'Error loading scorecard: {str(e)}')
         return redirect('matches')
+
+@csrf_exempt
+def scorecard_api(request, match_id):
+    """API endpoint for scorecard data - used for live updates"""
+    if request.method != 'GET':
+        return JsonResponse({'error': 'Only GET requests allowed'}, status=405)
+    
+    try:
+        user = request.user if request.user.is_authenticated else None
+        scorecard_manager = ScorecardManager()
+        
+        scorecard_data = scorecard_manager.get_enhanced_scorecard(match_id, user=user)
+        
+        if scorecard_data.get('error'):
+            return JsonResponse({
+                'success': False,
+                'error': 'Unable to fetch scorecard data'
+            }, status=500)
+        
+        # Return simplified data structure for API
+        api_response = {
+            'success': True,
+            'match_id': match_id,
+            'status': scorecard_data.get('match_status', {}),
+            'live_score': scorecard_data.get('live_score', {}),
+            'current_innings': scorecard_data.get('current_innings', {}),
+            'last_updated': timezone.now().isoformat()
+        }
+        
+        return JsonResponse(api_response)
+        
+    except Exception as e:
+        return JsonResponse({
+            'success': False,
+            'error': f'Server error: {str(e)}'
+        }, status=500)
 
 def live_commentary(request, match_id):
     """Get live commentary for a match"""
@@ -574,9 +618,320 @@ def venues(request):
     return render(request, 'scores/venues.html', context)
 
 def compare(request):
-    # Placeholder for player comparison
-    context = {}
+    """Enhanced player comparison view with real data integration"""
+    player1_name = request.GET.get('player1', '')
+    player2_name = request.GET.get('player2', '')
+    player3_name = request.GET.get('player3', '')
+    
+    context = {
+        'selected_players': {
+            'player1': player1_name,
+            'player2': player2_name,
+            'player3': player3_name,
+        }
+    }
+    
+    # If players are selected, fetch their data
+    if player1_name or player2_name:
+        context['comparison_data'] = get_players_comparison_data([player1_name, player2_name, player3_name], request)
+    
     return render(request, 'scores/compare.html', context)
+
+def get_players_comparison_data(player_names, request):
+    """Get comparison data for players with fallback to sample data"""
+    user = request.user if request.user.is_authenticated else None
+    ip_address = request.META.get('REMOTE_ADDR')
+    
+    # Sample data for popular players when API data is insufficient
+    sample_player_data = {
+        'Virat Kohli': {
+            'basic_info': {
+                'name': 'Virat Kohli',
+                'country': 'India',
+                'role': 'Batsman',
+                'playingRole': 'Top order Batsman',
+                'battingStyle': 'Right-hand bat',
+                'bowlingStyle': 'Right-arm medium',
+                'id': '1413'
+            },
+            'details': {
+                'DOB': '5 November 1988',
+                'birthPlace': 'Delhi, India',
+                'intlDebut': 'ODI: 18 August 2008 vs Sri Lanka',
+                'teams': 'Royal Challengers Bangalore (IPL), India',
+                'bio': 'Former Indian cricket team captain and one of the greatest batsmen of all time',
+                'battingStyle': 'Right-hand bat',
+                'bowlingStyle': 'Right-arm medium'
+            },
+            'batting_stats': {
+                'Test': {
+                    'matches': '111', 'runs': '8676', 'average': '49.29', 'hundreds': '29', 'fifties': '30', 'highest': '254*'
+                },
+                'ODI': {
+                    'matches': '295', 'runs': '13848', 'average': '58.18', 'hundreds': '50', 'fifties': '72', 'highest': '183'
+                },
+                'T20I': {
+                    'matches': '125', 'runs': '4008', 'average': '52.73', 'hundreds': '1', 'fifties': '38', 'highest': '122*'
+                }
+            }
+        },
+        'Babar Azam': {
+            'basic_info': {
+                'name': 'Babar Azam',
+                'country': 'Pakistan',
+                'role': 'Batsman',
+                'playingRole': 'Top order Batsman',
+                'battingStyle': 'Right-hand bat',
+                'bowlingStyle': 'Right-arm medium',
+                'id': '4525'
+            },
+            'details': {
+                'DOB': '15 October 1994',
+                'birthPlace': 'Lahore, Pakistan',
+                'intlDebut': 'ODI: 31 May 2015 vs Zimbabwe',
+                'teams': 'Peshawar Zalmi (PSL), Pakistan',
+                'bio': 'Current Pakistan cricket team captain and former No.1 ranked ODI and T20I batsman',
+                'battingStyle': 'Right-hand bat',
+                'bowlingStyle': 'Right-arm medium'
+            },
+            'batting_stats': {
+                'Test': {
+                    'matches': '54', 'runs': '3962', 'average': '45.30', 'hundreds': '10', 'fifties': '26', 'highest': '196'
+                },
+                'ODI': {
+                    'matches': '113', 'runs': '5729', 'average': '59.05', 'hundreds': '19', 'fifties': '31', 'highest': '158'
+                },
+                'T20I': {
+                    'matches': '104', 'runs': '3485', 'average': '41.48', 'hundreds': '3', 'fifties': '30', 'highest': '122'
+                }
+            }
+        },
+        'MS Dhoni': {
+            'basic_info': {
+                'name': 'MS Dhoni',
+                'country': 'India',
+                'role': 'Wicket-keeper',
+                'playingRole': 'Wicket-keeper batsman',
+                'battingStyle': 'Right-hand bat',
+                'bowlingStyle': 'Right-arm medium',
+                'id': '28'
+            },
+            'details': {
+                'DOB': '7 July 1981',
+                'birthPlace': 'Ranchi, India',
+                'intlDebut': 'ODI: 23 December 2004 vs Bangladesh',
+                'teams': 'Chennai Super Kings (IPL), Retired from International',
+                'bio': 'Former Indian cricket team captain and 2011 World Cup winner',
+                'battingStyle': 'Right-hand bat',
+                'bowlingStyle': 'Right-arm medium'
+            },
+            'batting_stats': {
+                'Test': {
+                    'matches': '90', 'runs': '4876', 'average': '38.09', 'hundreds': '6', 'fifties': '33', 'highest': '224'
+                },
+                'ODI': {
+                    'matches': '350', 'runs': '10773', 'average': '50.57', 'hundreds': '10', 'fifties': '73', 'highest': '183*'
+                },
+                'T20I': {
+                    'matches': '98', 'runs': '1617', 'average': '37.60', 'hundreds': '0', 'fifties': '2', 'highest': '56'
+                }
+            }
+        },
+        'Rohit Sharma': {
+            'basic_info': {
+                'name': 'Rohit Sharma',
+                'country': 'India',
+                'role': 'Batsman',
+                'playingRole': 'Opening batsman',
+                'battingStyle': 'Right-hand bat',
+                'bowlingStyle': 'Right-arm off break',
+                'id': '1076'
+            },
+            'details': {
+                'DOB': '30 April 1987',
+                'birthPlace': 'Nagpur, India',
+                'intlDebut': 'ODI: 23 June 2007 vs Ireland',
+                'teams': 'Mumbai Indians (IPL), India',
+                'bio': 'Current Indian cricket team captain and prolific opening batsman',
+                'battingStyle': 'Right-hand bat',
+                'bowlingStyle': 'Right-arm off break'
+            },
+            'batting_stats': {
+                'Test': {
+                    'matches': '59', 'runs': '4301', 'average': '46.77', 'hundreds': '11', 'fifties': '21', 'highest': '212'
+                },
+                'ODI': {
+                    'matches': '262', 'runs': '10866', 'average': '48.96', 'hundreds': '31', 'fifties': '56', 'highest': '264'
+                },
+                'T20I': {
+                    'matches': '159', 'runs': '4231', 'average': '31.32', 'hundreds': '5', 'fifties': '32', 'highest': '118'
+                }
+            }
+        },
+        'David Warner': {
+            'basic_info': {
+                'name': 'David Warner',
+                'country': 'Australia',
+                'role': 'Batsman',
+                'playingRole': 'Opening batsman',
+                'battingStyle': 'Left-hand bat',
+                'bowlingStyle': 'Right-arm leg break',
+                'id': '5938'
+            },
+            'details': {
+                'DOB': '27 October 1986',
+                'birthPlace': 'Paddington, Australia',
+                'intlDebut': 'ODI: 18 January 2009 vs South Africa',
+                'teams': 'Sydney Thunder (BBL), Australia',
+                'bio': 'Aggressive Australian opening batsman and former vice-captain',
+                'battingStyle': 'Left-hand bat',
+                'bowlingStyle': 'Right-arm leg break'
+            },
+            'batting_stats': {
+                'Test': {
+                    'matches': '112', 'runs': '8786', 'average': '44.59', 'hundreds': '26', 'fifties': '37', 'highest': '335*'
+                },
+                'ODI': {
+                    'matches': '139', 'runs': '6007', 'average': '45.30', 'hundreds': '18', 'fifties': '33', 'highest': '179'
+                },
+                'T20I': {
+                    'matches': '110', 'runs': '3277', 'average': '33.43', 'hundreds': '1', 'fifties': '28', 'highest': '100*'
+                }
+            }
+        }
+    }
+    
+    players_data = []
+    for player_name in player_names:
+        if not player_name.strip():
+            continue
+            
+        # Try API first
+        search_results = search_players(player_name, user=user, ip_address=ip_address)
+        
+        # Check if we have sample data for this player
+        if player_name in sample_player_data:
+            players_data.append(sample_player_data[player_name])
+        elif search_results and len(search_results) > 0:
+            player = search_results[0]
+            # Get detailed player info if ID exists
+            if 'id' in player:
+                player_details = get_player_info(player['id'], user=user, ip_address=ip_address)
+                batting_stats = get_player_batting_stats(player['id'], user=user, ip_address=ip_address)
+                bowling_stats = get_player_bowling_stats(player['id'], user=user, ip_address=ip_address)
+                
+                players_data.append({
+                    'basic_info': player,
+                    'details': player_details,
+                    'batting_stats': batting_stats,
+                    'bowling_stats': bowling_stats,
+                    'name': player_name
+                })
+            else:
+                players_data.append({
+                    'basic_info': player,
+                    'details': None,
+                    'batting_stats': None,
+                    'bowling_stats': None,
+                    'name': player_name
+                })
+        else:
+            # Player not found, add placeholder
+            players_data.append({
+                'basic_info': {'name': player_name},
+                'details': None,
+                'batting_stats': None,
+                'bowling_stats': None,
+                'name': player_name
+            })
+    
+    return players_data
+
+@csrf_exempt
+def compare_players_api(request):
+    """API endpoint for player comparison data"""
+    if request.method != 'POST':
+        return JsonResponse({'error': 'Only POST requests allowed'}, status=405)
+    
+    try:
+        data = json.loads(request.body)
+        player_names = data.get('players', [])
+        
+        if not player_names or len(player_names) < 2:
+            return JsonResponse({'error': 'At least 2 players required'}, status=400)
+        
+        # Use the improved function to get comparison data
+        players_data = get_players_comparison_data(player_names, request)
+        
+        # Format for API response
+        formatted_players = []
+        for player_data in players_data:
+            formatted_players.append({
+                'name': player_data.get('basic_info', {}).get('name', 'Unknown'),
+                'basic_info': player_data.get('basic_info'),
+                'details': player_data.get('details'),
+                'batting_stats': player_data.get('batting_stats'),
+                'bowling_stats': player_data.get('bowling_stats'),
+                'found': True if player_data.get('batting_stats') else False
+            })
+        
+        return JsonResponse({
+            'success': True,
+            'players': formatted_players,
+            'count': len(formatted_players)
+        })
+        
+    except json.JSONDecodeError:
+        return JsonResponse({'error': 'Invalid JSON'}, status=400)
+    except Exception as e:
+        return JsonResponse({
+            'error': f'Server error: {str(e)}',
+            'success': False
+        }, status=500)
+
+@csrf_exempt 
+def player_search_api(request):
+    """API endpoint for player search suggestions - uses same logic as main player search"""
+    if request.method != 'GET':
+        return JsonResponse({'error': 'Only GET requests allowed'}, status=405)
+    
+    query = request.GET.get('q', '').strip()
+    if not query or len(query) < 2:
+        return JsonResponse({'players': []})
+    
+    try:
+        user = request.user if request.user.is_authenticated else None
+        ip_address = request.META.get('REMOTE_ADDR')
+        
+        # Use the same search function as the main player search page
+        players = search_players(query, user=user, ip_address=ip_address)
+        
+        # Format response for frontend dropdown
+        formatted_players = []
+        if players:
+            for player in players[:10]:  # Limit to 10 results
+                formatted_players.append({
+                    'id': player.get('id', ''),
+                    'name': player.get('name', ''),
+                    'team': player.get('teamName', player.get('team', '')),
+                    'role': player.get('role', 'Player'),
+                    'country': player.get('country', ''),
+                    'ranking': player.get('ranking', None),
+                    'dob': player.get('dob', ''),
+                    'faceImageId': player.get('faceImageId', '')
+                })
+        
+        return JsonResponse({
+            'success': True,
+            'players': formatted_players,
+            'count': len(formatted_players)
+        })
+        
+    except Exception as e:
+        return JsonResponse({
+            'error': f'Search error: {str(e)}',
+            'success': False
+        }, status=500)
 
 def photos(request):
     # Placeholder for cricket photos

@@ -1764,3 +1764,512 @@ Added comprehensive cricket data to context for: how many 100s have babar azam
 Making request to Gemini API
 Received Gemini response: Babar Azam is a phenomenal batsman and a key figure in Pakistan cricket.  While I don't have access ...
 "POST /api/chat/ HTTP/1.1" 200 1482
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+"GET /matches/ HTTP/1.1" 200 385669
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+"GET / HTTP/1.1" 200 64926
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+"GET /matches/ HTTP/1.1" 200 385669
+"GET /players/ HTTP/1.1" 200 27122
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+Cache expired for api_cache__stats_v1_rankings_allrounders_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:37.582374+00:00, returning cached data
+Cache hit for /stats/v1/rankings/allrounders - using cached data
+"GET /rankings/ HTTP/1.1" 200 44840
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+"GET /news/ HTTP/1.1" 200 66305
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+"GET /news/ HTTP/1.1" 200 66305
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+"GET /matches/ HTTP/1.1" 200 385669
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+"GET /matches/ HTTP/1.1" 200 385669
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+"GET / HTTP/1.1" 200 64926
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+"GET / HTTP/1.1" 200 65491
+"GET /compare/ HTTP/1.1" 200 32730
+Not Found: /players/search/
+"GET /players/search/?q=bb HTTP/1.1" 404 8958
+Not Found: /players/search/
+"GET /players/search/?q=Bbb HTTP/1.1" 404 8959
+Not Found: /players/search/
+"GET /players/search/?q=Babarbb HTTP/1.1" 404 8963
+Not Found: /players/search/
+"GET /players/search/?q=Babar%20bb HTTP/1.1" 404 8966
+Not Found: /players/search/
+"GET /players/search/?q=Babar%20abb HTTP/1.1" 404 8967
+Not Found: /players/search/
+"GET /players/search/?q=Babar%20azambb HTTP/1.1" 404 8970
+Not Found: /players/search/
+"GET /players/search/?q=c HTTP/1.1" 404 8957
+Not Found: /players/search/
+"GET /players/search/?q= HTTP/1.1" 404 8956
+Not Found: /players/search/
+"GET /players/search/?q=virat%20 HTTP/1.1" 404 8964
+"GET /compare/?player2=virat+kohli HTTP/1.1" 200 32730
+"GET /compare/?player2=virat+kohli HTTP/1.1" 200 39163
+Not Found: /players/search/
+"GET /players/search/?q=baba HTTP/1.1" 404 8960
+Not Found: /players/search/
+"GET /players/search/?q=babar%20 HTTP/1.1" 404 8964
+Not Found: /players/search/
+"GET /players/search/?q=babar%20a HTTP/1.1" 404 8965
+Not Found: /players/search/
+"GET /players/search/?q=babar%20aza HTTP/1.1" 404 8967
+Not Found: /players/search/
+"GET /players/search/?q=babar%20azam HTTP/1.1" 404 8968
+Not Found: /players/search/
+"GET /players/search/?q=v HTTP/1.1" 404 8957
+Not Found: /players/search/
+"GET /players/search/?q=vi HTTP/1.1" 404 8958
+Not Found: /players/search/
+"GET /players/search/?q=virat%20 HTTP/1.1" 404 8964
+Not Found: /players/search/
+"GET /players/search/?q=virat%20koh HTTP/1.1" 404 8967
+Not Found: /players/search/
+"GET /players/search/?q=virat%20kohlu HTTP/1.1" 404 8969
+Not Found: /players/search/
+"GET /players/search/?q=virat%20kohli HTTP/1.1" 404 8969
+"GET /compare/?player2=virat+kohli HTTP/1.1" 200 53194
+Watching for file changes with StatReloader
+Invalid HTTP_HOST header: '0.0.0.0:8000'. You may need to add '0.0.0.0' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '0.0.0.0:8000'. You may need to add '0.0.0.0' to ALLOWED_HOSTS.
+Bad Request: /
+"GET / HTTP/1.1" 400 70304
+Invalid HTTP_HOST header: '0.0.0.0:8000'. You may need to add '0.0.0.0' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/utils/deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/Users/macbook/www/score-hawk/venv/lib/python3.13/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '0.0.0.0:8000'. You may need to add '0.0.0.0' to ALLOWED_HOSTS.
+Bad Request: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 400 70260
+Watching for file changes with StatReloader
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+"GET / HTTP/1.1" 200 64523
+"GET /static/css/champions.css HTTP/1.1" 200 5767
+"GET /static/css/background.css HTTP/1.1" 200 931
+"GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+"GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 9511
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+"GET /matches/ HTTP/1.1" 200 385266
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+"GET /news/ HTTP/1.1" 200 65902
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+Cache expired for api_cache__stats_v1_rankings_allrounders_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:37.582374+00:00, returning cached data
+Cache hit for /stats/v1/rankings/allrounders - using cached data
+"GET /rankings/ HTTP/1.1" 200 44437
+"GET /compare/ HTTP/1.1" 200 57906
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"GET /api/player-search/?q=babar%20azam HTTP/1.1" 200 136
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"GET /api/player-search/?q=virat%20kohli HTTP/1.1" 200 137
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"POST /api/compare/ HTTP/1.1" 200 27038
+/Users/macbook/www/score-hawk/scores/migrations/0005_fix_model_fields.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /compare/ HTTP/1.1" 200 57906
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /compare/ HTTP/1.1" 200 57906
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"POST /api/compare/ HTTP/1.1" 200 1956
+"GET /compare/ HTTP/1.1" 200 57906
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"POST /api/compare/ HTTP/1.1" 200 32015
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+"GET /matches/ HTTP/1.1" 200 385266
+"GET /chat/ HTTP/1.1" 200 39862
+Initializing CricketChatbot with API key: ***
+Successfully configured Gemini model
+API request failed for /stats/v1/rankings/teams: 500 Server Error: Internal Server Error for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/rankings/teams
+"GET /api/quick-query/?type=team_rankings HTTP/1.1" 200 73
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+"GET / HTTP/1.1" 200 64523
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+"GET /matches/ HTTP/1.1" 200 385266
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+Cache expired for api_cache__stats_v1_rankings_allrounders_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:37.582374+00:00, returning cached data
+Cache hit for /stats/v1/rankings/allrounders - using cached data
+"GET /rankings/ HTTP/1.1" 200 44437
+"GET /players/ HTTP/1.1" 200 26719
+"GET /players/ HTTP/1.1" 200 26719
+"GET /players/ HTTP/1.1" 200 26719
+/Users/macbook/www/score-hawk/scores/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /players/ HTTP/1.1" 200 26719
+"GET /players/ HTTP/1.1" 200 26719
+"GET /players/ HTTP/1.1" 200 26719
+"GET /players/ HTTP/1.1" 200 26719
+"GET /compare/ HTTP/1.1" 200 57969
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"POST /api/compare/ HTTP/1.1" 200 1956
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"POST /api/compare/ HTTP/1.1" 200 32015
+"GET /players/ HTTP/1.1" 200 26719
+"GET /players/ HTTP/1.1" 200 26719
+"GET /compare/ HTTP/1.1" 200 58700
+"GET /players/ HTTP/1.1" 200 26719
+"GET /players/ HTTP/1.1" 200 26719
+"GET /compare/ HTTP/1.1" 200 60750
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"POST /api/compare/ HTTP/1.1" 200 15403
+"GET /compare/ HTTP/1.1" 200 58700
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"POST /api/compare/ HTTP/1.1" 200 15403
+"GET /compare/ HTTP/1.1" 200 57969
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"POST /api/compare/ HTTP/1.1" 200 1956
+"GET /players/ HTTP/1.1" 200 26719
+"GET /players/ HTTP/1.1" 200 27322
+"GET /players/ HTTP/1.1" 200 27344
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"GET /players/?q=babar HTTP/1.1" 200 43686
+"GET /proxy/image/616440/ HTTP/1.1" 200 1473
+"GET /proxy/image/155974/ HTTP/1.1" 200 1539
+"GET /proxy/image/182026/ HTTP/1.1" 200 1048
+"GET /proxy/image/153642/ HTTP/1.1" 200 4545
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+"GET /news/ HTTP/1.1" 200 65902
+"GET /players/ HTTP/1.1" 200 27344
+"GET /compare/ HTTP/1.1" 200 57969
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"GET /api/player-search/?q=babar%20azam HTTP/1.1" 200 196
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"GET /api/player-search/?q=virat%20kohli HTTP/1.1" 200 194
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"POST /api/compare/ HTTP/1.1" 200 27058
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"POST /api/compare/ HTTP/1.1" 200 1956
+"GET /compare/ HTTP/1.1" 200 59236
+"GET /compare/ HTTP/1.1" 200 59269
+"GET /compare/ HTTP/1.1" 200 59269
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"POST /api/compare/ HTTP/1.1" 200 15403
+"GET /compare/ HTTP/1.1" 200 59269
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"POST /api/compare/ HTTP/1.1" 200 32035
+/Users/macbook/www/score-hawk/scores/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /compare/ HTTP/1.1" 200 59269
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"POST /api/compare/ HTTP/1.1" 200 1931
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"POST /api/compare/ HTTP/1.1" 200 1931
+"GET /compare/ HTTP/1.1" 200 59269
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"POST /api/compare/ HTTP/1.1" 200 1931
+"GET /compare/ HTTP/1.1" 200 59391
+"GET /compare/ HTTP/1.1" 200 59466
+"GET /compare/ HTTP/1.1" 200 59539
+"GET /compare/ HTTP/1.1" 200 59614
+"GET /compare/ HTTP/1.1" 200 59923
+"GET /compare/ HTTP/1.1" 200 59991
+"GET /compare/ HTTP/1.1" 200 62226
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"POST /api/compare/ HTTP/1.1" 200 1931
+"GET /compare/ HTTP/1.1" 200 62555
+"GET /compare/ HTTP/1.1" 200 63431
+"GET /compare/ HTTP/1.1" 200 63777
+"GET /compare/ HTTP/1.1" 200 63777
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"POST /api/compare/ HTTP/1.1" 200 15403
+"GET /compare/ HTTP/1.1" 200 64093
+"GET /compare/ HTTP/1.1" 200 63944
+"GET /compare/ HTTP/1.1" 200 64267
+"GET /compare/ HTTP/1.1" 200 67594
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"POST /api/compare/ HTTP/1.1" 200 1931
+"GET /players/ HTTP/1.1" 200 27344
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"GET /players/?q=babar HTTP/1.1" 200 43686
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"GET /players/8991/ HTTP/1.1" 200 47027
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+Cache expired for api_cache__stats_v1_rankings_allrounders_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:37.582374+00:00, returning cached data
+Cache hit for /stats/v1/rankings/allrounders - using cached data
+"GET /rankings/ HTTP/1.1" 200 44437
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+Cache expired for api_cache__stats_v1_rankings_allrounders_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:37.582374+00:00, returning cached data
+Cache hit for /stats/v1/rankings/allrounders - using cached data
+"GET /rankings/ HTTP/1.1" 200 44437
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+Cache expired for api_cache__stats_v1_rankings_allrounders_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:37.582374+00:00, returning cached data
+Cache hit for /stats/v1/rankings/allrounders - using cached data
+"GET /rankings/ HTTP/1.1" 200 44437
+"GET /compare/ HTTP/1.1" 200 71649
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"GET /api/player-search/?q=babar%20azam HTTP/1.1" 200 196
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"GET /api/player-search/?q=virat%20kohli HTTP/1.1" 200 194
+API request failed for /stats/v1/player/search: 429 Client Error: Too Many Requests for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search?plrN=babar+azam
+API request failed for /stats/v1/player/search: 429 Client Error: Too Many Requests for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search?plrN=virat+kohli
+"POST /api/compare/ HTTP/1.1" 200 326
+"GET /compare/ HTTP/1.1" 200 72127
+"GET /compare/ HTTP/1.1" 200 74546
+"GET /compare/ HTTP/1.1" 200 71475
+API request failed for /stats/v1/player/search: 429 Client Error: Too Many Requests for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search?plrN=babar+azam
+"GET /api/player-search/?q=babar%20azam HTTP/1.1" 200 44
+API request failed for /stats/v1/player/search: 429 Client Error: Too Many Requests for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search?plrN=virat+kohli
+"GET /api/player-search/?q=virat%20kohli HTTP/1.1" 200 44
+API request failed for /stats/v1/player/search: 429 Client Error: Too Many Requests for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search?plrN=babar+azam
+API request failed for /stats/v1/player/search: 429 Client Error: Too Many Requests for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search?plrN=virat+kohli
+"POST /api/compare/ HTTP/1.1" 200 326
+"GET /compare/ HTTP/1.1" 200 71665
+"GET /compare/ HTTP/1.1" 200 72682
+API request failed for /stats/v1/player/search: 429 Client Error: Too Many Requests for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search?plrN=babar+azam
+"GET /api/player-search/?q=babar%20azam HTTP/1.1" 200 44
+API request failed for /stats/v1/player/search: 429 Client Error: Too Many Requests for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search?plrN=virat+kohli
+"GET /api/player-search/?q=virat%20kohli HTTP/1.1" 200 44
+API request failed for /stats/v1/player/search: 429 Client Error: Too Many Requests for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search?plrN=babar+azam
+API request failed for /stats/v1/player/search: 429 Client Error: Too Many Requests for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search?plrN=virat+kohli
+"POST /api/compare/ HTTP/1.1" 200 326
+API request failed for /stats/v1/player/search: 429 Client Error: Too Many Requests for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search?plrN=MS+Dhoni
+API request failed for /stats/v1/player/search: 429 Client Error: Too Many Requests for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search?plrN=AB+de+Villiers
+"POST /api/compare/ HTTP/1.1" 200 1144
+API request failed for /stats/v1/player/search: 429 Client Error: Too Many Requests for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search?plrN=Virat+Kohli
+API request failed for /stats/v1/player/search: 429 Client Error: Too Many Requests for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search?plrN=Babar+Azam
+"POST /api/compare/ HTTP/1.1" 200 1956
+"GET /compare/ HTTP/1.1" 200 72047
+"GET /compare/ HTTP/1.1" 200 62973
+"GET /compare/ HTTP/1.1" 200 62856
+"GET /compare/ HTTP/1.1" 200 63051
+"GET /compare/ HTTP/1.1" 200 62486
+"GET /compare/ HTTP/1.1" 200 62366
+"GET /compare/ HTTP/1.1" 200 62354
+API request failed for /stats/v1/player/search: 429 Client Error: Too Many Requests for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search?plrN=babar+azam
+"GET /api/player-search/?q=babar%20azam HTTP/1.1" 200 44
+API request failed for /stats/v1/player/search: 429 Client Error: Too Many Requests for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search?plrN=virat+kohli
+"GET /api/player-search/?q=virat%20kohli HTTP/1.1" 200 44
+API request failed for /stats/v1/player/search: 429 Client Error: Too Many Requests for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search?plrN=babar+azam
+API request failed for /stats/v1/player/search: 429 Client Error: Too Many Requests for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search?plrN=virat+kohli
+"POST /api/compare/ HTTP/1.1" 200 326
+/Users/macbook/www/score-hawk/scores/chatbot.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /compare/ HTTP/1.1" 200 62354
+API request failed for /stats/v1/player/search: 429 Client Error: Too Many Requests for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search?plrN=Virat+Kohli
+API request failed for /stats/v1/player/search: 429 Client Error: Too Many Requests for url: https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/search?plrN=Babar+Azam
+"POST /api/compare/ HTTP/1.1" 200 1956
+"GET /compare/ HTTP/1.1" 200 62284
+"GET /compare/ HTTP/1.1" 200 62588
+"GET /compare/ HTTP/1.1" 200 62641
+"GET /compare/ HTTP/1.1" 200 62917
+"GET /compare/ HTTP/1.1" 200 66838
+"GET /chat/ HTTP/1.1" 200 39862
+"GET /static/css/background.css HTTP/1.1" 304 0
+"GET /static/css/champions.css HTTP/1.1" 304 0
+"GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 304 0
+"GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 304 0
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 9511
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+"GET / HTTP/1.1" 200 64523
+Cache expired for api_cache__matches_v1_recent_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:53.126782+00:00, returning cached data
+Cache hit for /matches/v1/recent - using cached data
+"GET /matches/ HTTP/1.1" 200 385266
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"GET /matches/110553/ HTTP/1.1" 200 33103
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+"GET / HTTP/1.1" 200 64523
+Cache expired for api_cache__news_v1_index_99914b932bd37a50b983c5e7c90ae93b - last updated 2025-06-13 18:32:36.388202+00:00, returning cached data
+Cache hit for /news/v1/index - using cached data
+"GET /news/ HTTP/1.1" 200 65902
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+Cache expired for api_cache__stats_v1_rankings_allrounders_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:37.582374+00:00, returning cached data
+Cache hit for /stats/v1/rankings/allrounders - using cached data
+"GET /rankings/ HTTP/1.1" 200 44437
+"GET /players/ HTTP/1.1" 200 27344
+"GET /compare/ HTTP/1.1" 200 66838
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+Failed to cache response: NOT NULL constraint failed: scores_cachedapiresponse.parameters
+"POST /api/compare/ HTTP/1.1" 200 15403
+"GET /chat/ HTTP/1.1" 200 39862
+"GET /accounts/login/ HTTP/1.1" 200 28635
+"GET /accounts/register/ HTTP/1.1" 200 30107
+Cache expired for api_cache__stats_v1_rankings_teams_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:45:43.097045+00:00, returning cached data
+Cache hit for /stats/v1/rankings/teams - using cached data
+Cache expired for api_cache__stats_v1_rankings_batsmen_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:33.103565+00:00, returning cached data
+Cache hit for /stats/v1/rankings/batsmen - using cached data
+Cache expired for api_cache__stats_v1_rankings_bowlers_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:35.271134+00:00, returning cached data
+Cache hit for /stats/v1/rankings/bowlers - using cached data
+Cache expired for api_cache__stats_v1_rankings_allrounders_6060e5cb2b16348779e85457a812cc48 - last updated 2025-06-10 21:46:37.582374+00:00, returning cached data
+Cache hit for /stats/v1/rankings/allrounders - using cached data
+"GET /rankings/ HTTP/1.1" 200 44437

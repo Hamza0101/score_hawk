@@ -331,13 +331,143 @@
     </div>
 </div>
 
-<!-- Auto-refresh for live matches -->
-{% if scorecard.match_status.state == 'Live' %}
+<!-- Live Updates for ongoing matches -->
+{% if is_live %}
 <script>
-    // Auto-refresh every 30 seconds for live matches
-    setTimeout(function() {
-        location.reload();
-    }, 30000);
+    let lastUpdated = new Date();
+    let refreshInterval = 30000; // 30 seconds
+    let updateTimer;
+
+    // Function to update live score
+    async function updateLiveScore() {
+        try {
+            const response = await fetch(`/api/scorecard/{{ match_id }}/`);
+            const data = await response.json();
+            
+            if (data.success) {
+                // Update match status
+                if (data.status && data.status.status) {
+                    const statusElement = document.querySelector('.match-status');
+                    if (statusElement) {
+                        statusElement.textContent = data.status.status;
+                    }
+                }
+                
+                // Update live score elements
+                if (data.live_score) {
+                    updateScoreElements(data.live_score);
+                }
+                
+                // Update last updated time
+                lastUpdated = new Date();
+                updateLastUpdatedDisplay();
+                
+                // If match is no longer live, stop updates
+                if (data.status && data.status.state !== 'Live') {
+                    clearInterval(updateTimer);
+                    console.log('Match finished, stopping live updates');
+                }
+            }
+        } catch (error) {
+            console.error('Error updating live score:', error);
+        }
+    }
+    
+    // Function to update score elements in the UI
+    function updateScoreElements(liveScore) {
+        // Update current innings scores
+        Object.keys(liveScore).forEach(teamKey => {
+            const scoreElement = document.querySelector(`[data-team="${teamKey}"] .score`);
+            const oversElement = document.querySelector(`[data-team="${teamKey}"] .overs`);
+            const rateElement = document.querySelector(`[data-team="${teamKey}"] .run-rate`);
+            
+            if (scoreElement && liveScore[teamKey].runs !== undefined) {
+                scoreElement.textContent = `${liveScore[teamKey].runs}/${liveScore[teamKey].wickets}`;
+            }
+            if (oversElement && liveScore[teamKey].overs) {
+                oversElement.textContent = `${liveScore[teamKey].overs} Overs`;
+            }
+            if (rateElement && liveScore[teamKey].run_rate) {
+                rateElement.textContent = `RR: ${parseFloat(liveScore[teamKey].run_rate).toFixed(2)}`;
+            }
+        });
+    }
+    
+    // Function to update "last updated" display
+    function updateLastUpdatedDisplay() {
+        let lastUpdatedElement = document.querySelector('.last-updated');
+        if (!lastUpdatedElement) {
+            // Create last updated indicator
+            lastUpdatedElement = document.createElement('div');
+            lastUpdatedElement.className = 'last-updated text-sm text-gray-500 text-center mt-4';
+            document.querySelector('.max-w-7xl').appendChild(lastUpdatedElement);
+        }
+        
+        const timeString = lastUpdated.toLocaleTimeString();
+        lastUpdatedElement.innerHTML = `
+            <div class="flex items-center justify-center space-x-2">
+                <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span>Last updated: ${timeString}</span>
+            </div>
+        `;
+    }
+    
+    // Start live updates
+    updateTimer = setInterval(updateLiveScore, refreshInterval);
+    
+    // Initial last updated display
+    updateLastUpdatedDisplay();
+    
+    // Add visual indicator for live match
+    document.addEventListener('DOMContentLoaded', function() {
+        const matchHeader = document.querySelector('.bg-gradient-to-r');
+        if (matchHeader) {
+            const liveIndicator = document.createElement('div');
+            liveIndicator.className = 'absolute top-2 right-2 flex items-center space-x-2';
+            liveIndicator.innerHTML = `
+                <div class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                <span class="text-white text-sm font-medium">LIVE</span>
+            `;
+            matchHeader.style.position = 'relative';
+            matchHeader.appendChild(liveIndicator);
+        }
+    });
+    
+    // Clean up on page unload
+    window.addEventListener('beforeunload', function() {
+        clearInterval(updateTimer);
+    });
 </script>
 {% endif %}
+
+<!-- Commentary auto-refresh -->
+<script>
+    // Function to refresh commentary
+    async function refreshCommentary() {
+        try {
+            const response = await fetch(`/api/commentary/{{ match_id }}/`);
+            const data = await response.json();
+            
+            if (data.success && data.commentary) {
+                const commentaryElement = document.querySelector('.commentary-section');
+                if (commentaryElement && data.commentary.length > 0) {
+                    updateCommentary(data.commentary);
+                }
+            }
+        } catch (error) {
+            console.error('Error refreshing commentary:', error);
+        }
+    }
+    
+    function updateCommentary(commentary) {
+        // Implementation would depend on your commentary structure
+        // This is a placeholder for commentary updates
+        console.log('Commentary updated:', commentary);
+    }
+    
+    // Refresh commentary every 15 seconds for live matches
+    {% if is_live %}
+        setInterval(refreshCommentary, 15000);
+    {% endif %}
+</script>
 {% endblock %}

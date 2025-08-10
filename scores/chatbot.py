@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from typing import Dict, List, Any, Optional
 from .api_manager import CricketAPIManager
 from .scorecard_manager import ScorecardManager
+from .cricket_dataset import cricket_dataset
 import logging
 
 logger = logging.getLogger(__name__)
@@ -31,6 +32,7 @@ class CricketChatbot:
         
         self.api_manager = CricketAPIManager()
         self.scorecard_manager = ScorecardManager()
+        self.cricket_dataset = cricket_dataset
         
         # Cricket knowledge base for when APIs are unavailable
         self.cricket_knowledge = {
